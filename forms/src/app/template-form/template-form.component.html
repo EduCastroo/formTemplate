@@ -1,0 +1,278 @@
+
+<div class="flex-box" id="centro">
+  <h4>Dados necessários para o cadastramento de Fornecedores Nacional</h4>
+</div><hr>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal">
+
+  <div class="form-group col-md-3">
+    <label class="control-label" for="data">Data do Cadastro</label>
+    <input id="data" class="form-control" type="date" name="data">
+  </div>
+
+
+  <div class="form-group"
+  [class.has-error]="!razSoc.valid && razSoc.touched"
+  [class.feedback]="!razSoc.valid && razSoc.touched">
+  <div class="col-sm-12"><label for="razSoc">Razão Social</label></div>
+  <div class="col sm-12"><input type="text" class="form-control" name="RazSoc"
+  id="razSoc" placeholder="Digite a Razão Social" ngModel required #razSoc="ngModel">
+  <div *ngIf="!razSoc.valid && razSoc.touched" class="alert alert-danger" role="alert">O campo Razão Social é obrigatório.</div>
+  </div>
+  </div>
+
+  <div class="d-flex">
+
+    <div class="col-md-4"
+    [class.has-error]="!cnpj.valid && cnpj.touched"
+    [class.feedback]="!cnpj.valid && cnpj.touched">
+    <label for="cnpj" class="control-label">CNPJ</label>
+    <input type="text" class="form-control" name="cnpj"
+      id="cnpj" ngModel required cnpj #cnpj="ngModel">
+      <div *ngIf="!cnpj.valid && cnpj.touched" class="alert alert-danger" role="alert">CNPJ é obrigatório.</div>
+    </div>
+
+    <div class="col-md-4"
+    [class.has-error]="!inscEst.valid && inscEst.touched"
+    [class.feedback]="!inscEst.valid && inscEst.touched">
+    <label for="inscEst" class="control-label">Inscrição Estadual</label>
+    <input type="text" class="form-control" name="inscEst"
+      id="inscEst" ngModel required inscEst #inscEst="ngModel">
+      <div *ngIf="!inscEst.valid && inscEst.touched" class="alert alert-danger" role="alert">Inscrição Estadual é obrigatória.</div></div>
+
+      <div class="col-md-4"
+    [class.has-error]="!inscMun.valid && inscMun.touched"
+    [class.feedback]="!inscMun.valid && inscMun.touched">
+    <label for="inscMun" class="control-label">Inscrição Municipal</label>
+    <input type="text" class="form-control" name="inscMun"
+      id="inscMun" ngModel required inscMun #inscMun="ngModel">
+      <div *ngIf="!inscMun.valid && inscMun.touched" class="alert alert-danger" role="alert">Inscrição Municipal é obrigatória.</div></div>
+
+  </div>
+  <div class="d-flex">
+  <div class="col-md-4"
+  [class.has-error]="!fone.valid && fone.touched"
+  [class.feedback]="!fone.valid && fone.touched">
+
+  <div><label for="fone">Telefone de contato (principal)</label></div>
+
+  <input type="text" class="form-control" name="fone"
+    id="fone" placeholder="(00) 0000-0000" ngModel required fone #fone="ngModel">
+    <div *ngIf="!fone.valid && fone.touched" class="alert alert-danger" role="alert">Telefone é obrigatório.
+   </div>
+  </div>
+
+  <div class="col-md-4">
+    <label for="fone2" class="control-label">Telefone de Contato (secundário)</label>
+    <input type="text" class="form-control" name="fone2"
+      id="fone2" placeholder="(00) 0000-0000" ngModel #complemento="ngModel">
+  </div>
+
+  <div class="col-md-4"
+  [class.has-error]="!email.valid && email.touched"
+  [class.feedback]="!email.valid && email.touched">
+
+  <div><label for="email">Email</label></div>
+
+  <input type="text" class="form-control" name="email"
+    id="email" placeholder="nome@email.com" ngModel required email #email="ngModel">
+    <div *ngIf="!email.valid && email.touched" class="alert alert-danger" role="alert">Email inválido.
+   </div>
+
+  </div>
+</div><hr>
+<div class="flex-box" id="centro">
+<h4>Contato financeiro</h4>
+</div>
+<div class="form-group"
+[class.has-error]="!nomeFin.valid && nomeFin.touched"
+[class.feedback]="!nomeFin.valid && nomeFin.touched">
+<div class="col-sm-12"><label for="nomeFin">Nome</label></div>
+<div class="col sm-12"><input type="text" class="form-control" name="nomeFin"
+id="nomeFin" placeholder="Digite o nome do contato financeiro" ngModel required #nomeFin="ngModel">
+<div *ngIf="!nomeFin.valid && nomeFin.touched" class="alert alert-danger" role="alert">O campo Nome do contato financeiro é obrigatório.</div>
+</div>
+</div>
+
+<div class="d-flex">
+
+  <div class="col-md-4"
+  [class.has-error]="!fone3.valid && fone3.touched"
+  [class.feedback]="!fone3.valid && fone3.touched">
+  <label for="fone3" class="control-label">Telefone</label>
+  <input type="text" class="form-control" name="fone3"
+    id="fone3" placeholder="(00)0000-0000" ngModel required fone3 #fone3="ngModel">
+    <div *ngIf="!fone3.valid && fone3.touched" class="alert alert-danger" role="alert">O telefone é obrigatório.</div>
+  </div>
+
+  <div class="col-md-4"
+  [class.has-error]="!emailFin.valid && emailFin.touched"
+  [class.feedback]="!emailFin.valid && emailFin.touched">
+  <div><label for="emailFin">Email</label></div>
+  <input type="text" class="form-control" name="emailFin"
+    id="emailFin" placeholder="nome@email.com" ngModel required emailFin #emailFin="ngModel">
+    <div *ngIf="!emailFin.valid && emailFin.touched" class="alert alert-danger" role="alert">Email inválido.
+   </div></div>
+
+   <div class="col-md-4">
+    <label for="cargo" class="control-label">Cargo</label>
+    <input type="text" class="form-control" name="cargo"
+      id="cargo" placeholder="Digite o cargo" ngModel #cargo="ngModel">
+  </div>
+</div><hr>
+<div class="d-flex col">
+  <h4>Contato na MV</h4>
+</div>
+<div class="col-md-4">
+  <input type="text" class="form-control" name="contMv"
+    id="contMv" placeholder="Digite o nome do seu contato na MV" ngModel #contMv="ngModel">
+</div><hr>
+<div class="flex-box" id="centro">
+  <h4>Endereço completo</h4>
+</div>
+
+<div ngModelGroup="endereco">
+
+<div class="form-group">
+  <div class="d-flex">
+
+    <div class="col-md-3"
+    [class.has-error]="!cep.valid && cep.touched"
+    [class.feedback]="!cep.valid && cep.touched">
+    <label for="cep" class="control-label">CEP</label>
+    <input type="text" class="form-control" name="cep"
+      id="cep" ngModel required cep #cep="ngModel"
+      (blur)="consultaCEP(cep.value, f)">
+      <div *ngIf="!cep.valid && cep.touched" class="alert alert-danger" role="alert">CEP é obrigatório.</div>
+    </div>
+
+    <div class="col-md-3"
+    [class.has-error]="!numero.valid && numero.touched"
+    [class.feedback]="!numero.valid && numero.touched">
+    <label for="numero" class="control-label">Número</label>
+    <input type="text" class="form-control" name="numero"
+      id="numero" ngModel required numero #numero="ngModel">
+      <div *ngIf="!numero.valid && numero.touched" class="alert alert-danger" role="alert">Número é obrigatório.</div></div>
+
+      <div class="col-md-6">
+        <label for="complemento" class="control-label">Complemento</label>
+        <input type="text" class="form-control" name="complemento"
+          id="complemento" ngModel #complemento="ngModel">
+      </div>
+
+  </div>
+
+
+  <div class="form-group"
+[class.has-error]="!rua.valid && rua.touched"
+[class.feedback]="!rua.valid && rua.touched">
+
+<div class="col-sm-12"><label for="rua">Rua</label></div>
+
+<div class="col sm-12"><input type="text" class="form-control" name="rua"
+id="rua" placeholder="Digite o nome da rua" ngModel required #rua="ngModel">
+<div *ngIf="!rua.valid && rua.touched" class="alert alert-danger" role="alert">O campo rua é obrigatório.</div>
+</div>
+</div>
+
+<div class="d-flex">
+  <div class="col-md-5"
+  [class.has-error]="!bairro.valid && bairro.touched"
+  [class.feedback]="!bairro.valid && bairro.touched">
+  <label for="bairro" class="control-label">Bairro</label>
+  <input type="text" class="form-control" name="bairro"
+    id="bairro" ngModel required bairro #bairro="ngModel">
+    <div *ngIf="!bairro.valid && bairro.touched" class="alert alert-danger" role="alert">Bairro é obrigatório.</div>
+  </div>
+
+  <div class="col-md-4"
+[class.has-error]="!cidade.valid && cidade.touched"
+[class.feedback]="!cidade.valid && cidade.touched">
+<label for="cidade" class="control-label">Cidade</label>
+<input type="text" class="form-control" name="cidade"
+  id="cidade" ngModel required cidade #cidade="ngModel">
+  <div *ngIf="!cidade.valid && cidade.touched" class="alert alert-danger" role="alert">Cidade é obrigatório.</div>
+</div>
+
+<div class="col-md-3"
+[class.has-error]="!estado.valid && estado.touched"
+[class.feedback]="!estado.valid && estado.touched">
+<label for="estado" class="control-label">Estado</label>
+<input type="text" class="form-control" name="estado"
+  id="estado" ngModel required estado #estado="ngModel">
+  <div *ngIf="!estado.valid && estado.touched" class="alert alert-danger" role="alert">Estado é obrigatório.</div>
+</div>
+</div>
+</div><hr>
+
+</div>
+
+<div class="flex-box" id="centro">
+  <h4>Dados Bancários</h4>
+</div>
+<div class="d-flex">
+
+  <div class="col-md-4"
+  [class.has-error]="!conta.valid && conta.touched"
+  [class.feedback]="!conta.valid && conta.touched">
+  <label for="conta" class="control-label">Conta</label>
+  <input type="text" class="form-control" name="conta"
+    id="conta" ngModel required conta #conta="ngModel">
+    <div *ngIf="!conta.valid && conta.touched" class="alert alert-danger" role="alert">Conta é obrigatória.</div>
+  </div>
+
+  <div class="col-md-4"
+  [class.has-error]="!agencia.valid && agencia.touched"
+  [class.feedback]="!agencia.valid && agencia.touched">
+  <label for="agencia" class="control-label">Agência</label>
+  <input type="text" class="form-control" name="agencia"
+    id="agencia" ngModel required agencia #agencia="ngModel">
+    <div *ngIf="!agencia.valid && agencia.touched" class="alert alert-danger" role="alert">Agência é obrigatória.</div></div>
+
+    <div class="col-md-4"
+  [class.has-error]="!op.valid && op.touched"
+  [class.feedback]="!op.valid && op.touched">
+  <label for="op" class="control-label">Operação</label>
+  <input type="text" class="form-control" name="op"
+    id="op" ngModel required op #op="ngModel">
+    <div *ngIf="!op.valid && op.touched" class="alert alert-danger" role="alert">Operação é obrigatória.</div></div>
+
+</div>
+<div class="d-flex">
+
+  <div class="col-md-6"
+  [class.has-error]="!banco.valid && banco.touched"
+  [class.feedback]="!banco.valid && banco.touched">
+  <label for="banco" class="control-label">Banco</label>
+  <input type="text" class="form-control" name="banco"
+    id="banco" ngModel required banco #banco="ngModel">
+    <div *ngIf="!banco.valid && banco.touched" class="alert alert-danger" role="alert">Banco é obrigatório.</div>
+  </div>
+
+  <div class="col-md-6"
+  [class.has-error]="!favorecido.valid && favorecido.touched"
+  [class.feedback]="!favorecido.valid && favorecido.touched">
+  <label for="favorecido" class="control-label">Favorecido</label>
+  <input type="text" class="form-control" name="favorecido"
+    id="favorecido" ngModel required favorecido #favorecido="ngModel">
+    <div *ngIf="!favorecido.valid && favorecido.touched" class="alert alert-danger" role="alert">Favorecido é obrigatório.</div>
+  </div></div><hr>
+
+  <div class="flex-box">
+    <h4>Documentos Exigidos (anexar)</h4>
+  </div>
+  <div class="flex-box">
+    1.	Cópia da procuração quando a empresa for representada por não sócio administrador;
+  </div>
+  <div class="flex-box">
+    2.	Cópia do contrato social juntamente com a última alteração
+  </div>
+
+<hr><div class="form-group">
+  <div class="col sm-12"><button type="submit" class="btn btn-primary"
+    [disabled]="!f.valid">Submit</button></div>
+</div>
+
+
+
+  <app-form-debug [form]="f"></app-form-debug>
+</form>
