@@ -39,34 +39,6 @@ export class TemplateFormComponent implements OnInit {
 }
 
 populaDadosForm(dados: any, formulario: any){
-// formulario.setValue({
-//   RazSoc: formulario.value.RazSoc ,
-//   cnpj: formulario.value.cnpj,
-//   inscEst: formulario.value.inscEst ,
-//   inscMun: formulario.value.inscMun,
-//   fone: formulario.value.fone,
-//   fone2: formulario.value.fone2,
-//   email: formulario.value.email,
-//   nomeFin: formulario.value.nomeFin,
-//   fone3: formulario.value.fone3,
-//   emailFin: formulario.value.emailFin,
-//   cargo: formulario.value.cargo,
-//   contMv: formulario.value.contMv,
-//   endereco: {
-//     cep: dados.cep,
-//     numero: '',
-//     complemento: dados.complemento,
-//     rua: dados.logradouro,
-//     bairro: dados.bairro,
-//     cidade: dados.localidade,
-//     estado: dados.uf
-//   },
-//   conta: formulario.value.conta,
-//   agencia: formulario.value.agencia,
-//   op: formulario.value.op,
-//   banco: formulario.value.banco,
-//   favorecido: formulario.value.favorecido
-// });
 
 formulario.form.patchValue({
     endereco: {
