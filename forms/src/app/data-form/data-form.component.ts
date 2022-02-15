@@ -63,8 +63,16 @@ export class DataFormComponent implements OnInit {
     banco: [null, Validators.required],
     favorecido: [null, Validators.required],
     radio1: [null],
-    radio16: [null],
-
+    radio7: [null, Validators.required],
+// radio8: [null, Validators.required],
+// radio9: [null, Validators.required],
+// radio10: [null, Validators.required],
+// radio11: [null, Validators.required],
+// radio12: [null, Validators.required],
+// radio13: [null, Validators.required],
+// radio15: [null, Validators.required],
+// radio16: [null, Validators.required],
+// radio19: [null, Validators.required],
 
     })
   }

@@ -380,7 +380,7 @@ id="rua" placeholder="Digite o nome da rua">
 <form action="">
 <h5>8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV?</h5>
 <div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" formControlName="radio1" name="optradio" value="option1" checked>Sim
+  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
   <label class="form-check-label" for="radio1"></label>
 </div>
 <div class="form-check-inline">
@@ -610,7 +610,7 @@ id="rua" placeholder="Digite o nome da rua">
 <div class="flex-box">
   <button type="submit" class="btn btn-success" (click)="postar()"
   [disabled]="!formulario.valid">Enviar</button>
-  <button type="button" class="btn btn-danger"(click)="resetar()">Cancelar</button>
+  <button type="button" class="btn btn-danger"(click)="resetar()">Limpar</button>
 </div>
 
 
