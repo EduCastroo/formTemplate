@@ -69,7 +69,7 @@
 
     <div><label for="fone2">Telefone de contato (secundário)</label></div>
 
-    <input type="number" class="form-control" [ngClass]="{'is-invalid': f.fone2.errors && f.fone2.touched}" formControlName="fone2"
+    <input type="text" class="form-control" [ngClass]="{'is-invalid': f.fone2.errors && f.fone2.touched}" formControlName="fone2"
       id="fone2" mask="(00) 0000-0000" placeholder="(00) 0000-0000">
         <div *ngIf="f.fone2.errors?.required" class="invalid-feedback">O telefone é obrigatório</div>
     </div>
@@ -103,7 +103,7 @@ id="nomeFin" placeholder="Digite o nome do contato financeiro">
 
     <div><label for="fone3">Telefone</label></div>
 
-    <input type="number" class="form-control" [ngClass]="{'is-invalid': f.fone3.errors && f.fone3.touched}" formControlName="fone3"
+    <input type="text" class="form-control" [ngClass]="{'is-invalid': f.fone3.errors && f.fone3.touched}" formControlName="fone3"
       id="fone3" mask="(00) 0000-0000" placeholder="(00) 0000-0000">
       <div *ngIf="f.fone3.errors?.required" class="invalid-feedback">O telefone é obrigatório.</div>
     </div>
