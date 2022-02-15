@@ -61,7 +61,10 @@ export class DataFormComponent implements OnInit {
     agencia: [null, Validators.required],
     op: [null, Validators.required],
     banco: [null, Validators.required],
-    favorecido: [null, Validators.required]
+    favorecido: [null, Validators.required],
+    radio1: [null],
+    radio16: [null],
+
 
     })
   }
