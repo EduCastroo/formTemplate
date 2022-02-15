@@ -1,5 +1,6 @@
-// import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -15,9 +16,16 @@ export class DataFormComponent implements OnInit {
     return this.formulario.controls;
   }
 
+  onSubmit(f: any){
+    console.log(f)
+
+  this.http.post('enderecoServer/formUsuario', JSON.stringify(f.value));
+
+  }
+
   constructor(
     private formBuilder: FormBuilder,
-    // private http: HttpClient
+    private http: HttpClient
   ) {}
 
 
@@ -70,7 +78,37 @@ public resetar(): void{
   this.formulario.reset();
 }
 
+consultaCEP() {
 
+  let cep = this.formulario.get("cep")?.value;
+
+  cep = cep.replace (/\D/g, '');
+
+  if (cep != null && cep !== '') {
+    let validacep = /^[0-9]{8}$/;
+
+    if (validacep.test(cep)){
+
+      this.http.get(`//viacep.com.br/ws/${cep}/json/`)
+        .pipe(map((dados: any) => dados))
+        .subscribe(dados => this.populaDadosForm(dados));
+    }
+  }
+}
+
+populaDadosForm(dados: any){
+
+  this.formulario.patchValue({
+      cep: dados.cep,
+      complemento: dados.complemento,
+      rua: dados.logradouro,
+      bairro: dados.bairro,
+      cidade: dados.localidade,
+      estado: dados.uf
+  });
+
+
+  }
 
 
 }
