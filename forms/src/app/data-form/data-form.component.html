@@ -1,626 +1,1468 @@
-<div class="flex-box" id="centro"><h5>CADASTRAMENTO DE FORNECEDORES E DECLARAÇÃO – DUE DILLIGENCE</h5></div>
+<div class="flex-box" id="centro">
+  <h4>CADASTRAMENTO DE FORNECEDORES E DECLARAÇÃO – DUE DILLIGENCE</h4>
+</div>
 
 
-<div class="text-justify font" >
-  <input type="text" cols="40" rows="5" placeholder="Digite a Razão Social" style="width:300px; height:25px;" name="Text1" id="Text1" value=""/> ., pessoa jurídica de direito privado, devidamente inscrita no Cadastro Nacional da Pessoa Jurídica
-  CNPJ sob n.º <input type="text" cols="40" rows="5" placeholder="Digite o CNPJ" mask="00.000.000/0000-00" style="width:300px; height:25px;" name="Text1" id="Text1" value=""/> , com sede à <input type="text" cols="40" rows="5" placeholder="Digite o endereço completo" style="width:300px; height:25px;" name="Text1" id="Text1" value=""/> , CEP <input type="text" cols="40" rows="5" placeholder="Digite o CEP" mask="00000-000" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> , na Cidade de <input type="text" placeholder="Digite a cidade" cols="40" rows="5" style="width: 150px; height:25px;" name="Text1" id="Text1" value=""/> , Estado de <input type="text" cols="40" rows="5" placeholder="Digite o estado" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> ,
-  por sua matriz e filiais, neste ato representada por seu sócio <input type="text" cols="40" rows="5" placeholder="Nome do sócio" style="width:300px; height:25px;" name="Text1" id="Text1" value=""/> , Cargo <input type="text" placeholder="Cargo do sócio" cols="40" rows="5" style="width:200px; height:25px;" name="Text1" id="Text1" value=""/> , CPF/MF <input type="text" placeholder="Digite o CPF" mask="000.000.000-00" cols="40" rows="5" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> , RG <input type="text" cols="40" placeholder="Digite o RG" rows="5" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> e <input type="text" cols="40" rows="5" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> , CPF/MF <input type="text" cols="40" placeholder="Digite o CPF" mask="000.000.000-00" rows="5" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> , RG <input type="text" cols="40" placeholder="Digite o RG" rows="5" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> ,
-  ambos com endereço na Rua <input type="text" placeholder="Digite o Endereço completo" cols="40" rows="5" style="width:300px; height:25px;" name="Text1" id="Text1" value=""/> , CEP <input type="text" cols="40" placeholder="Digite o CEP" mask="00000-000" rows="5" style="width:150px; height:25px;" name="Text1" id="Text1" value=""/> , DECLARA:
-</div><hr>
+<app-form-debug [form]="formulario"></app-form-debug>
+<hr />
 
 
+<hr />
+<form class="form-horizontal font" [formGroup]="formulario">
+
+
+
+   <div class="linha">
+    <input
+    type="text"
+    cols="40"
+    rows="5"
+    placeholder="Digite a Razão Social"
+    style="width: 400px; height: 25px"
+    formControlName="razSocCad"
+    id="razSocCad"
+    [ngClass]="{ 'is-invalid': f.razSocCad.errors && f.razSocCad.touched }"
+  /> <label for="control-label">., pessoa jurídica de direito privado, devidamente inscrita no Cadastro
+    Nacional da Pessoa</label>
+
+      <div *ngIf="f.razSocCad.errors?.required" class="invalid-feedback">
+        A razão social é obrigatória
+      </div>
+   </div>
+
+
+   <div class="linha">
+    <div>
+      <label for="control-label">Jurídica – CNPJ sob n.º</label>
+      <input
+      type="text"
+      cols="40"
+      rows="5"
+      placeholder="Digite o CNPJ"
+      mask="00.000.000/0000-00"
+      style="width: 196px; height: 25px"
+      formControlName="cnpjCad"
+      id="cnpjCad"
+      [ngClass]="{ 'is-invalid': f.cnpjCad.errors && f.cnpjCad.touched }"
+      />
+      <div *ngIf="f.cnpjCad.errors?.required" class="invalid-feedback">
+        O CNPJ é obrigatório
+      </div>
+
+    </div>
+
+    <div>
+      <label for="control-label">, com sede à </label>
+      <input
+        type="text"
+        cols="40"
+        rows="5"
+        placeholder="Digite o endereço completo"
+        style="width: 450px; height: 25px"
+        formControlName="endCad"
+        id="endCad"
+        [ngClass]="{ 'is-invalid': f.endCad.errors && f.endCad.touched }"
+        />
+        <div *ngIf="f.endCad.errors?.required" class="invalid-feedback">
+          O endereço é obrigatório
+        </div>
+    </div>
+    <div>
+       <label for="control-label">, CEP</label>
+      <input
+        type="text"
+        cols="40"
+        rows="5"
+        placeholder="Digite o CEP"
+        mask="00000-000"
+        style="width: 150px; height: 25px"
+        formControlName="cepCad"
+        id="cepCad"
+        [ngClass]="{ 'is-invalid': f.cepCad.errors && f.cepCad.touched }"
+        />
+        <div *ngIf="f.cepCad.errors?.required" class="invalid-feedback">
+          O CEP é obrigatório
+        </div>
+    </div>
+
+   </div>
+<div class="linha">
+
+  <div>
+    <label for="control-label">na Cidade de</label>
+  <input
+    type="text"
+    placeholder="Digite a cidade"
+    cols="40"
+    rows="5"
+    style="width: 150px; height: 25px"
+    formControlName="cidadeCad"
+    id="cidadeCad"
+    [ngClass]="{ 'is-invalid': f.cidadeCad.errors && f.cidadeCad.touched }"
+    />
+    <div *ngIf="f.cidadeCad.errors?.required" class="invalid-feedback">
+      A cidade é obrigatória
+    </div>
+  </div>
+  <div>
+  <label for="control-label">, Estado de</label>
+  <input
+    type="text"
+    cols="40"
+    rows="5"
+    placeholder="Ex: PE, BA, SP"
+    style="width: 100px; height: 25px"
+    formControlName="estadoCad"
+    id="estadoCad"
+    [ngClass]="{ 'is-invalid': f.estadoCad.errors && f.estadoCad.touched }"
+    />
+    <div *ngIf="f.estadoCad.errors?.required" class="invalid-feedback">
+      O estado é obrigatório
+    </div>
+  </div>
+  <div>
+    <label for="control-label">, por sua matriz e filiais, neste ato representada por seu sócio</label>
+  <input
+    type="text"
+    cols="40"
+    rows="5"
+    placeholder="Nome do sócio"
+    style="width: 200px; height: 25px"
+    formControlName="socioCad"
+    id="socioCad"
+    [ngClass]="{ 'is-invalid': f.socioCad.errors && f.socioCad.touched }"
+    />,
+    <div *ngIf="f.socioCad.errors?.required" class="invalid-feedback">
+      O sócio é obrigatório
+    </div>
+  </div>
+</div>
+
+<div class="linha">
+  <div>
+  <label for="control-label">Cargo</label>
+  <input
+    type="text"
+    placeholder="Cargo do sócio"
+    cols="40"
+    rows="5"
+    style="width: 238px; height: 25px"
+    formControlName="cargoCad"
+    id="cargoCad"
+    [ngClass]="{ 'is-invalid': f.cargoCad.errors && f.cargoCad.touched }"
+    />
+    <div *ngIf="f.cargoCad.errors?.required" class="invalid-feedback">
+      O cargo é obrigatório
+    </div>
+  </div>
+  <div>
+   <label for="control-label">, CPF/MF</label>
+  <input
+    type="text"
+    placeholder="Digite o CPF"
+    mask="000.000.000-00"
+    cols="40"
+    rows="5"
+    style="width: 150px; height: 25px"
+    formControlName="cpf1Cad"
+    id="cpf1Cad"
+    [ngClass]="{ 'is-invalid': f.cpf1Cad.errors && f.cpf1Cad.touched }"
+    />
+    <div *ngIf="f.cpf1Cad.errors?.required" class="invalid-feedback">
+      O CPF é obrigatório
+    </div>
+  </div>
+  <div>
+  <label for="control-label">, RG</label>
+  <input
+    type="text"
+    cols="40"
+    placeholder="Digite o RG"
+    rows="5"
+    style="width: 150px; height: 25px"
+    formControlName="rg1Cad"
+    id="rg1Cad"
+    [ngClass]="{ 'is-invalid': f.rg1Cad.errors && f.rg1Cad.touched }"
+    />
+    <div *ngIf="f.rg1Cad.errors?.required" class="invalid-feedback">
+      O RG é obrigatório
+    </div>
+  </div>
+  <div>
+  <label for="control-label">, CPF/MF </label>
+  <input
+    type="text"
+    cols="40"
+    placeholder="Digite o CPF"
+    mask="000.000.000-00"
+    rows="5"
+    style="width: 150px; height: 25px"
+    formControlName="cpf2Cad"
+    id="cpf2Cad"
+    [ngClass]="{ 'is-invalid': f.cpf2Cad.errors && f.cpf2Cad.touched }"
+    />
+    <div *ngIf="f.cpf2Cad.errors?.required" class="invalid-feedback">
+      O CPF é obrigatório
+    </div>
+  </div>
+  <div>
+  <label for="control-label">, RG</label>
+  <input
+    type="text"
+    cols="40"
+    placeholder="Digite o RG"
+    rows="5"
+    style="width: 150px; height: 25px"
+    formControlName="rg2Cad"
+    id="rg2Cad"
+    [ngClass]="{ 'is-invalid': f.rg2Cad.errors && f.rg2Cad.touched }"
+    />,
+    <div *ngIf="f.rg2Cad.errors?.required" class="invalid-feedback">
+      O RG é obrigatório
+    </div>
+  </div>
+</div>
+
+<div class="linha">
+  <div>
+  <label for="control-label">ambos com endereço na Rua</label>
+  <input
+    type="text"
+    placeholder="Digite o Endereço completo"
+    cols="40"
+    rows="5"
+    style="width: 600px; height: 25px"
+    formControlName="end2Cad"
+    id="end2Cad"
+    [ngClass]="{ 'is-invalid': f.end2Cad.errors && f.end2Cad.touched }"
+    />
+    <div *ngIf="f.end2Cad.errors?.required" class="invalid-feedback">
+      O endereço é obrigatório
+    </div>
+  </div>
+  <div><label for="control-label">, CEP </label>
+    <input
+      type="text"
+      cols="40"
+      placeholder="Digite o CEP"
+      mask="00000-000"
+      rows="5"
+      style="width: 150px; height: 25px"
+      formControlName="cep2Cad"
+      id="cep2Cad"
+      [ngClass]="{ 'is-invalid': f.cep2Cad.errors && f.cep2Cad.touched }"
+      />
+      <div *ngIf="f.cep2Cad.errors?.required" class="invalid-feedback">
+        O CEP é obrigatório
+      </div></div>
+  , DECLARA:
+<hr>
+</div>
 
 
 <div class="flex-box" id="centro">
   <h4>Dados necessários para o cadastramento de Fornecedores Nacional</h4>
-</div><hr>
+</div>
+<hr />
 <!-- <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()"> -->
-  <form class="form-horizontal font" [formGroup]="formulario">
-
-<div class="d-flex" >
-  <div class="form-group col-md-4">
-    <label class="control-label" for="data">Data do Cadastro</label>
-    <input id="data" class="form-control" [ngClass]="{'is-invalid': f.data.errors && f.data.touched}" type="date" formControlName="data">
-    <div *ngIf="f.data.errors?.required" class="invalid-feedback">A data de cadastro é obrigatória</div>
-  </div>
 
 
 
-  <div class="form-group col-md-8">
-  <div ><label for="razSoc">Razão Social</label></div>
-  <div ><input type="text" class="form-control" [ngClass]="{'is-invalid': f.razSoc.errors && f.razSoc.touched}"
-    formControlName="razSoc" id="razSoc" placeholder="Digite a Razão Social"/>
-  <div *ngIf="f.razSoc.errors?.required" class="invalid-feedback">A razão social é obrigatória</div>
-
-  </div>
-  </div>
-
-
-</div>
 
 
   <div class="d-flex">
+    <div class="form-group col-md-4">
+      <label class="control-label" for="data">Data do Cadastro</label>
+      <input
+        id="data"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.data.errors && f.data.touched }"
+        type="date"
+        formControlName="data"
+      />
+      <div *ngIf="f.data.errors?.required" class="invalid-feedback">
+        A data de cadastro é obrigatória
+      </div>
+    </div>
 
+    <div class="form-group col-md-8">
+      <div><label for="razSoc">Razão Social</label></div>
+      <div>
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': f.razSoc.errors && f.razSoc.touched }"
+          formControlName="razSoc"
+          id="razSoc"
+          placeholder="Digite a Razão Social"
+        />
+        <div *ngIf="f.razSoc.errors?.required" class="invalid-feedback">
+          A razão social é obrigatória
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex">
     <div class="col-md-4">
-    <label for="cnpj" class="control-label">CNPJ</label>
-    <input type="text" class="form-control" formControlName="cnpj"
-      id="cnpj" maxlength="18" mask="00.000.000/0000-00" [ngClass]="{'is-invalid': f.cnpj.errors && f.cnpj.touched}" placeholder="00.000.000/0000-00">
-      <div *ngIf="f.cnpj.errors?.required" class="invalid-feedback">O CNPJ é obrigatório</div>
+      <label for="cnpj" class="control-label">CNPJ</label>
+      <input
+        type="text"
+        class="form-control"
+        formControlName="cnpj"
+        id="cnpj"
+        maxlength="18"
+        mask="00.000.000/0000-00"
+        [ngClass]="{ 'is-invalid': f.cnpj.errors && f.cnpj.touched }"
+        placeholder="00.000.000/0000-00"
+      />
+      <div *ngIf="f.cnpj.errors?.required" class="invalid-feedback">
+        O CNPJ é obrigatório
+      </div>
     </div>
 
     <div class="col-md-4">
-    <label for="inscEst" class="control-label">Inscrição Estadual</label>
-    <input type="number" class="form-control" placeholder="Digite a Inscrição Estadual" [ngClass]="{'is-invalid': f.inscEst.errors && f.inscEst.touched}" formControlName="inscEst"
-      id="inscEst">
-      <div *ngIf="f.inscEst.errors?.required" class="invalid-feedback">A Inscrição Estadual é obrigatória.</div>
+      <label for="inscEst" class="control-label">Inscrição Estadual</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Digite a Inscrição Estadual"
+        [ngClass]="{ 'is-invalid': f.inscEst.errors && f.inscEst.touched }"
+        formControlName="inscEst"
+        id="inscEst"
+      />
+      <div *ngIf="f.inscEst.errors?.required" class="invalid-feedback">
+        A Inscrição Estadual é obrigatória.
       </div>
+    </div>
 
-      <div class="col-md-4">
-    <label for="inscMun" class="control-label">Inscrição Municipal</label>
-    <input type="number" class="form-control" placeholder="Digite a Inscrição Municipal" [ngClass]="{'is-invalid': f.inscMun.errors && f.inscMun.touched}" formControlName="inscMun"
-      id="inscMun">
-      <div *ngIf="f.inscMun.errors?.required" class="invalid-feedback">A Inscrição Municipal é obrigatória</div>
+    <div class="col-md-4">
+      <label for="inscMun" class="control-label">Inscrição Municipal</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Digite a Inscrição Municipal"
+        [ngClass]="{ 'is-invalid': f.inscMun.errors && f.inscMun.touched }"
+        formControlName="inscMun"
+        id="inscMun"
+      />
+      <div *ngIf="f.inscMun.errors?.required" class="invalid-feedback">
+        A Inscrição Municipal é obrigatória
       </div>
-
+    </div>
   </div>
   <div class="d-flex">
-  <div class="col-md-4">
+    <div class="col-md-4">
+      <div><label for="fone">Telefone de contato (principal)</label></div>
 
-  <div><label for="fone">Telefone de contato (principal)</label></div>
-
-  <input type="text" class="form-control" [ngClass]="{'is-invalid': f.fone.errors && f.fone.touched}" formControlName="fone"
-    id="fone" maxlength="18" mask="(00) 0000-0000" placeholder="(00) 0000-0000">
-      <div *ngIf="f.fone.errors?.required" class="invalid-feedback">O telefone é obrigatório</div>
-  </div>
-
-  <div class="col-md-4">
-
-    <div><label for="fone2">Telefone de contato (secundário)</label></div>
-
-    <input type="text" class="form-control" [ngClass]="{'is-invalid': f.fone2.errors && f.fone2.touched}" formControlName="fone2"
-      id="fone2" mask="(00) 0000-0000" placeholder="(00) 0000-0000">
-        <div *ngIf="f.fone2.errors?.required" class="invalid-feedback">O telefone é obrigatório</div>
-    </div>
-
-  <div class="col-md-4">
-
-  <div><label for="email">Email</label></div>
-
-  <input type="text" class="form-control" [ngClass]="{'is-invalid': f.email.errors && f.email.touched}" formControlName="email"
-    id="email" placeholder="nome@email.com">
-    <div *ngIf="f.email.errors?.required" class="invalid-feedback">O Email é obrigatório.</div>
-
-
-  </div>
-</div><hr>
-<div class="flex-box" id="centro">
-<h4>Contato financeiro</h4>
-</div>
-
-<div class="d-flex">
-<div class="col-md-6">
-  <label for="nomeFin">Nome do contato financeiro</label>
-  <input type="text" class="form-control" [ngClass]="{'is-invalid': f.nomeFin.errors && f.nomeFin.touched}"
-  formControlName="nomeFin" id="nomeFin" placeholder="Digite o nome do contato financeiro">
-<div *ngIf="f.nomeFin.errors?.required" class="invalid-feedback">
-  O nome do contato financeiro é obrigatório.</div>
-</div>
-
-
-<div class="col-md-6">
-  <label for="cargo" class="control-label">Cargo</label>
-  <input type="text" class="form-control" [ngClass]="{'is-invalid': f.cargo.errors && f.cargo.touched}" formControlName="cargo"
-    id="cargo" placeholder="Digite o cargo">
-    <div *ngIf="f.cargo.errors?.required" class="invalid-feedback">O cargo é obrigatório.</div>
-</div>
-
-</div>
-
-<div class="d-flex">
-
-
-  <div class="col-md-4">
-
-    <div><label for="fone3">Telefone</label></div>
-
-    <input type="text" class="form-control" [ngClass]="{'is-invalid': f.fone3.errors && f.fone3.touched}" formControlName="fone3"
-      id="fone3" mask="(00) 0000-0000" placeholder="(00) 0000-0000">
-      <div *ngIf="f.fone3.errors?.required" class="invalid-feedback">O telefone é obrigatório.</div>
-    </div>
-
-  <div class="col-md-4">
-  <div><label for="emailFin">Email</label></div>
-  <input type="text" class="form-control" [ngClass]="{'is-invalid': f.emailFin.errors && f.emailFin.touched}" formControlName="emailFin"
-    id="emailFin" placeholder="nome@email.com">
-    <div *ngIf="f.emailFin.errors?.required" class="invalid-feedback">O Email é obrigatório.</div>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.fone.errors && f.fone.touched }"
+        formControlName="fone"
+        id="fone"
+        maxlength="18"
+        mask="(00) 0000-0000"
+        placeholder="(00) 0000-0000"
+      />
+      <div *ngIf="f.fone.errors?.required" class="invalid-feedback">
+        O telefone é obrigatório
+      </div>
     </div>
 
     <div class="col-md-4">
-    <div><label for="emailFin">Contato na MV</label></div>
+      <div><label for="fone2">Telefone de contato (secundário)</label></div>
 
-      <input type="text" class="form-control" [ngClass]="{'is-invalid': f.contMv.errors && f.contMv.touched}" formControlName="contMv"
-        id="contMv" placeholder="Digite o nome do seu contato na MV">
-        <div *ngIf="f.contMv.errors?.required" class="invalid-feedback">O contato MV é obrigatório.</div>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.fone2.errors && f.fone2.touched }"
+        formControlName="fone2"
+        id="fone2"
+        mask="(00) 0000-0000"
+        placeholder="(00) 0000-0000"
+      />
+      <div *ngIf="f.fone2.errors?.required" class="invalid-feedback">
+        O telefone é obrigatório
+      </div>
     </div>
 
-</div><br>
+    <div class="col-md-4">
+      <div><label for="email">Email</label></div>
 
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }"
+        formControlName="email"
+        id="email"
+        placeholder="nome@email.com"
+      />
+      <div *ngIf="f.email.errors?.required" class="invalid-feedback">
+        O Email é obrigatório.
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="flex-box" id="centro">
+    <h4>Contato financeiro</h4>
+  </div>
 
-
-<div class="flex-box" id="centro">
-  <h4>Endereço completo</h4>
-</div>
-
-<div ngModelGroup="endereco">
-
-<div class="form-group">
   <div class="d-flex">
-
-    <div class="col-md-3">
-    <label for="cep" class="control-label">CEP</label>
-    <input type="text" class="form-control" [ngClass]="{'is-invalid': f.cep.errors && f.cep.touched}" formControlName="cep"
-    mask="00000-000"  id="cep" placeholder="00000-000" (blur)="consultaCEP()"
-    >
-      <div *ngIf="f.cep.errors?.required" class="invalid-feedback">O campo CEP é obrigatório.</div>
+    <div class="col-md-6">
+      <label for="nomeFin">Nome do contato financeiro</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.nomeFin.errors && f.nomeFin.touched }"
+        formControlName="nomeFin"
+        id="nomeFin"
+        placeholder="Digite o nome do contato financeiro"
+      />
+      <div *ngIf="f.nomeFin.errors?.required" class="invalid-feedback">
+        O nome do contato financeiro é obrigatório.
+      </div>
     </div>
 
-    <div class="col-md-3">
-    <label for="numero" class="control-label">Número</label>
-    <input type="number" class="form-control" placeholder="Digite o número" [ngClass]="{'is-invalid': f.numero.errors && f.numero.touched}" formControlName="numero"
-      id="numero">
-      <div *ngIf="f.numero.errors?.required" class="invalid-feedback">O campo número é obrigatório.</div>
+    <div class="col-md-6">
+      <label for="cargo" class="control-label">Cargo</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.cargo.errors && f.cargo.touched }"
+        formControlName="cargo"
+        id="cargo"
+        placeholder="Digite o cargo"
+      />
+      <div *ngIf="f.cargo.errors?.required" class="invalid-feedback">
+        O cargo é obrigatório.
       </div>
+    </div>
+  </div>
 
-      <div class="col-md-6">
-        <label for="complemento" class="control-label">Complemento</label>
-        <input type="text" class="form-control" placeholder="Digite o complemento" formControlName="complemento"
-          id="complemento">
+  <div class="d-flex">
+    <div class="col-md-4">
+      <div><label for="fone3">Telefone</label></div>
+
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.fone3.errors && f.fone3.touched }"
+        formControlName="fone3"
+        id="fone3"
+        mask="(00) 0000-0000"
+        placeholder="(00) 0000-0000"
+      />
+      <div *ngIf="f.fone3.errors?.required" class="invalid-feedback">
+        O telefone é obrigatório.
       </div>
-
-  </div>
-
-
-  <div class="form-group">
-
-<div class="col-sm-12"><label for="rua">Rua</label></div>
-
-<div class="col sm-12"><input type="text" class="form-control" [ngClass]="{'is-invalid': f.rua.errors && f.rua.touched}" formControlName="rua"
-id="rua" placeholder="Digite o nome da rua">
-<div *ngIf="f.rua.errors?.required" class="invalid-feedback">O campo Rua é obrigatório.</div>
-</div>
-</div>
-
-<div class="d-flex">
-  <div class="col-md-5">
-  <label for="bairro" class="control-label">Bairro</label>
-  <input type="text" class="form-control" placeholder="Digite o bairro" [ngClass]="{'is-invalid': f.bairro.errors && f.bairro.touched}" formControlName="bairro"
-    id="bairro">
-    <div *ngIf="f.bairro.errors?.required" class="invalid-feedback">O campo Bairro é obrigatório.</div>
-  </div>
-
-  <div class="col-md-4">
-<label for="cidade" class="control-label">Cidade</label>
-<input type="text" class="form-control" placeholder="Digite a cidade" [ngClass]="{'is-invalid': f.cidade.errors && f.cidade.touched}" formControlName="cidade"
-  id="cidade">
-  <div *ngIf="f.cidade.errors?.required" class="invalid-feedback">O campo Cidade é obrigatório.</div>
-</div>
-
-<div class="col-md-3">
-<label for="estado" class="control-label">Estado</label>
-<input type="text" class="form-control" placeholder="Digite o estado" [ngClass]="{'is-invalid': f.estado.errors && f.estado.touched}" formControlName="estado"
-  id="estado">
-  <div *ngIf="f.estado.errors?.required" class="invalid-feedback">O campo Estado é obrigatório.</div>
-</div>
-</div>
-</div><hr>
-
-</div>
-
-<div class="flex-box" id="centro">
-  <h4>Dados Bancários</h4>
-</div>
-<div class="d-flex">
-
-  <div class="col-md-4">
-  <label for="conta" class="control-label">Conta</label>
-  <input type="number" class="form-control" placeholder="Digite o número da conta" [ngClass]="{'is-invalid': f.conta.errors && f.conta.touched}" formControlName="conta"
-    id="conta">
-    <div *ngIf="f.conta.errors?.required" class="invalid-feedback">O campo Conta é obrigatório.</div>
-  </div>
-
-  <div class="col-md-4">
-  <label for="agencia" class="control-label">Agência</label>
-  <input type="number" class="form-control" placeholder="Digite a agência" [ngClass]="{'is-invalid': f.agencia.errors && f.agencia.touched}" formControlName="agencia"
-    id="agencia">
-    <div *ngIf="f.agencia.errors?.required" class="invalid-feedback">O campo Agência é obrigatório.</div>
     </div>
 
     <div class="col-md-4">
-  <label for="op" class="control-label">Operação</label>
-  <input type="number" class="form-control" placeholder="Digite a operação" [ngClass]="{'is-invalid': f.op.errors && f.op.touched}" formControlName="op"
-    id="op">
-    <div *ngIf="f.op.errors?.required" class="invalid-feedback">O campo Operação é obrigatório.</div>
+      <div><label for="emailFin">Email</label></div>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.emailFin.errors && f.emailFin.touched }"
+        formControlName="emailFin"
+        id="emailFin"
+        placeholder="nome@email.com"
+      />
+      <div *ngIf="f.emailFin.errors?.required" class="invalid-feedback">
+        O Email é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div><label for="emailFin">Contato na MV</label></div>
+
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.contMv.errors && f.contMv.touched }"
+        formControlName="contMv"
+        id="contMv"
+        placeholder="Digite o nome do seu contato na MV"
+      />
+      <div *ngIf="f.contMv.errors?.required" class="invalid-feedback">
+        O contato MV é obrigatório.
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="flex-box" id="centro">
+    <h4>Endereço completo</h4>
   </div>
 
-</div>
-<div class="d-flex">
+  <div ngModelGroup="endereco">
+    <div class="form-group">
+      <div class="d-flex">
+        <div class="col-md-3">
+          <label for="cep" class="control-label">CEP</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f.cep.errors && f.cep.touched }"
+            formControlName="cep"
+            mask="00000-000"
+            id="cep"
+            placeholder="00000-000"
+            (blur)="consultaCEP()"
+          />
+          <div *ngIf="f.cep.errors?.required" class="invalid-feedback">
+            O campo CEP é obrigatório.
+          </div>
+        </div>
 
-  <div class="col-md-6">
-  <label for="banco" class="control-label">Banco</label>
-  <input type="text" class="form-control" placeholder="Digite o codigo e nome do banco" [ngClass]="{'is-invalid': f.banco.errors && f.banco.touched}" formControlName="banco"
-    id="banco">
-    <div *ngIf="f.banco.errors?.required" class="invalid-feedback">O campo Banco é obrigatório.</div>
+        <div class="col-md-3">
+          <label for="numero" class="control-label">Número</label>
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Digite o número"
+            [ngClass]="{ 'is-invalid': f.numero.errors && f.numero.touched }"
+            formControlName="numero"
+            id="numero"
+          />
+          <div *ngIf="f.numero.errors?.required" class="invalid-feedback">
+            O campo número é obrigatório.
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label for="complemento" class="control-label">Complemento</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o complemento"
+            formControlName="complemento"
+            id="complemento"
+          />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-12"><label for="rua">Rua</label></div>
+
+        <div class="col sm-12">
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': f.rua.errors && f.rua.touched }"
+            formControlName="rua"
+            id="rua"
+            placeholder="Digite o nome da rua"
+          />
+          <div *ngIf="f.rua.errors?.required" class="invalid-feedback">
+            O campo Rua é obrigatório.
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex">
+        <div class="col-md-5">
+          <label for="bairro" class="control-label">Bairro</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o bairro"
+            [ngClass]="{ 'is-invalid': f.bairro.errors && f.bairro.touched }"
+            formControlName="bairro"
+            id="bairro"
+          />
+          <div *ngIf="f.bairro.errors?.required" class="invalid-feedback">
+            O campo Bairro é obrigatório.
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <label for="cidade" class="control-label">Cidade</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite a cidade"
+            [ngClass]="{ 'is-invalid': f.cidade.errors && f.cidade.touched }"
+            formControlName="cidade"
+            id="cidade"
+          />
+          <div *ngIf="f.cidade.errors?.required" class="invalid-feedback">
+            O campo Cidade é obrigatório.
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <label for="estado" class="control-label">Estado</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Digite o estado"
+            [ngClass]="{ 'is-invalid': f.estado.errors && f.estado.touched }"
+            formControlName="estado"
+            id="estado"
+          />
+          <div *ngIf="f.estado.errors?.required" class="invalid-feedback">
+            O campo Estado é obrigatório.
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
   </div>
 
-  <div class="col-md-6">
-  <label for="favorecido" class="control-label">Favorecido</label>
-  <input type="text" class="form-control" placeholder="Digite o nome do favorecido" [ngClass]="{'is-invalid': f.favorecido.errors && f.favorecido.touched}" formControlName="favorecido"
-    id="favorecido">
-    <div *ngIf="f.favorecido.errors?.required" class="invalid-feedback">O campo Favorecido é obrigatório.</div>
-  </div></div><hr>
+  <div class="flex-box" id="centro">
+    <h4>Dados Bancários</h4>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-4">
+      <label for="conta" class="control-label">Conta</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Digite o número da conta"
+        [ngClass]="{ 'is-invalid': f.conta.errors && f.conta.touched }"
+        formControlName="conta"
+        id="conta"
+      />
+      <div *ngIf="f.conta.errors?.required" class="invalid-feedback">
+        O campo Conta é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="agencia" class="control-label">Agência</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Digite a agência"
+        [ngClass]="{ 'is-invalid': f.agencia.errors && f.agencia.touched }"
+        formControlName="agencia"
+        id="agencia"
+      />
+      <div *ngIf="f.agencia.errors?.required" class="invalid-feedback">
+        O campo Agência é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="op" class="control-label">Operação</label>
+      <input
+        type="number"
+        class="form-control"
+        placeholder="Digite a operação"
+        [ngClass]="{ 'is-invalid': f.op.errors && f.op.touched }"
+        formControlName="op"
+        id="op"
+      />
+      <div *ngIf="f.op.errors?.required" class="invalid-feedback">
+        O campo Operação é obrigatório.
+      </div>
+    </div>
+  </div>
+  <div class="d-flex">
+    <div class="col-md-6">
+      <label for="banco" class="control-label">Banco</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Digite o codigo e nome do banco"
+        [ngClass]="{ 'is-invalid': f.banco.errors && f.banco.touched }"
+        formControlName="banco"
+        id="banco"
+      />
+      <div *ngIf="f.banco.errors?.required" class="invalid-feedback">
+        O campo Banco é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label for="favorecido" class="control-label">Favorecido</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Digite o nome do favorecido"
+        [ngClass]="{
+          'is-invalid': f.favorecido.errors && f.favorecido.touched
+        }"
+        formControlName="favorecido"
+        id="favorecido"
+      />
+      <div *ngIf="f.favorecido.errors?.required" class="invalid-feedback">
+        O campo Favorecido é obrigatório.
+      </div>
+    </div>
+  </div>
+  <hr />
 
   <div class="flex-box">
     <h4>Documentos Exigidos (anexar)</h4>
   </div>
   <div class="flex-box">
-    1.	Cópia da procuração quando a empresa for representada por não sócio administrador;
+    1. Cópia da procuração quando a empresa for representada por não sócio
+    administrador;
   </div>
   <div class="flex-box">
-    2.	Cópia do contrato social juntamente com a última alteração
+    2. Cópia do contrato social juntamente com a última alteração
   </div>
-  <div class="flex-box"><input type="file"/></div>
-<br>
+  <div class="flex-box"><input type="file" /></div>
+  <br />
+
+  <!-- QUESTIONÁRIO -->
+
+  <div class="flex-box" id="centro">
+    <h4>Questionário</h4>
+  </div>
+
+  <div class="container">
+
+    <form [formGroup]="formulario" (ngSubmit)="submit()">
+
+      <div class="form-group">
+          <label for="radio7">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
+         <div class="linha">
+          <div>
+            <input id="true" type="radio" value="true" name="radio7" formControlName="radio7" (change)="changeQuiz($event)">
+            <label for="true">Sim</label>
+         </div>
+
+         <div>
+            <input id="false" type="radio" value="false" name="radio7" formControlName="radio7" (change)="changeQuiz($event)">
+            <label for="false">Não</label>
+         </div>
+         </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!formulario.valid">Submit</button>
+  </form>
+</div>
 
 
+  <!--
 
+  <form action="">
+    <h5>
+      1 - Possui capacidade técnica para execução integral dos serviços
+      contratados?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />
+      <label class="form-check-label" for="quiz1S">Sim</label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />
+      <label class="form-check-label" for="quiz1N">Não</label>
+    </div>
+    <hr />
+  </form>
 
+    <form action="">
+    <h5>2 - A empresa possui programa de integridade ou Compliance?</h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
-<!-- QUESTIONÁRIO -->
+  <form action="">
+    <h5>
+      3 - A empresa possui histórico de envolvimento em investigações em casos
+      de fraude, corrupção ou lavagem de dinheiro?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
-<div class="flex-box" id="centro">
-  <h4>Questionário</h4>
-</div>
+  <form action="">
+    <h5>
+      4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
+      Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas
+      Punidas (CNEP). 
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
+  <form action="">
+    <h5>
+      5 - Informe o nome de outros clientes nos quais prestou serviços similares
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>1 - Possui capacidade técnica para execução integral dos serviços contratados?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>6 - Descreva as atividades de sua empresa CNAEs</h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>2 - A empresa possui programa de integridade ou Compliance?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        formControlName="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group" *ngIf="f.radio1.value">
+      <label for="exampleFormControlTextarea1"
+        >Em caso positivo, descreva o cargo e local da prestação de
+        serviços:</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>3 - A empresa possui histórico de envolvimento em investigações em casos de fraude, corrupção ou lavagem de dinheiro?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      8 - O funcionário que vai prestar serviço a MV já possuiu vínculo
+      empregatício com a MV?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"
+        >Em caso positivo, descreva o cargo e o tempo de desligamento:</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>4 - A empresa está listada ou se já fez parte do Cadastro Nacional de Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas Punidas (CNEP). </h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi
+      funcionário público, político ou ocupante de cargo de confiança ou possui
+      vínculo jurídico e/ou político?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"
+        >Em caso positivo, descreva qual a função, o órgão público e local da
+        atuação.</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>5 - Informe o nome de outros clientes nos quais prestou serviços similares  </h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      10 - Algum sócio ou administrador concorre a cargo público (seja por
+      concurso ou político)?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"
+        >Em caso positivo, qual a entidade ou cargo público que concorre?</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>6 - Descreva as atividades de sua empresa CNAEs</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é
+      neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário
+      da MV?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"
+        >Em caso positivo, informe o grau de parentesco, a entidade e o local da
+        prestação de serviços do parente.</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" formControlName="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1" ></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group" *ngIf="f.radio1.value">
-  <label for="exampleFormControlTextarea1">Em caso positivo, descreva o cargo e local da prestação de serviços:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>12 - A empresa possui relação com outros países?</h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Se sim, qual(ais)?</label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group" >
-  <label for="exampleFormControlTextarea1">Em caso positivo, descreva o cargo e o tempo de desligamento:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>13 - A empresa faz uso de intermediários para fechar negócios?</h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Se sim, especifique:</label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Em caso positivo, descreva qual a função, o órgão público e local da atuação.</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais
+      da MV? Responder as questões seguintes caso a resposta seja afirmativa.
+      Caso a resposta seja negativa responder “NA” (Não aplicável).
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Em caso positivo, qual a entidade ou cargo público que concorre?</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      15 - A empresa possui programa de LGPD? Mencionar abaixo se possui
+      certificação relacionada a proteção de dados e/ou à segurança da
+      informação.
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"
+        >Se possui certificação, especifique:</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Em caso positivo, informe o grau de parentesco, a entidade e o local da prestação de serviços do parente.</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data
+      Protection Officer) nomeado?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1"
+        >Se sim, indique o nome e dados para contato:</label
+      >
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>12 - A empresa possui relação com outros países?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Se sim, qual(ais)?</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      17 - A empresa encontra-se apta a atender os direitos dos titulares de
+      dados pessoais e a fornecer os relatórios necessários para avaliação de
+      impacto em caso de incidentes com dados pessoais?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>13 - A empresa faz uso de intermediários para fechar negócios?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Se sim, especifique:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      18 - Os colaboradores recebem treinamento e capacitação contínua sobre a
+      importância da proteção de dados pessoais?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      19 - Descreva as técnicas de segurança adotadas para preservar a
+      confidencialidade, a integridade e a disponibilidade dos dados pessoais
+      (exemplo: uso de antivírus, firewall, criptografia, etc.)
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Se sim, especifique:</label>
+      <textarea
+        class="form-control"
+        id="exampleFormControlTextarea1"
+        rows="3"
+      ></textarea>
+    </div>
+    <hr />
+  </form>
 
-<form action="">
-<h5>15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Se possui certificação, especifique:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <form action="">
+    <h5>
+      20 - Todas as transferências e compartilhamentos de dados pessoais
+      realizados pela empresa estão devidamente identificados e ocorrem de
+      acordo com a forma prevista em lei?
+    </h5>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio1"
+        name="optradio"
+        value="option1"
+        checked
+      />Sim
+      <label class="form-check-label" for="radio1"></label>
+    </div>
+    <div class="form-check-inline">
+      <input
+        type="radio"
+        class="form-check-input"
+        id="radio2"
+        name="optradio"
+        value="option2"
+      />Não
+      <label class="form-check-label" for="radio2"></label>
+    </div>
+  </form> -->
 
-<form action="">
-<h5>16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado? </h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Se sim, indique o nome e dados para contato:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
+  <!-- RODAPÉ -->
+  <br />
+  <hr />
+  <div>
+    <div class="text-justify">
+      <h6>
+        <div class="font">
+          Em nome de
+          <input
+            type="text"
+            cols="40"
+            rows="5"
+            placeholder="Digite a Razão Social"
+            style="width: 500px; height: 25px"
+            name="Text1"
+            id="Text1"
+            value=""
+          />
+          (empresa credenciada), DECLARO, sob as penas da lei:
+        </div>
+      </h6>
 
-<form action="">
-<h5>17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
+      <div class="flex-box"></div>
+      <div class="flex-box">
+        1. Que todas as informações prestadas neste documento e anexos são
+        verdadeiras e corretas;
+      </div>
+      <div class="flex-box">
+        2. Sempre que envolvermos subcontratações, realizaremos uma comunicação
+        através de e-mail, para que a MV possa aprovar tal “quarteirização”.
+      </div>
+      <div class="flex-box">3. (cláusula LGPD)</div>
+      <br />
+    </div>
+    <hr />
+  </div><div class="flex-box" id="centro">
+    <h4>Questionário</h4>
+  </div>
 
-<form action="">
-<h5>18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<hr>
-</form>
-
-<form action="">
-<h5>19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.)</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-</div>
-<div class="form-group">
-  <label for="exampleFormControlTextarea1">Se sim, especifique:</label>
-  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-</div>
-<hr>
-</form>
-
-<form action="">
-<h5>20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</h5>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Sim
-  <label class="form-check-label" for="radio1"></label>
-</div>
-<div class="form-check-inline">
-  <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Não
-  <label class="form-check-label" for="radio2"></label>
-
-</div>
-</form>
-
-<!-- RODAPÉ -->
-<br><hr>
-<div>
-<div class="text-justify" >
-  <h6><div class="font"> Em nome de <input type="text" cols="40" rows="5" placeholder="Digite a Razão Social" style="width:500px; height:25px;" name="Text1" id="Text1" value=""/> (empresa credenciada), DECLARO, sob as penas da lei:</div></h6>
+  <!-- BOTÕES -->
 
   <div class="flex-box">
+    <button
+      type="submit"
+      class="btn btn-success"
+      (click)="postar()"
+      [disabled]="!formulario.valid"
+    >
+      Enviar
+    </button>
+    <button type="button" class="btn btn-danger" (click)="resetar()">
+      Limpar
+    </button>
   </div>
-  <div class="flex-box">
-    1.	Que todas as informações prestadas neste documento e anexos são verdadeiras e corretas;
-  </div>
-  <div class="flex-box">
-    2.	Sempre que envolvermos subcontratações, realizaremos uma comunicação através de e-mail, para que a MV possa aprovar tal “quarteirização”.
-  </div>
-  <div class="flex-box">
-    3.	(cláusula LGPD)
-  </div>
-<br>
-
-</div><hr>
-</div>
-
-
-<!-- BOTÕES -->
-
-<div class="flex-box">
-  <button type="submit" class="btn btn-success" (click)="postar()"
-  [disabled]="!formulario.valid">Enviar</button>
-  <button type="button" class="btn btn-danger"(click)="resetar()">Limpar</button>
-</div>
-
-
-
-
-
-
-
-<!-- <hr>
-  <app-form-debug [form]="formulario"></app-form-debug>
-<hr> -->
 </form>
 

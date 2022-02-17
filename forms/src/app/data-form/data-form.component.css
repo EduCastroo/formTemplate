@@ -1,7 +1,9 @@
-.style{
-  color: red;
-}
 
+
+.nav ul {
+  display: inline-block;
+  list-style-type: none;
+}
 
 .flex-box {
   display: flex;
@@ -14,11 +16,20 @@
   height: 50px;
   line-height: 50px;
   text-align:center;
-  background-color: rgba(32, 107, 121, 0.7);
+  background-color: rgb(28,76,100);
   color: white;
 }
 
 .font{
   font-weight: bolder;
+}
+
+.linha{
+  display: flex;
+  flex-flow: row wrap;
+  }
+
+.coluna-50 {
+  width: 50%;
 }
 

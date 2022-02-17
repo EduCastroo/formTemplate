@@ -12,8 +12,20 @@ export class DataFormComponent implements OnInit {
 
   formulario!: FormGroup;
 
+  // isVisible: any;
+  // isSelected: boolean = false
+  // opcaoselec: boolean = false;
+
   get f(): any{
     return this.formulario.controls;
+  }
+
+  submit(){
+    console.log(this.formulario.value);
+  }
+
+  changeQuiz(e: any) {
+    console.log(e.target.value);
   }
 
   onSubmit(f: any){
@@ -37,6 +49,23 @@ export class DataFormComponent implements OnInit {
   public validation(): void {
     this.formulario = this.formBuilder.group({
 
+    // CADASTRO
+    razSocCad:  [null, Validators.required],
+    cnpjCad: [null,[Validators.required, Validators.maxLength(18),]],
+    endCad: [null, Validators.required],
+    cepCad: [null,[Validators.required, Validators.maxLength(9)]],
+    cidadeCad: [null, Validators.required],
+    estadoCad: [null, Validators.required],
+    socioCad: [null, Validators.required],
+    cargoCad: [null, Validators.required],
+    cpf1Cad: [null, Validators.required],
+    rg1Cad: [null, Validators.required],
+    cpf2Cad: [null, Validators.required],
+    rg2Cad: [null, Validators.required],
+    end2Cad: [null, Validators.required],
+    cep2Cad: [null,[Validators.required, Validators.maxLength(9)]],
+
+    // DADOS NECESSÁRIOS
     data: [null, Validators.required],
     razSoc: [null, Validators.required],
     cnpj: [null,[Validators.required, Validators.maxLength(18),]],
@@ -62,17 +91,19 @@ export class DataFormComponent implements OnInit {
     op: [null, Validators.required],
     banco: [null, Validators.required],
     favorecido: [null, Validators.required],
-    radio1: [null],
+
+    // QUESTIONÁRIO
     radio7: [null, Validators.required],
-// radio8: [null, Validators.required],
-// radio9: [null, Validators.required],
-// radio10: [null, Validators.required],
-// radio11: [null, Validators.required],
-// radio12: [null, Validators.required],
-// radio13: [null, Validators.required],
-// radio15: [null, Validators.required],
-// radio16: [null, Validators.required],
-// radio19: [null, Validators.required],
+    // radio7: [null, Validators.required],
+    // radio8: [null, Validators.required],
+    // radio9: [null, Validators.required],
+    // radio10: [null, Validators.required],
+    // radio11: [null, Validators.required],
+    // radio12: [null, Validators.required],
+    // radio13: [null, Validators.required],
+    // radio15: [null, Validators.required],
+    // radio16: [null, Validators.required],
+    // radio19: [null, Validators.required],
 
     })
   }
