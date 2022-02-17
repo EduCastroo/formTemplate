@@ -94,6 +94,7 @@ export class DataFormComponent implements OnInit {
 
     // QUESTIONÁRIO
     radio7: [null, Validators.required],
+    textarea7: [null]
     // radio7: [null, Validators.required],
     // radio8: [null, Validators.required],
     // radio9: [null, Validators.required],
@@ -152,5 +153,6 @@ populaDadosForm(dados: any){
 
   }
 
+isVisible: boolean = true;
 
 }
