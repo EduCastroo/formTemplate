@@ -724,14 +724,14 @@
           <label for="radio7">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value="true" name="radio7"  formControlName="radio7" (change)="changeQuiz($event)"> Sim
+            <input id="true" type="radio" value='1' name="radio7"  formControlName="radio7" (change)="changeQuiz($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="false" name="radio7" formControlName="radio7" (change)="changeQuiz($event)"> Não
+            <input id="false" type="radio" value="0" name="radio7" formControlName="radio7" (change)="changeQuiz($event)"> Não
          </div>
          </div>
-         <div class="form-group" *ngIf="f.radio7.value">
+         <div class="form-group" [hidden]="!caixa">
           <label for="textarea7"
             >Em caso positivo, descreva o cargo e local da prestação de
             serviços:</label

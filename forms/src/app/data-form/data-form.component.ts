@@ -15,6 +15,7 @@ export class DataFormComponent implements OnInit {
   // isVisible: any;
   // isSelected: boolean = false
   // opcaoselec: boolean = false;
+  caixa: boolean = false
 
   get f(): any{
     return this.formulario.controls;
@@ -26,6 +27,11 @@ export class DataFormComponent implements OnInit {
 
   changeQuiz(e: any) {
     console.log(e.target.value);
+    if (e.target.value == 1) {
+      this.caixa = true
+    } else {
+      this.caixa = false
+    }
   }
 
   onSubmit(f: any){
