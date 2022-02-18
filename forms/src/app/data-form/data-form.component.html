@@ -713,25 +713,148 @@
     <h4>Questionário</h4>
   </div>
 
-  <!-- TESTE
-  TESTE -->
-
+<!-- PERGUNTA 1 -->
   <div class="container">
+    <form [formGroup]="formulario">
 
+      <div class="form-group">
+          <label for="radio1">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
+         <div class="linha">
+          <div class="form-check-inline">
+            <input id="true" type="radio" value='1' name="radio1"  formControlName="radio1" (change)="changeQuiz($event)"> Sim
+         </div>
+
+         <div class="form-check-inline">
+            <input id="false" type="radio" value="0" name="radio1" formControlName="radio1" (change)="changeQuiz($event)"> Não
+         </div>
+         </div>
+      </div>
+  </form>
+</div>
+
+<!-- PERGUNTA 2 -->
+<div class="container">
+
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio2">2 - A empresa possui programa de integridade ou Compliance?</label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio2"  formControlName="radio2" (change)="changeQuiz($event)"> Sim
+       </div>
+
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio2" formControlName="radio2" (change)="changeQuiz($event)"> Não
+       </div>
+       </div>
+    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 3 -->
+<div class="container">
+
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio3">3 - A empresa possui histórico de envolvimento em investigações em casos
+          de fraude, corrupção ou lavagem de dinheiro?</label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio3"  formControlName="radio3" (change)="changeQuiz($event)"> Sim
+       </div>
+
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio3" formControlName="radio3" (change)="changeQuiz($event)"> Não
+       </div>
+       </div>
+    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 4 -->
+<div class="container">
+
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio4">4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
+          Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas
+          Punidas (CNEP). </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio4"  formControlName="radio4" (change)="changeQuiz($event)"> Sim
+       </div>
+
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio4" formControlName="radio4" (change)="changeQuiz($event)"> Não
+       </div>
+       </div>
+    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 5 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio5">5 - Informe o nome de outros clientes nos quais prestou serviços similares:</label>
+       <div class="linha">
+
+       </div>
+       <div class="form-group">
+        <textarea
+          class="form-control"
+          id="textarea5"
+          formControlName="textarea5"
+          rows="3"
+        ></textarea>
+      </div>
+    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 6 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio5">6 - Descreva as atividades de sua empresa CNAEs</label>
+       <div class="linha">
+
+       </div>
+       <div class="form-group">
+        <textarea
+          class="form-control"
+          id="textarea6"
+          formControlName="textarea6"
+          rows="3"
+        ></textarea>
+      </div>
+    </div>
+</form>
+</div>
+
+
+
+<!-- PERGUNTA 7 -->
+  <div class="container">
     <form [formGroup]="formulario">
 
       <div class="form-group">
           <label for="radio7">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value='1' name="radio7"  formControlName="radio7" (change)="changeQuiz($event)"> Sim
+            <input id="true" type="radio" value='1' name="radio7"  formControlName="radio7" (change)="changeQuiz7($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="0" name="radio7" formControlName="radio7" (change)="changeQuiz($event)"> Não
+            <input id="false" type="radio" value="0" name="radio7" formControlName="radio7" (change)="changeQuiz7($event)"> Não
          </div>
          </div>
-         <div class="form-group" [hidden]="!caixa">
+         <div class="form-group" [hidden]="!caixa7">
           <label for="textarea7"
             >Em caso positivo, descreva o cargo e local da prestação de
             serviços:</label
@@ -747,679 +870,335 @@
   </form>
 </div>
 
+<!-- PERGUNTA 8 -->
 
-  <!--
+<div class="container">
+  <form [formGroup]="formulario">
 
-  <form action="">
-    <h5>
-      1 - Possui capacidade técnica para execução integral dos serviços
-      contratados?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />
-      <label class="form-check-label" for="quiz1S">Sim</label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />
-      <label class="form-check-label" for="quiz1N">Não</label>
-    </div>
-    <hr />
-  </form>
-
-    <form action="">
-    <h5>2 - A empresa possui programa de integridade ou Compliance?</h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
-
-  <form action="">
-    <h5>
-      3 - A empresa possui histórico de envolvimento em investigações em casos
-      de fraude, corrupção ou lavagem de dinheiro?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
-
-  <form action="">
-    <h5>
-      4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
-      Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas
-      Punidas (CNEP). 
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
-
-  <form action="">
-    <h5>
-      5 - Informe o nome de outros clientes nos quais prestou serviços similares
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
-
-  <form action="">
-    <h5>6 - Descreva as atividades de sua empresa CNAEs</h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
-
-  <form action="">
-    <h5>
-      7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        formControlName="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <div class="form-group" *ngIf="f.radio1.value">
-      <label for="exampleFormControlTextarea1"
-        >Em caso positivo, descreva o cargo e local da prestação de
-        serviços:</label
-      >
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
-
-  <form action="">
-    <h5>
-      8 - O funcionário que vai prestar serviço a MV já possuiu vínculo
-      empregatício com a MV?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
     <div class="form-group">
-      <label for="exampleFormControlTextarea1"
-        >Em caso positivo, descreva o cargo e o tempo de desligamento:</label
-      >
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio8">8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV? </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio8"  formControlName="radio8" (change)="changeQuiz8($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>
-      9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi
-      funcionário público, político ou ocupante de cargo de confiança ou possui
-      vínculo jurídico e/ou político?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio8" formControlName="radio8" (change)="changeQuiz8($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa8">
+        <label for="textarea8">Em caso positivo, descreva o cargo e o tempo de desligamento:</label>
+        <textarea
+          class="form-control"
+          id="textarea8"
+          formControlName="textarea8"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 9 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1"
-        >Em caso positivo, descreva qual a função, o órgão público e local da
-        atuação.</label
-      >
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio9">9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?  </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio9"  formControlName="radio9" (change)="changeQuiz9($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>
-      10 - Algum sócio ou administrador concorre a cargo público (seja por
-      concurso ou político)?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio9" formControlName="radio9" (change)="changeQuiz9($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa9">
+        <label for="textarea9">Em caso positivo, descreva qual a função, o órgão público e local da atuação.</label>
+        <textarea
+          class="form-control"
+          id="textarea9"
+          formControlName="textarea9"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+</form>
+</div>
+<!-- PERGUNTA 10 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1"
-        >Em caso positivo, qual a entidade ou cargo público que concorre?</label
-      >
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio10">10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?   </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio10"  formControlName="radio10" (change)="changeQuiz10($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>
-      11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é
-      neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário
-      da MV?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio10" formControlName="radio10" (change)="changeQuiz10($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa10">
+        <label for="textarea10">Em caso positivo, qual a entidade ou cargo público que concorre?</label>
+        <textarea
+          class="form-control"
+          id="textarea10"
+          formControlName="textarea10"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 11 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1"
-        >Em caso positivo, informe o grau de parentesco, a entidade e o local da
-        prestação de serviços do parente.</label
-      >
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio11">11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio11"  formControlName="radio11" (change)="changeQuiz11($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>12 - A empresa possui relação com outros países?</h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio11" formControlName="radio11" (change)="changeQuiz11($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa11">
+        <label for="textarea11">Em caso positivo, informe o grau de parentesco, a entidade e o local da prestação de serviços do parente.</label>
+        <textarea
+          class="form-control"
+          id="textarea11"
+          formControlName="textarea11"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 12 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Se sim, qual(ais)?</label>
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio12">12 - A empresa possui relação com outros países?  </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio12"  formControlName="radio12" (change)="changeQuiz12($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>13 - A empresa faz uso de intermediários para fechar negócios?</h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio12" formControlName="radio12" (change)="changeQuiz12($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa12">
+        <label for="textarea12">Se sim, qual(ais)?</label>
+        <textarea
+          class="form-control"
+          id="textarea12"
+          formControlName="textarea12"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 13 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Se sim, especifique:</label>
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio13">13 - A empresa faz uso de intermediários para fechar negócios?   </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio13"  formControlName="radio13" (change)="changeQuiz13($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>
-      14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais
-      da MV? Responder as questões seguintes caso a resposta seja afirmativa.
-      Caso a resposta seja negativa responder “NA” (Não aplicável).
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio13" formControlName="radio13" (change)="changeQuiz13($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa13">
+        <label for="textarea13">Se sim, especifique:</label>
+        <textarea
+          class="form-control"
+          id="textarea13"
+          formControlName="textarea13"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
+</form>
+</div>
 
-  <form action="">
-    <h5>
-      15 - A empresa possui programa de LGPD? Mencionar abaixo se possui
-      certificação relacionada a proteção de dados e/ou à segurança da
-      informação.
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+<!-- PERGUNTA 14 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1"
-        >Se possui certificação, especifique:</label
-      >
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio14">14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).   </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio14"  formControlName="radio14" (change)="changeQuiz($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>
-      16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data
-      Protection Officer) nomeado?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio14" formControlName="radio14" (change)="changeQuiz($event)"> Não
+       </div>
+       </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 15 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1"
-        >Se sim, indique o nome e dados para contato:</label
-      >
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio15">15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.   </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio15"  formControlName="radio15" (change)="changeQuiz15($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>
-      17 - A empresa encontra-se apta a atender os direitos dos titulares de
-      dados pessoais e a fornecer os relatórios necessários para avaliação de
-      impacto em caso de incidentes com dados pessoais?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio15" formControlName="radio15" (change)="changeQuiz15($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa15">
+        <label for="textarea15">Se possui certificação, especifique:</label>
+        <textarea
+          class="form-control"
+          id="textarea15"
+          formControlName="textarea15"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
+</form>
+</div>
 
-  <form action="">
-    <h5>
-      18 - Os colaboradores recebem treinamento e capacitação contínua sobre a
-      importância da proteção de dados pessoais?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
-    <hr />
-  </form>
+<!-- PERGUNTA 16 -->
 
-  <form action="">
-    <h5>
-      19 - Descreva as técnicas de segurança adotadas para preservar a
-      confidencialidade, a integridade e a disponibilidade dos dados pessoais
-      (exemplo: uso de antivírus, firewall, criptografia, etc.)
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
-    </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
-    </div>
+<div class="container">
+  <form [formGroup]="formulario">
+
     <div class="form-group">
-      <label for="exampleFormControlTextarea1">Se sim, especifique:</label>
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="3"
-      ></textarea>
-    </div>
-    <hr />
-  </form>
+        <label for="radio16">16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado?   </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio16"  formControlName="radio16" (change)="changeQuiz16($event)"> Sim
+       </div>
 
-  <form action="">
-    <h5>
-      20 - Todas as transferências e compartilhamentos de dados pessoais
-      realizados pela empresa estão devidamente identificados e ocorrem de
-      acordo com a forma prevista em lei?
-    </h5>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio1"
-        name="optradio"
-        value="option1"
-        checked
-      />Sim
-      <label class="form-check-label" for="radio1"></label>
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio16" formControlName="radio16" (change)="changeQuiz16($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa16">
+        <label for="textarea16">Se sim, indique o nome e dados para contato:</label>
+        <textarea
+          class="form-control"
+          id="textarea16"
+          formControlName="textarea16"
+          rows="3"
+        ></textarea>
+      </div>
     </div>
-    <div class="form-check-inline">
-      <input
-        type="radio"
-        class="form-check-input"
-        id="radio2"
-        name="optradio"
-        value="option2"
-      />Não
-      <label class="form-check-label" for="radio2"></label>
+</form>
+</div>
+
+<!-- PERGUNTA 17 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio17">17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais? </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio17"  formControlName="radio17" (change)="changeQuiz($event)"> Sim
+       </div>
+
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio17" formControlName="radio17" (change)="changeQuiz($event)"> Não
+       </div>
+       </div>
     </div>
-  </form> -->
+</form>
+</div>
+
+<!-- PERGUNTA 18 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio18">18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais? </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio18"  formControlName="radio18" (change)="changeQuiz($event)"> Sim
+       </div>
+
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio18" formControlName="radio18" (change)="changeQuiz($event)"> Não
+       </div>
+       </div>
+    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 19 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio19">19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.) </label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio19"  formControlName="radio19" (change)="changeQuiz19($event)"> Sim
+       </div>
+
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio19" formControlName="radio19" (change)="changeQuiz19($event)"> Não
+       </div>
+       </div>
+       <div class="form-group" [hidden]="!caixa19">
+        <label for="textarea19">Se sim, especifique:</label>
+        <textarea
+          class="form-control"
+          id="textarea19"
+          formControlName="textarea19"
+          rows="3"
+        ></textarea>
+      </div>
+    </div>
+</form>
+</div>
+
+<!-- PERGUNTA 20 -->
+<div class="container">
+  <form [formGroup]="formulario">
+
+    <div class="form-group">
+        <label for="radio20">20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</label>
+       <div class="linha">
+        <div class="form-check-inline">
+          <input id="true" type="radio" value='1' name="radio20"  formControlName="radio20" (change)="changeQuiz($event)"> Sim
+       </div>
+
+       <div class="form-check-inline">
+          <input id="false" type="radio" value="0" name="radio20" formControlName="radio20" (change)="changeQuiz($event)"> Não
+       </div>
+       </div>
+    </div>
+</form>
+</div>
+
 
   <!-- RODAPÉ -->
   <br />
