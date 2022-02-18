@@ -201,6 +201,7 @@ export class DataFormComponent implements OnInit {
     op: [null, Validators.required],
     banco: [null, Validators.required],
     favorecido: [null, Validators.required],
+    razSoc3:  [null, Validators.required],
 
     // QUESTIONÁRIO
     radio1: [null, Validators.required],
@@ -234,6 +235,11 @@ export class DataFormComponent implements OnInit {
     textarea19: [null],
     radio20: [null, Validators.required],
 
+
+    data2: [null, Validators.required],
+    nomeLeg: [null, Validators.required],
+    rgRep: [null, Validators.required],
+    cargoRep: [null, Validators.required],
     })
   }
 
