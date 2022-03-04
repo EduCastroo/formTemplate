@@ -10,7 +10,7 @@ import { NgxMaskModule } from 'ngx-mask'
 
 @NgModule({
   declarations: [
-  DataFormComponent
+  DataFormComponent,
   ],
   imports: [
     CommonModule,

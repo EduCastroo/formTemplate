@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from './Usuario.service';
 
 @Component({
   selector: 'app-data-form',
@@ -138,16 +139,17 @@ export class DataFormComponent implements OnInit {
 
 
 
-  onSubmit(f: any){
-    console.log(f)
+  // onSubmit(f: any){
+  //   console.log(f)
 
-  this.http.post('enderecoServer/formUsuario', JSON.stringify(f.value));
+  // this.http.post('https://localhost:44365/api/usuarios', JSON.stringify(f.value));
 
-  }
+  // }
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private service: UsuarioService
   ) {}
 
 
@@ -160,6 +162,7 @@ export class DataFormComponent implements OnInit {
     this.formulario = this.formBuilder.group({
 
     // CADASTRO
+    Id: [''],
     razSocCad:  [null, Validators.required],
     cnpjCad: [null,[Validators.required, Validators.maxLength(18),]],
     endCad: [null, Validators.required],
@@ -240,16 +243,34 @@ export class DataFormComponent implements OnInit {
     nomeLeg: [null, Validators.required],
     rgRep: [null, Validators.required],
     cargoRep: [null, Validators.required],
+
     })
   }
 
-  postar(){
-    if (!this.formulario.valid) {
-      console.log("Formulário inválido");
-      return;
-    }
-    console.log("Formulário válido", this.formulario.value);
+  // postar(){
+  //   if (!this.formulario.valid) {
+  //     console.log("Formulário inválido");
+  //     return;
+  //   }
+  //   console.log("Formulário válido", this.formulario.value);
+  // }
+
+
+  // postar(){
+  //   if(this.formulario){
+  //     this.http.post(`${this.postar}/api/usuarios`, Usuario}).subscribe(resultado =>)
+
+  //   }
+  // }
+
+  public postar(): void{
+    this.service.save(this.formulario?.value).subscribe((resultado) => {console.log("cadastrado com sucesso");
+  });
+
   }
+
+
+
 
 public resetar(): void{
   this.formulario.reset();
@@ -287,4 +308,7 @@ populaDadosForm(dados: any){
 
   }
 
+
+
 }
+

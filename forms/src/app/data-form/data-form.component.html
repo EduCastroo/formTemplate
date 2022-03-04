@@ -3,12 +3,12 @@
 </div>
 
 
-<!-- <app-form-debug [form]="formulario"></app-form-debug>
-<hr /> -->
+<app-form-debug [form]="formulario"></app-form-debug>
+<hr />
 
 
 <hr />
-<form class="form-horizontal font" [formGroup]="formulario">
+<form class="form-horizontal font" [formGroup]="formulario" (submit)="validation">
 
 
 
@@ -1302,17 +1302,19 @@
   <!-- BOTÕES -->
 <hr>
   <div class="flex-box">
+    <button type="button" class="btn btn-danger" (click)="resetar()">
+      Limpar
+    </button>
+
     <button
       type="submit"
       class="btn btn-success"
       (click)="postar()"
-      [disabled]="!formulario.valid"
+
     >
       Enviar
     </button>
-    <button type="button" class="btn btn-danger" (click)="resetar()">
-      Limpar
-    </button>
+
   </div>
 </form>
 
