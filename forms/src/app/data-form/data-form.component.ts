@@ -136,16 +136,6 @@ export class DataFormComponent implements OnInit {
     }
   }
 
-
-
-
-  // onSubmit(f: any){
-  //   console.log(f)
-
-  // this.http.post('https://localhost:44365/api/usuarios', JSON.stringify(f.value));
-
-  // }
-
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
@@ -162,11 +152,11 @@ export class DataFormComponent implements OnInit {
     this.formulario = this.formBuilder.group({
 
     // CADASTRO
-    Id: [''],
+
     razSocCad:  [null, Validators.required],
-    cnpjCad: [null,[Validators.required, Validators.maxLength(18),]],
+    cnpjCad: [null, Validators.required],
     endCad: [null, Validators.required],
-    cepCad: [null,[Validators.required, Validators.maxLength(9)]],
+    cepCad: [null, Validators.required],
     cidadeCad: [null, Validators.required],
     estadoCad: [null, Validators.required],
     socioCad: [null, Validators.required],
@@ -176,24 +166,24 @@ export class DataFormComponent implements OnInit {
     cpf2Cad: [null, Validators.required],
     rg2Cad: [null, Validators.required],
     end2Cad: [null, Validators.required],
-    cep2Cad: [null,[Validators.required, Validators.maxLength(9)]],
+    cep2Cad: [null, Validators.required],
 
     // DADOS NECESSÁRIOS
     data: [null, Validators.required],
     razSoc: [null, Validators.required],
-    cnpj: [null,[Validators.required, Validators.maxLength(18),]],
+    cnpj: [null, Validators.required],
     inscEst: [null, Validators.required],
     inscMun: [null, Validators.required],
-    fone: [null, [Validators.required , Validators.maxLength(18)]],
-    fone2: [null, [Validators.required, Validators.maxLength(11)]],
-    email: [null, [Validators.required, Validators.email]],
+    fone: [null, Validators.required],
+    fone2: [null, Validators.required],
+    email: [null, Validators.required],
     nomeFin: [null, Validators.required],
-    fone3: [null, [Validators.required, Validators.maxLength(11)]],
-    emailFin: [null, [Validators.required, Validators.email]],
+    fone3: [null, Validators.required],
+    emailFin: [null, Validators.required],
     cargo: [null, Validators.required],
     contMv: [null, Validators.required],
-    cep: [null,[Validators.required, Validators.maxLength(9)]],
-    numero: [null, Validators.required],
+    cep: [null, Validators.required],
+    numero: [0, Validators.required],
     complemento: [null],
     rua: [null, Validators.required],
     bairro: [null, Validators.required],
@@ -201,42 +191,42 @@ export class DataFormComponent implements OnInit {
     estado: [null, Validators.required],
     conta: [null, Validators.required],
     agencia: [null, Validators.required],
-    op: [null, Validators.required],
+    op: [0, Validators.required],
     banco: [null, Validators.required],
     favorecido: [null, Validators.required],
     razSoc3:  [null, Validators.required],
 
     // QUESTIONÁRIO
-    radio1: [null, Validators.required],
-    radio2: [null, Validators.required],
-    radio3: [null, Validators.required],
-    radio4: [null, Validators.required],
+    radio1: [false, Validators.required],
+    radio2: [false, Validators.required],
+    radio3: [false, Validators.required],
+    radio4: [false, Validators.required],
     textarea5: [null],
     textarea6: [null],
-    radio7: [null, Validators.required],
+    radio7: [false, Validators.required],
     textarea7: [null],
-    radio8: [null, Validators.required],
+    radio8: [false, Validators.required],
     textarea8: [null],
-    radio9: [null, Validators.required],
+    radio9: [false, Validators.required],
     textarea9: [null],
-    radio10: [null, Validators.required],
+    radio10: [false, Validators.required],
     textarea10: [null],
-    radio11: [null, Validators.required],
+    radio11: [false, Validators.required],
     textarea11: [null],
-    radio12: [null, Validators.required],
+    radio12: [false, Validators.required],
     textarea12: [null],
-    radio13: [null, Validators.required],
+    radio13: [false, Validators.required],
     textarea13: [null],
-    radio14: [null, Validators.required],
-    radio15: [null, Validators.required],
+    radio14: [false, Validators.required],
+    radio15: [false, Validators.required],
     textarea15: [null],
-    radio16: [null, Validators.required],
+    radio16: [false, Validators.required],
     textarea16: [null],
-    radio17: [null, Validators.required],
-    radio18: [null, Validators.required],
-    radio19: [null, Validators.required],
+    radio17: [false, Validators.required],
+    radio18: [false, Validators.required],
+    radio19: [false, Validators.required],
     textarea19: [null],
-    radio20: [null, Validators.required],
+    radio20: [false, Validators.required],
 
 
     data2: [null, Validators.required],
@@ -247,30 +237,15 @@ export class DataFormComponent implements OnInit {
     })
   }
 
-  // postar(){
-  //   if (!this.formulario.valid) {
-  //     console.log("Formulário inválido");
-  //     return;
-  //   }
-  //   console.log("Formulário válido", this.formulario.value);
-  // }
 
-
-  // postar(){
-  //   if(this.formulario){
-  //     this.http.post(`${this.postar}/api/usuarios`, Usuario}).subscribe(resultado =>)
-
-  //   }
-  // }
-
-  public postar(): void{
+ postar(): void{
+    this.formulario.value.radio1 = this.formulario.value.radio1 == "0"? false : true;
+    console.log(this.formulario.value.radio1)
     this.service.save(this.formulario?.value).subscribe((resultado) => {console.log("cadastrado com sucesso");
+
   });
 
   }
-
-
-
 
 public resetar(): void{
   this.formulario.reset();

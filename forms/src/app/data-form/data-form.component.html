@@ -8,7 +8,7 @@
 
 
 <hr />
-<form class="form-horizontal font" [formGroup]="formulario" (submit)="validation">
+<form class="form-horizontal font" [formGroup]="formulario">
 
 
 
@@ -323,7 +323,7 @@
     <div class="col-md-4">
       <label for="inscEst" class="control-label">Inscrição Estadual</label>
       <input
-        type="number"
+      type="text"
         class="form-control"
         placeholder="Digite a Inscrição Estadual"
         [ngClass]="{ 'is-invalid': f.inscEst.errors && f.inscEst.touched }"
@@ -338,7 +338,7 @@
     <div class="col-md-4">
       <label for="inscMun" class="control-label">Inscrição Municipal</label>
       <input
-        type="number"
+      type="text"
         class="form-control"
         placeholder="Digite a Inscrição Municipal"
         [ngClass]="{ 'is-invalid': f.inscMun.errors && f.inscMun.touched }"
@@ -616,7 +616,7 @@
     <div class="col-md-4">
       <label for="conta" class="control-label">Conta</label>
       <input
-        type="number"
+      type="text"
         class="form-control"
         placeholder="Digite o número da conta"
         [ngClass]="{ 'is-invalid': f.conta.errors && f.conta.touched }"
@@ -631,7 +631,7 @@
     <div class="col-md-4">
       <label for="agencia" class="control-label">Agência</label>
       <input
-        type="number"
+      type="text"
         class="form-control"
         placeholder="Digite a agência"
         [ngClass]="{ 'is-invalid': f.agencia.errors && f.agencia.touched }"
@@ -646,7 +646,7 @@
     <div class="col-md-4">
       <label for="op" class="control-label">Operação</label>
       <input
-        type="number"
+      type="text"
         class="form-control"
         placeholder="Digite a operação"
         [ngClass]="{ 'is-invalid': f.op.errors && f.op.touched }"
@@ -720,7 +720,7 @@
           <label for="radio1">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value='1' name="radio1"  formControlName="radio1" (change)="changeQuiz($event)"> Sim
+            <input id="true" type="radio" value="1" name="radio1"  formControlName="radio1" (change)="changeQuiz($event)"> Sim
          </div>
 
          <div class="form-check-inline">
@@ -1311,10 +1311,12 @@
       class="btn btn-success"
       (click)="postar()"
 
-    >
+
+      >
       Enviar
     </button>
 
   </div>
 </form>
 
+<!-- [disabled]="!formulario.valid" -->

@@ -1,7 +1,7 @@
 export class Usuario{
 
 
-  public Id: Number;
+  
   public razSocCad: string;
   public cnpjCad: string;
   public endCad: string;

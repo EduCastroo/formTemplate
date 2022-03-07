@@ -15,15 +15,16 @@ baseUrl = `${environment.UrlPrincipal}/api/usuarios`; //template string
 constructor(private http: HttpClient) { }
 
 getAll(): Observable<Usuario[]> {
-  return this.http.get<Usuario[]>(`${this.baseUrl}`);
+  return this.http.get<Usuario[]>(this.baseUrl);
 }
 
 getById(id: number): Observable<Usuario>{
 return this.http.get<Usuario>(`${this.baseUrl}/${id}`);
 }
 
-save(usuario: Usuario): Observable<Usuario>{
-  return this.http.post<Usuario>(`${this.baseUrl}`, usuario);
+save(usuario: Usuario){
+  // debugger;
+  return this.http.post(this.baseUrl, usuario);
 }
 
 
