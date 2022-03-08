@@ -3,7 +3,7 @@
 </div>
 
 
-<!-- <app-form-debug [form]="formulario"></app-form-debug> -->
+<app-form-debug [form]="formulario"></app-form-debug>
 
 <form class="form-horizontal font" [formGroup]="formulario">
 
@@ -717,14 +717,14 @@
     <form [formGroup]="formulario">
 
       <div class="form-group">
-          <label for="radio1">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
+          <label for="PossCapTecExecCont">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value="1" name="radio1"  formControlName="radio1" (change)="changeQuiz($event)"> Sim
+            <input id="true" type="radio" value="1" name="PossCapTecExecCont"  formControlName="PossCapTecExecCont" (change)="changeQuiz($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="0" name="radio1" formControlName="radio1" (change)="changeQuiz($event)"> Não
+            <input id="false" type="radio" value="0" name="PossCapTecExecCont" formControlName="PossCapTecExecCont" (change)="changeQuiz($event)"> Não
          </div>
          </div>
       </div>
@@ -737,14 +737,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio2">2 - A empresa possui programa de integridade ou Compliance?</label>
+        <label for="EmpPossProgInteComp">2 - A empresa possui programa de integridade ou Compliance?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio2"  formControlName="radio2" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpPossProgInteComp"  formControlName="EmpPossProgInteComp" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio2" formControlName="radio2" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpPossProgInteComp" formControlName="EmpPossProgInteComp" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -757,15 +757,15 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio3">3 - A empresa possui histórico de envolvimento em investigações em casos
+        <label for="EmpPossHistEnvFrau">3 - A empresa possui histórico de envolvimento em investigações em casos
           de fraude, corrupção ou lavagem de dinheiro?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio3"  formControlName="radio3" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpPossHistEnvFrau"  formControlName="EmpPossHistEnvFrau" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio3" formControlName="radio3" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpPossHistEnvFrau" formControlName="EmpPossHistEnvFrau" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -778,16 +778,16 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio4">4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
+        <label for="EmpListCeisCnep">4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
           Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas
           Punidas (CNEP). </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio4"  formControlName="radio4" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpListCeisCnep"  formControlName="EmpListCeisCnep" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio4" formControlName="radio4" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpListCeisCnep" formControlName="EmpListCeisCnep" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -820,7 +820,7 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio5">6 - Descreva as atividades de sua empresa CNAEs</label>
+        <label for="radio6">6 - Descreva as atividades de sua empresa CNAEs</label>
        <div class="linha">
 
        </div>
@@ -843,14 +843,14 @@
     <form [formGroup]="formulario">
 
       <div class="form-group">
-          <label for="radio7">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
+          <label for="AlgumSocPossVincMv">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value='1' name="radio7"  formControlName="radio7" (change)="changeQuiz7($event)"> Sim
+            <input id="true" type="radio" value='1' name="AlgumSocPossVincMv"  formControlName="AlgumSocPossVincMv" (change)="changeQuiz7($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="0" name="radio7" formControlName="radio7" (change)="changeQuiz7($event)"> Não
+            <input id="false" type="radio" value="0" name="AlgumSocPossVincMv" formControlName="AlgumSocPossVincMv" (change)="changeQuiz7($event)"> Não
          </div>
          </div>
          <div class="form-group" [hidden]="!caixa7">
@@ -875,14 +875,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio8">8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV? </label>
+        <label for="FuncPrestServVinMV">8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio8"  formControlName="radio8" (change)="changeQuiz8($event)"> Sim
+          <input id="true" type="radio" value='1' name="FuncPrestServVinMV"  formControlName="FuncPrestServVinMV" (change)="changeQuiz8($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio8" formControlName="radio8" (change)="changeQuiz8($event)"> Não
+          <input id="false" type="radio" value="0" name="FuncPrestServVinMV" formControlName="FuncPrestServVinMV" (change)="changeQuiz8($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa8">
@@ -903,14 +903,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio9">9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?  </label>
+        <label for="AlgumSocFuncPubl">9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?  </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio9"  formControlName="radio9" (change)="changeQuiz9($event)"> Sim
+          <input id="true" type="radio" value='1' name="AlgumSocFuncPubl"  formControlName="AlgumSocFuncPubl" (change)="changeQuiz9($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio9" formControlName="radio9" (change)="changeQuiz9($event)"> Não
+          <input id="false" type="radio" value="0" name="AlgumSocFuncPubl" formControlName="AlgumSocFuncPubl" (change)="changeQuiz9($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa9">
@@ -930,14 +930,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio10">10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?   </label>
+        <label for="AlgumSocConcCargPub">10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio10"  formControlName="radio10" (change)="changeQuiz10($event)"> Sim
+          <input id="true" type="radio" value='1' name="AlgumSocConcCargPub"  formControlName="AlgumSocConcCargPub" (change)="changeQuiz10($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio10" formControlName="radio10" (change)="changeQuiz10($event)"> Não
+          <input id="false" type="radio" value="0" name="AlgumSocConcCargPub" formControlName="AlgumSocConcCargPub" (change)="changeQuiz10($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa10">
@@ -958,14 +958,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio11">11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </label>
+        <label for="AlgumSocConjFuncMv">11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio11"  formControlName="radio11" (change)="changeQuiz11($event)"> Sim
+          <input id="true" type="radio" value='1' name="AlgumSocConjFuncMv"  formControlName="AlgumSocConjFuncMv" (change)="changeQuiz11($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio11" formControlName="radio11" (change)="changeQuiz11($event)"> Não
+          <input id="false" type="radio" value="0" name="AlgumSocConjFuncMv" formControlName="AlgumSocConjFuncMv" (change)="changeQuiz11($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa11">
@@ -986,14 +986,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio12">12 - A empresa possui relação com outros países?  </label>
+        <label for="EmpPossRelOutPais">12 - A empresa possui relação com outros países?  </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio12"  formControlName="radio12" (change)="changeQuiz12($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpPossRelOutPais"  formControlName="EmpPossRelOutPais" (change)="changeQuiz12($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio12" formControlName="radio12" (change)="changeQuiz12($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpPossRelOutPais" formControlName="EmpPossRelOutPais" (change)="changeQuiz12($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa12">
@@ -1014,14 +1014,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio13">13 - A empresa faz uso de intermediários para fechar negócios?   </label>
+        <label for="EmpUsaIntFechNeg">13 - A empresa faz uso de intermediários para fechar negócios?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio13"  formControlName="radio13" (change)="changeQuiz13($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpUsaIntFechNeg"  formControlName="EmpUsaIntFechNeg" (change)="changeQuiz13($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio13" formControlName="radio13" (change)="changeQuiz13($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpUsaIntFechNeg" formControlName="EmpUsaIntFechNeg" (change)="changeQuiz13($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa13">
@@ -1042,14 +1042,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio14">14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).   </label>
+        <label for="EmpRealizTreinLgpdMv">14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio14"  formControlName="radio14" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpRealizTreinLgpdMv"  formControlName="EmpRealizTreinLgpdMv" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio14" formControlName="radio14" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpRealizTreinLgpdMv" formControlName="EmpRealizTreinLgpdMv" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1061,14 +1061,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio15">15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.   </label>
+        <label for="EmpPossCertLgpd">15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio15"  formControlName="radio15" (change)="changeQuiz15($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpPossCertLgpd"  formControlName="EmpPossCertLgpd" (change)="changeQuiz15($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio15" formControlName="radio15" (change)="changeQuiz15($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpPossCertLgpd" formControlName="EmpPossCertLgpd" (change)="changeQuiz15($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa15">
@@ -1090,14 +1090,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio16">16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado?   </label>
+        <label for="EmpPossEncarProtDad">16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio16"  formControlName="radio16" (change)="changeQuiz16($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpPossEncarProtDad"  formControlName="EmpPossEncarProtDad" (change)="changeQuiz16($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio16" formControlName="radio16" (change)="changeQuiz16($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpPossEncarProtDad" formControlName="EmpPossEncarProtDad" (change)="changeQuiz16($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa16">
@@ -1118,14 +1118,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio17">17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais? </label>
+        <label for="EmpEnconAptaAvalDanPess">17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio17"  formControlName="radio17" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmpEnconAptaAvalDanPess"  formControlName="EmpEnconAptaAvalDanPess" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio17" formControlName="radio17" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="EmpEnconAptaAvalDanPess" formControlName="EmpEnconAptaAvalDanPess" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1137,14 +1137,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio18">18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais? </label>
+        <label for="OsColabTreiCapacLgpd">18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio18"  formControlName="radio18" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="OsColabTreiCapacLgpd"  formControlName="OsColabTreiCapacLgpd" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio18" formControlName="radio18" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="OsColabTreiCapacLgpd" formControlName="OsColabTreiCapacLgpd" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1156,14 +1156,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio19">19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.) </label>
+        <label for="DescTecSegAdotPreserLgpd">19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.) </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio19"  formControlName="radio19" (change)="changeQuiz19($event)"> Sim
+          <input id="true" type="radio" value='1' name="DescTecSegAdotPreserLgpd"  formControlName="DescTecSegAdotPreserLgpd" (change)="changeQuiz19($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio19" formControlName="radio19" (change)="changeQuiz19($event)"> Não
+          <input id="false" type="radio" value="0" name="DescTecSegAdotPreserLgpd" formControlName="DescTecSegAdotPreserLgpd" (change)="changeQuiz19($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa19">
@@ -1184,14 +1184,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio20">20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</label>
+        <label for="TransfeCompartLgpdAcordLei">20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="radio20"  formControlName="radio20" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="TransfeCompartLgpdAcordLei"  formControlName="TransfeCompartLgpdAcordLei" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="radio20" formControlName="radio20" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="TransfeCompartLgpdAcordLei" formControlName="TransfeCompartLgpdAcordLei" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>

@@ -1,7 +1,7 @@
 export class Usuario{
 
 
-  
+
   public razSocCad: string;
   public cnpjCad: string;
   public endCad: string;
@@ -42,36 +42,36 @@ export class Usuario{
   public banco: string;
   public favorecido: string;
   public razSoc3: string;
-  public radio1: boolean;
-  public radio2: boolean;
-  public radio3: boolean;
-  public radio4: boolean;
+  public PossCapTecExecCont: boolean;
+  public EmpPossProgInteComp: boolean;
+  public EmpPossHistEnvFrau: boolean;
+  public EmpListCeisCnep: boolean;
   public textarea5: string;
   public textarea6: string;
-  public radio7: boolean;
+  public AlgumSocPossVincMv: boolean;
   public textarea7: string;
-  public radio8: boolean;
+  public FuncPrestServVinMV: boolean;
   public textarea8: string;
-  public radio9: boolean;
+  public AlgumSocFuncPubl: boolean;
   public textarea9: string;
-  public radio10: boolean;
+  public AlgumSocConcCargPub : boolean;
   public textarea10: string;
-  public radio11: boolean;
+  public AlgumSocConjFuncMv: boolean;
   public textarea11: string;
-  public radio12: boolean;
+  public EmpPossRelOutPais: boolean;
   public textarea12: string;
-  public radio13: boolean;
+  public EmpUsaIntFechNeg: boolean;
   public textarea13: string;
-  public radio14: boolean;
-  public radio15: boolean;
+  public EmpRealizTreinLgpdMv: boolean;
+  public EmpPossCertLgpd: boolean;
   public textarea15: string;
-  public radio16: boolean;
+  public EmpPossEncarProtDad: boolean;
   public textarea16: string;
-  public radio17: boolean;
-  public radio18: boolean;
-  public radio19: boolean;
+  public EmpEnconAptaAvalDanPess: boolean;
+  public OsColabTreiCapacLgpd : boolean;
+  public DescTecSegAdotPreserLgpd: boolean;
   public textarea19: string;
-  public radio20: boolean;
+  public TransfeCompartLgpdAcordLei: boolean;
   public data2: string;
   public nomeLeg: string;
   public rgRep: string;

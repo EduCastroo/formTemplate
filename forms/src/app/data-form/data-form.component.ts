@@ -13,7 +13,7 @@ export class DataFormComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  
+
   caixa: boolean = false
   caixa7: boolean = false
   caixa8: boolean = false
@@ -195,36 +195,36 @@ export class DataFormComponent implements OnInit {
     razSoc3:  [null, Validators.required],
 
     // QUESTIONÁRIO
-    radio1: [false, Validators.required],
-    radio2: [false, Validators.required],
-    radio3: [false, Validators.required],
-    radio4: [false, Validators.required],
+    PossCapTecExecCont: [false, Validators.required],
+    EmpPossProgInteComp: [false, Validators.required],
+    EmpPossHistEnvFrau: [false, Validators.required],
+    EmpListCeisCnep: [false, Validators.required],
     textarea5: [null],
     textarea6: [null],
-    radio7: [false, Validators.required],
+    AlgumSocPossVincMv: [false, Validators.required],
     textarea7: [null],
-    radio8: [false, Validators.required],
+    FuncPrestServVinMV: [false, Validators.required],
     textarea8: [null],
-    radio9: [false, Validators.required],
+    AlgumSocFuncPubl: [false, Validators.required],
     textarea9: [null],
-    radio10: [false, Validators.required],
+    AlgumSocConcCargPub: [false, Validators.required],
     textarea10: [null],
-    radio11: [false, Validators.required],
+    AlgumSocConjFuncMv: [false, Validators.required],
     textarea11: [null],
-    radio12: [false, Validators.required],
+    EmpPossRelOutPais: [false, Validators.required],
     textarea12: [null],
-    radio13: [false, Validators.required],
+    EmpUsaIntFechNeg: [false, Validators.required],
     textarea13: [null],
-    radio14: [false, Validators.required],
-    radio15: [false, Validators.required],
+    EmpRealizTreinLgpdMv: [false, Validators.required],
+    EmpPossCertLgpd: [false, Validators.required],
     textarea15: [null],
-    radio16: [false, Validators.required],
+    EmpPossEncarProtDad: [false, Validators.required],
     textarea16: [null],
-    radio17: [false, Validators.required],
-    radio18: [false, Validators.required],
-    radio19: [false, Validators.required],
+    EmpEnconAptaAvalDanPess: [false, Validators.required],
+    OsColabTreiCapacLgpd: [false, Validators.required],
+    DescTecSegAdotPreserLgpd: [false, Validators.required],
     textarea19: [null],
-    radio20: [false, Validators.required],
+    TransfeCompartLgpdAcordLei : [false, Validators.required],
 
 
     data2: [null, Validators.required],
@@ -237,24 +237,24 @@ export class DataFormComponent implements OnInit {
 
 
  postar(): void{
-    this.formulario.value.radio1 = this.formulario.value.radio1 == "0"? false : true;
-    this.formulario.value.radio2 = this.formulario.value.radio2 == "0"? false : true;
-    this.formulario.value.radio3 = this.formulario.value.radio3 == "0"? false : true;
-    this.formulario.value.radio4 = this.formulario.value.radio4 == "0"? false : true;
-    this.formulario.value.radio7 = this.formulario.value.radio7 == "0"? false : true;
-    this.formulario.value.radio8 = this.formulario.value.radio8 == "0"? false : true;
-    this.formulario.value.radio9 = this.formulario.value.radio9 == "0"? false : true;
-    this.formulario.value.radio10 = this.formulario.value.radio10 == "0"? false : true;
-    this.formulario.value.radio11 = this.formulario.value.radio11 == "0"? false : true;
-    this.formulario.value.radio12 = this.formulario.value.radio12 == "0"? false : true;
-    this.formulario.value.radio13 = this.formulario.value.radio13 == "0"? false : true;
-    this.formulario.value.radio14 = this.formulario.value.radio14 == "0"? false : true;
-    this.formulario.value.radio15 = this.formulario.value.radio15 == "0"? false : true;
-    this.formulario.value.radio16 = this.formulario.value.radio16 == "0"? false : true;
-    this.formulario.value.radio17 = this.formulario.value.radio17 == "0"? false : true;
-    this.formulario.value.radio18 = this.formulario.value.radio18 == "0"? false : true;
-    this.formulario.value.radio19 = this.formulario.value.radio19 == "0"? false : true;
-    this.formulario.value.radio20 = this.formulario.value.radio20 == "0"? false : true;
+    this.formulario.value.PossCapTecExecCont = this.formulario.value.PossCapTecExecCont == "0"? false : true;
+    this.formulario.value.EmpPossProgInteComp = this.formulario.value.EmpPossProgInteComp == "0"? false : true;
+    this.formulario.value.EmpPossHistEnvFrau = this.formulario.value.EmpPossHistEnvFrau == "0"? false : true;
+    this.formulario.value.EmpListCeisCnep = this.formulario.value.EmpListCeisCnep == "0"? false : true;
+    this.formulario.value.AlgumSocPossVincMv = this.formulario.value.AlgumSocPossVincMv == "0"? false : true;
+    this.formulario.value.FuncPrestServVinMV = this.formulario.value.FuncPrestServVinMV == "0"? false : true;
+    this.formulario.value.AlgumSocFuncPubl = this.formulario.value.AlgumSocFuncPubl == "0"? false : true;
+    this.formulario.value.AlgumSocConcCargPub = this.formulario.value.AlgumSocConcCargPub == "0"? false : true;
+    this.formulario.value.AlgumSocConjFuncMv = this.formulario.value.AlgumSocConjFuncMv == "0"? false : true;
+    this.formulario.value.EmpPossRelOutPais = this.formulario.value.EmpPossRelOutPais == "0"? false : true;
+    this.formulario.value.EmpUsaIntFechNeg = this.formulario.value.EmpUsaIntFechNeg == "0"? false : true;
+    this.formulario.value.EmpRealizTreinLgpdMv = this.formulario.value.EmpRealizTreinLgpdMv == "0"? false : true;
+    this.formulario.value.EmpPossCertLgpd = this.formulario.value.EmpPossCertLgpd == "0"? false : true;
+    this.formulario.value.EmpPossEncarProtDad = this.formulario.value.EmpPossEncarProtDad == "0"? false : true;
+    this.formulario.value.EmpEnconAptaAvalDanPess = this.formulario.value.EmpEnconAptaAvalDanPess == "0"? false : true;
+    this.formulario.value.OsColabTreiCapacLgpd = this.formulario.value.OsColabTreiCapacLgpd == "0"? false : true;
+    this.formulario.value.DescTecSegAdotPreserLgpd = this.formulario.value.DescTecSegAdotPreserLgpd == "0"? false : true;
+    this.formulario.value.TransfeCompartLgpdAcordLei = this.formulario.value.TransfeCompartLgpdAcordLei == "0"? false : true;
     // console.log(this.formulario.value.radio1)
     this.service.save(this.formulario?.value).subscribe((resultado) => {console.log("cadastrado com sucesso");
 
