@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  UrlPrincipal: "https://localhost:44365"
+  UrlPrincipal: "https://localhost:44365",
+  // azureBlobContainer: 'dev',
+  // azureBlobContainerSAS: 'sp=racwdli&st=2022-01-04T11:31:54Z&se=2025-01-01T19:31:54Z&spr=https&sv=2020-08-04&sr=c&sig=XgvF8b8sl2b8Q5de9X9EYvAqa2BVYrvzPpHGpKiAamM%3D'
+
 };
 
 /*

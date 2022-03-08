@@ -13,9 +13,7 @@ export class DataFormComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  // isVisible: any;
-  // isSelected: boolean = false
-  // opcaoselec: boolean = false;
+  
   caixa: boolean = false
   caixa7: boolean = false
   caixa8: boolean = false
@@ -240,7 +238,24 @@ export class DataFormComponent implements OnInit {
 
  postar(): void{
     this.formulario.value.radio1 = this.formulario.value.radio1 == "0"? false : true;
-    console.log(this.formulario.value.radio1)
+    this.formulario.value.radio2 = this.formulario.value.radio2 == "0"? false : true;
+    this.formulario.value.radio3 = this.formulario.value.radio3 == "0"? false : true;
+    this.formulario.value.radio4 = this.formulario.value.radio4 == "0"? false : true;
+    this.formulario.value.radio7 = this.formulario.value.radio7 == "0"? false : true;
+    this.formulario.value.radio8 = this.formulario.value.radio8 == "0"? false : true;
+    this.formulario.value.radio9 = this.formulario.value.radio9 == "0"? false : true;
+    this.formulario.value.radio10 = this.formulario.value.radio10 == "0"? false : true;
+    this.formulario.value.radio11 = this.formulario.value.radio11 == "0"? false : true;
+    this.formulario.value.radio12 = this.formulario.value.radio12 == "0"? false : true;
+    this.formulario.value.radio13 = this.formulario.value.radio13 == "0"? false : true;
+    this.formulario.value.radio14 = this.formulario.value.radio14 == "0"? false : true;
+    this.formulario.value.radio15 = this.formulario.value.radio15 == "0"? false : true;
+    this.formulario.value.radio16 = this.formulario.value.radio16 == "0"? false : true;
+    this.formulario.value.radio17 = this.formulario.value.radio17 == "0"? false : true;
+    this.formulario.value.radio18 = this.formulario.value.radio18 == "0"? false : true;
+    this.formulario.value.radio19 = this.formulario.value.radio19 == "0"? false : true;
+    this.formulario.value.radio20 = this.formulario.value.radio20 == "0"? false : true;
+    // console.log(this.formulario.value.radio1)
     this.service.save(this.formulario?.value).subscribe((resultado) => {console.log("cadastrado com sucesso");
 
   });
