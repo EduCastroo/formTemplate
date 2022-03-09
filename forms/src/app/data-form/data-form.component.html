@@ -1,15 +1,19 @@
+<div class="logo">
+  <img class= "logo-img" src="./assets/img/header.png" alt="header mv">
+  </div>
+
 <div class="flex-box" id="centro">
   <h4>CADASTRAMENTO DE FORNECEDORES E DECLARAÇÃO – DUE DILLIGENCE</h4>
 </div>
 
 
-<app-form-debug [form]="formulario"></app-form-debug>
+<!-- <app-form-debug [form]="formulario"></app-form-debug> -->
 
 <form class="form-horizontal font" [formGroup]="formulario">
 
 
 
-   <div class="linha">
+   <!-- <div class="linha">
     <input
     type="text"
     cols="40"
@@ -254,7 +258,7 @@
       </div></div>
   , DECLARA:
 <hr>
-</div>
+</div> -->
 
 
 <div class="flex-box" id="centro">
@@ -267,7 +271,7 @@
 
 
   <div class="d-flex">
-    <div class="form-group col-md-4">
+    <div class="form-group col-md-3">
       <label class="control-label" for="data">Data do Cadastro</label>
       <input
         id="data"
@@ -281,7 +285,7 @@
       </div>
     </div>
 
-    <div class="form-group col-md-8">
+    <div class="form-group col-md-6">
       <div><label for="razSoc">Razão Social</label></div>
       <div>
         <input
@@ -297,6 +301,23 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-3">
+      <div><label for="control-label">Número de Funcionários</label></div>
+
+      <input
+  type="text"
+  placeholder="Digite o número de funcionários"
+  class="form-control"
+  formControlName="numFunc"
+  id="numFunc"
+  [ngClass]="{ 'is-invalid': f.numFunc.errors && f.numFunc.touched }"
+  />
+  <div *ngIf="f.numFunc.errors?.required" class="invalid-feedback">
+    O número de funcionários é obrigatório
+  </div>
+    </div>
+
   </div>
 
   <div class="d-flex">
@@ -401,6 +422,218 @@
     </div>
   </div>
 
+  <!-- CADASTRO DOS SÓCIOS -->
+  <div class="flex-box" id="centro">
+    <h4>Cadastro de Sócios</h4>
+  </div>
+
+<div class="d-flex">
+    <div class="col-md-6">
+      <div><label>Nome do Sócio</label></div>
+
+      <input
+      type="text"
+      placeholder="Nome do sócio"
+      class="form-control"
+      formControlName="socioCad"
+      id="socioCad"
+      [ngClass]="{ 'is-invalid': f.socioCad.errors && f.socioCad.touched }"
+      />
+      <div *ngIf="f.socioCad.errors?.required" class="invalid-feedback">
+        O sócio é obrigatório
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div><label for="control-label">Cargo</label></div>
+
+      <input
+    type="text"
+    placeholder="Cargo do sócio"
+    class="form-control"
+    formControlName="cargoCad"
+    id="cargoCad"
+    [ngClass]="{ 'is-invalid': f.cargoCad.errors && f.cargoCad.touched }"
+    />
+    <div *ngIf="f.cargoCad.errors?.required" class="invalid-feedback">
+      O cargo é obrigatório
+    </div>
+    </div>
+
+  </div>
+
+
+  <div class="d-flex">
+    <div class="col-md-4">
+      <div><label for="control-label">CPF/MF</label></div>
+
+      <input
+      type="text"
+      placeholder="Digite o CPF/MF"
+      class="form-control"
+      mask="000.000.000-00"
+      formControlName="cpf1Cad"
+      id="cpf1Cad"
+      [ngClass]="{ 'is-invalid': f.cpf1Cad.errors && f.cpf1Cad.touched }"
+      />
+      <div *ngIf="f.cpf1Cad.errors?.required" class="invalid-feedback">
+        O CPF/MF é obrigatório
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div><label for="control-label">RG</label></div>
+
+        <input
+    type="text"
+    placeholder="Digite o RG"
+    class="form-control"
+    formControlName="rg1Cad"
+    id="rg1Cad"
+    [ngClass]="{ 'is-invalid': f.rg1Cad.errors && f.rg1Cad.touched }"
+    />
+    <div *ngIf="f.rg1Cad.errors?.required" class="invalid-feedback">
+      O RG é obrigatório
+    </div>
+      </div>
+
+      <div class="col-md-4">
+        <div><label for="control-label">% de participação na empresa</label></div>
+
+        <input
+    type="text"
+    placeholder="Digite o % de participação na empresa"
+    class="form-control"
+    formControlName="percentPart1"
+    id="percentPart1"
+    [ngClass]="{ 'is-invalid': f.percentPart1.errors && f.percentPart1.touched }"
+    />
+    <div *ngIf="f.percentPart1.errors?.required" class="invalid-feedback">
+      O % de participação na empresa é obrigatório
+    </div>
+      </div>
+
+
+  </div>
+
+<div class="d-flex">
+    <div class="col-md-6 form-group">
+      <div><label>Nome do Sócio</label></div>
+
+      <input
+      type="text"
+      placeholder="Nome do sócio"
+      class="form-control"
+      formControlName="socio2Cad"
+      id="socio2Cad"
+      [ngClass]="{ 'is-invalid': f.socio2Cad.errors && f.socio2Cad.touched }"
+      />
+      <div *ngIf="f.socio2Cad.errors?.required" class="invalid-feedback">
+        O sócio é obrigatório
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div><label for="control-label">Cargo</label></div>
+
+      <input
+    type="text"
+    placeholder="Cargo do sócio"
+    class="form-control"
+    formControlName="cargo2Cad"
+    id="cargo2Cad"
+    [ngClass]="{ 'is-invalid': f.cargo2Cad.errors && f.cargo2Cad.touched }"
+    />
+    <div *ngIf="f.cargo2Cad.errors?.required" class="invalid-feedback">
+      O cargo é obrigatório
+    </div>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <div class="col-md-4">
+      <div><label for="control-label">CPF/MF</label></div>
+
+      <input
+      type="text"
+      placeholder="Digite o CPF/MF"
+      class="form-control"
+      mask="000.000.000-00"
+      formControlName="cpf2Cad"
+      id="cpf2Cad"
+      [ngClass]="{ 'is-invalid': f.cpf2Cad.errors && f.cpf2Cad.touched }"
+      />
+      <div *ngIf="f.cpf2Cad.errors?.required" class="invalid-feedback">
+        O CPF/MF é obrigatório
+      </div>
+    </div>
+    <div class="col-md-4">
+        <div><label for="control-label">RG</label></div>
+
+        <input
+    type="text"
+    placeholder="Digite o RG"
+    class="form-control"
+    formControlName="rg2Cad"
+    id="rg2Cad"
+    [ngClass]="{ 'is-invalid': f.rg2Cad.errors && f.rg2Cad.touched }"
+    />
+    <div *ngIf="f.rg2Cad.errors?.required" class="invalid-feedback">
+      O RG é obrigatório
+    </div>
+      </div>
+
+      <div class="col-md-4">
+        <div><label for="control-label">% de participação na empresa</label></div>
+
+        <input
+    type="text"
+    placeholder="Digite o % de participação na empresa"
+    class="form-control"
+    formControlName="percentPart2"
+    id="percentPart2"
+    [ngClass]="{ 'is-invalid': f.percentPart2.errors && f.percentPart2.touched }"
+    />
+    <div *ngIf="f.percentPart2.errors?.required" class="invalid-feedback">
+      O % de participação na empresa é obrigatório
+    </div>
+      </div>
+
+
+  </div>
+
+  <div class="d-flex">
+    <div class="col-md-8 form-group">
+      <label for="end2Cad" class="control-label">Endereço Completo Sócios</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Digite o codigo e nome do end2Cad"
+        [ngClass]="{ 'is-invalid': f.end2Cad.errors && f.end2Cad.touched }"
+        formControlName="end2Cad"
+        id="end2Cad"
+      />
+      <div *ngIf="f.end2Cad.errors?.required" class="invalid-feedback">
+        O campo Endereço é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <label for="cep2Cad" class="control-label">CEP</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Digite o nome do cep2Cad"
+        [ngClass]="{
+          'is-invalid': f.cep2Cad.errors && f.cep2Cad.touched
+        }"
+        formControlName="cep2Cad"
+        id="cep2Cad"
+      />
+      <div *ngIf="f.cep2Cad.errors?.required" class="invalid-feedback">
+        O campo CEP é obrigatório.
+      </div>
+    </div>
+  </div>
 
   <div class="flex-box" id="centro">
     <h4>Contato financeiro</h4>
@@ -496,7 +729,7 @@
   <div>
     <div class="form-group">
       <div class="d-flex">
-        <div class="col-md-3 form-group">
+        <div class="col-md-4 form-group">
           <label for="cep" class="control-label">CEP</label>
           <input
             type="text"
@@ -513,7 +746,25 @@
           </div>
         </div>
 
-        <div class="col-md-3">
+
+
+          <div class="col-md-6">
+            <label for="rua" class="control-label">Rua</label>
+            <input
+              type="text"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': f.rua.errors && f.rua.touched }"
+              formControlName="rua"
+              id="rua"
+              placeholder="Digite o nome da rua"
+            />
+            <div *ngIf="f.rua.errors?.required" class="invalid-feedback">
+              O campo Rua é obrigatório.
+            </div>
+          </div>
+
+
+        <div class="col-md-2">
           <label for="numero" class="control-label">Número</label>
           <input
             type="number"
@@ -528,34 +779,6 @@
           </div>
         </div>
 
-        <div class="col-md-6">
-          <label for="complemento" class="control-label">Complemento</label>
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Digite o complemento"
-            formControlName="complemento"
-            id="complemento"
-          />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-sm-12"><label for="rua">Rua</label></div>
-
-        <div class="col sm-12">
-          <input
-            type="text"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': f.rua.errors && f.rua.touched }"
-            formControlName="rua"
-            id="rua"
-            placeholder="Digite o nome da rua"
-          />
-          <div *ngIf="f.rua.errors?.required" class="invalid-feedback">
-            O campo Rua é obrigatório.
-          </div>
-        </div>
       </div>
 
       <div class="d-flex">
@@ -604,6 +827,17 @@
           </div>
         </div>
       </div>
+
+      <div class="col-md-12">
+        <label for="complemento" class="control-label">Complemento</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Digite o complemento"
+          formControlName="complemento"
+          id="complemento"
+        />
+      </div>
     </div>
 
   </div>
@@ -647,7 +881,7 @@
       <input
       type="text"
         class="form-control"
-        placeholder="Digite a operação"
+        placeholder="Digite o código da operação"
         [ngClass]="{ 'is-invalid': f.op.errors && f.op.touched }"
         formControlName="op"
         id="op"
@@ -717,14 +951,14 @@
     <form [formGroup]="formulario">
 
       <div class="form-group">
-          <label for="PossCapTecExecCont">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
+          <label for="Quest1">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value="1" name="PossCapTecExecCont"  formControlName="PossCapTecExecCont" (change)="changeQuiz($event)"> Sim
+            <input id="true" type="radio" value="1" name="Quest1"  formControlName="Quest1" (change)="changeQuiz($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="0" name="PossCapTecExecCont" formControlName="PossCapTecExecCont" (change)="changeQuiz($event)"> Não
+            <input id="false" type="radio" value="0" name="Quest1" formControlName="Quest1" (change)="changeQuiz($event)"> Não
          </div>
          </div>
       </div>
@@ -737,14 +971,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpPossProgInteComp">2 - A empresa possui programa de integridade ou Compliance?</label>
+        <label for="Quest2">2 - A empresa possui programa de integridade ou Compliance?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpPossProgInteComp"  formControlName="EmpPossProgInteComp" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest2"  formControlName="Quest2" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpPossProgInteComp" formControlName="EmpPossProgInteComp" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest2" formControlName="Quest2" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -757,15 +991,15 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpPossHistEnvFrau">3 - A empresa possui histórico de envolvimento em investigações em casos
+        <label for="Quest3">3 - A empresa possui histórico de envolvimento em investigações em casos
           de fraude, corrupção ou lavagem de dinheiro?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpPossHistEnvFrau"  formControlName="EmpPossHistEnvFrau" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest3"  formControlName="Quest3" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpPossHistEnvFrau" formControlName="EmpPossHistEnvFrau" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest3" formControlName="Quest3" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -778,16 +1012,16 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpListCeisCnep">4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
+        <label for="Quest4">4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
           Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas
-          Punidas (CNEP). </label>
+          Punidas (CNEP).</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpListCeisCnep"  formControlName="EmpListCeisCnep" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest4"  formControlName="Quest4" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpListCeisCnep" formControlName="EmpListCeisCnep" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest4" formControlName="Quest4" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -843,14 +1077,14 @@
     <form [formGroup]="formulario">
 
       <div class="form-group">
-          <label for="AlgumSocPossVincMv">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
+          <label for="Quest7">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value='1' name="AlgumSocPossVincMv"  formControlName="AlgumSocPossVincMv" (change)="changeQuiz7($event)"> Sim
+            <input id="true" type="radio" value='1' name="Quest7"  formControlName="Quest7" (change)="changeQuiz7($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="0" name="AlgumSocPossVincMv" formControlName="AlgumSocPossVincMv" (change)="changeQuiz7($event)"> Não
+            <input id="false" type="radio" value="0" name="Quest7" formControlName="Quest7" (change)="changeQuiz7($event)"> Não
          </div>
          </div>
          <div class="form-group" [hidden]="!caixa7">
@@ -875,14 +1109,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="FuncPrestServVinMV">8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV? </label>
+        <label for="Quest8">8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="FuncPrestServVinMV"  formControlName="FuncPrestServVinMV" (change)="changeQuiz8($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest8"  formControlName="Quest8" (change)="changeQuiz8($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="FuncPrestServVinMV" formControlName="FuncPrestServVinMV" (change)="changeQuiz8($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest8" formControlName="Quest8" (change)="changeQuiz8($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa8">
@@ -903,14 +1137,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="AlgumSocFuncPubl">9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?  </label>
+        <label for="Quest9">9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?  </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="AlgumSocFuncPubl"  formControlName="AlgumSocFuncPubl" (change)="changeQuiz9($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest9"  formControlName="Quest9" (change)="changeQuiz9($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="AlgumSocFuncPubl" formControlName="AlgumSocFuncPubl" (change)="changeQuiz9($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest9" formControlName="Quest9" (change)="changeQuiz9($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa9">
@@ -930,14 +1164,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="AlgumSocConcCargPub">10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?   </label>
+        <label for="Quest10">10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="AlgumSocConcCargPub"  formControlName="AlgumSocConcCargPub" (change)="changeQuiz10($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest10"  formControlName="Quest10" (change)="changeQuiz10($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="AlgumSocConcCargPub" formControlName="AlgumSocConcCargPub" (change)="changeQuiz10($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest10" formControlName="Quest10" (change)="changeQuiz10($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa10">
@@ -958,14 +1192,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="AlgumSocConjFuncMv">11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </label>
+        <label for="Quest11">11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="AlgumSocConjFuncMv"  formControlName="AlgumSocConjFuncMv" (change)="changeQuiz11($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest11"  formControlName="Quest11" (change)="changeQuiz11($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="AlgumSocConjFuncMv" formControlName="AlgumSocConjFuncMv" (change)="changeQuiz11($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest11" formControlName="Quest11" (change)="changeQuiz11($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa11">
@@ -986,14 +1220,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpPossRelOutPais">12 - A empresa possui relação com outros países?  </label>
+        <label for="Quest12">12 - A empresa possui relação com outros países?  </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpPossRelOutPais"  formControlName="EmpPossRelOutPais" (change)="changeQuiz12($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest12"  formControlName="Quest12" (change)="changeQuiz12($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpPossRelOutPais" formControlName="EmpPossRelOutPais" (change)="changeQuiz12($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest12" formControlName="Quest12" (change)="changeQuiz12($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa12">
@@ -1014,14 +1248,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpUsaIntFechNeg">13 - A empresa faz uso de intermediários para fechar negócios?   </label>
+        <label for="Quest13">13 - A empresa faz uso de intermediários para fechar negócios?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpUsaIntFechNeg"  formControlName="EmpUsaIntFechNeg" (change)="changeQuiz13($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest13"  formControlName="Quest13" (change)="changeQuiz13($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpUsaIntFechNeg" formControlName="EmpUsaIntFechNeg" (change)="changeQuiz13($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest13" formControlName="Quest13" (change)="changeQuiz13($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa13">
@@ -1042,14 +1276,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpRealizTreinLgpdMv">14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).   </label>
+        <label for="Quest14">14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpRealizTreinLgpdMv"  formControlName="EmpRealizTreinLgpdMv" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest14"  formControlName="Quest14" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpRealizTreinLgpdMv" formControlName="EmpRealizTreinLgpdMv" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest14" formControlName="Quest14" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1061,14 +1295,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpPossCertLgpd">15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.   </label>
+        <label for="Quest15">15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpPossCertLgpd"  formControlName="EmpPossCertLgpd" (change)="changeQuiz15($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest15"  formControlName="Quest15" (change)="changeQuiz15($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpPossCertLgpd" formControlName="EmpPossCertLgpd" (change)="changeQuiz15($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest15" formControlName="Quest15" (change)="changeQuiz15($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa15">
@@ -1090,14 +1324,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpPossEncarProtDad">16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado?   </label>
+        <label for="Quest16">16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpPossEncarProtDad"  formControlName="EmpPossEncarProtDad" (change)="changeQuiz16($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest16"  formControlName="Quest16" (change)="changeQuiz16($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpPossEncarProtDad" formControlName="EmpPossEncarProtDad" (change)="changeQuiz16($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest16" formControlName="Quest16" (change)="changeQuiz16($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa16">
@@ -1118,14 +1352,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="EmpEnconAptaAvalDanPess">17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais? </label>
+        <label for="Quest17">17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="EmpEnconAptaAvalDanPess"  formControlName="EmpEnconAptaAvalDanPess" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest17"  formControlName="Quest17" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="EmpEnconAptaAvalDanPess" formControlName="EmpEnconAptaAvalDanPess" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest17" formControlName="Quest17" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1137,14 +1371,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="OsColabTreiCapacLgpd">18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais? </label>
+        <label for="Quest18">18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="OsColabTreiCapacLgpd"  formControlName="OsColabTreiCapacLgpd" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest18"  formControlName="Quest18" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="OsColabTreiCapacLgpd" formControlName="OsColabTreiCapacLgpd" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest18" formControlName="Quest18" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1156,14 +1390,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="DescTecSegAdotPreserLgpd">19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.) </label>
+        <label for="Quest19">19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.) </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="DescTecSegAdotPreserLgpd"  formControlName="DescTecSegAdotPreserLgpd" (change)="changeQuiz19($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest19"  formControlName="Quest19" (change)="changeQuiz19($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="DescTecSegAdotPreserLgpd" formControlName="DescTecSegAdotPreserLgpd" (change)="changeQuiz19($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest19" formControlName="Quest19" (change)="changeQuiz19($event)"> Não
        </div>
        </div>
        <div class="form-group" [hidden]="!caixa19">
@@ -1184,14 +1418,14 @@
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="TransfeCompartLgpdAcordLei">20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</label>
+        <label for="Quest20">20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="TransfeCompartLgpdAcordLei"  formControlName="TransfeCompartLgpdAcordLei" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="Quest20"  formControlName="Quest20" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="TransfeCompartLgpdAcordLei" formControlName="TransfeCompartLgpdAcordLei" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="Quest20" formControlName="Quest20" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1200,7 +1434,7 @@
 
 
   <!-- RODAPÉ -->
-  <div class="flex-box" id="centro">
+  <!-- <div class="flex-box" id="centro">
   </div>
   <div>
     <div class="text-justify form-group">
@@ -1237,39 +1471,44 @@
       <div class="d-flex">3. (cláusula LGPD)</div>
     </div>
 
-  </div>
+  </div> -->
   <div class="flex-box" id="centro">
+    <h4>Assinatura Representante</h4>
   </div>
-  <div class="form-group col-md-3">
-    <label class="control-label" for="data">Data</label>
-    <input
-      id="data2"
-      class="form-control"
-      [ngClass]="{ 'is-invalid': f.data2.errors && f.data2.touched }"
-      type="date"
-      formControlName="data2"
-    />
-    <div *ngIf="f.data2.errors?.required" class="invalid-feedback">
-      A data de cadastro é obrigatória
+
+  <div class="d-flex">
+    <div class="form-group col-md-4">
+      <label class="control-label" for="data">Data</label>
+      <input
+        id="data2"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.data2.errors && f.data2.touched }"
+        type="date"
+        formControlName="data2"
+      />
+      <div *ngIf="f.data2.errors?.required" class="invalid-feedback">
+        A data de cadastro é obrigatória
+      </div>
+    </div>
+
+    <div class="form-group col-md-8">
+      <label for="nomeLeg">Nome do representante legal</label>
+      <input
+        type="text"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': f.nomeLeg.errors && f.nomeLeg.touched }"
+        formControlName="nomeLeg"
+        id="nomeLeg"
+        placeholder="Digite o nome do representante legal"
+      />
+      <div *ngIf="f.nomeLeg.errors?.required" class="invalid-feedback">
+        O nome do representante legal é obrigatório.
+      </div>
     </div>
   </div>
 
-  <div class="form-group col-md-6">
-    <label for="nomeLeg">Nome do representante legal</label>
-    <input
-      type="text"
-      class="form-control"
-      [ngClass]="{ 'is-invalid': f.nomeLeg.errors && f.nomeLeg.touched }"
-      formControlName="nomeLeg"
-      id="nomeLeg"
-      placeholder="Digite o nome do representante legal"
-    />
-    <div *ngIf="f.nomeLeg.errors?.required" class="invalid-feedback">
-      O nome do representante legal é obrigatório.
-    </div>
-  </div>
-
-  <div class="form-group col-md-6">
+ <div class="d-flex">
+  <div class="form-group col-md-4">
     <label for="rgRep" class="control-label">RG</label>
     <input
       type="text"
@@ -1284,7 +1523,7 @@
     </div>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-8">
     <label for="cargoRep" class="control-label">Cargo</label>
     <input
       type="text"
@@ -1298,6 +1537,7 @@
       O cargo do representante legal é obrigatório.
     </div>
   </div>
+ </div>
 
 
   <!-- BOTÕES -->
@@ -1311,10 +1551,17 @@
       type="submit"
       class="btn btn-success"
       (click)="postar()">
-      Enviar
+      <i class="fa-solid fa-file-pdf"></i>
+      Gerar PDF
     </button>
 
   </div>
+
 </form>
 
 <!-- [disabled]="!formulario.valid" -->
+
+
+
+
+

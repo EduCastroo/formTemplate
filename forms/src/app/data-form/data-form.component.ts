@@ -151,20 +151,20 @@ export class DataFormComponent implements OnInit {
 
     // CADASTRO
 
-    razSocCad:  [null, Validators.required],
-    cnpjCad: [null, Validators.required],
-    endCad: [null, Validators.required],
-    cepCad: [null, Validators.required],
-    cidadeCad: [null, Validators.required],
-    estadoCad: [null, Validators.required],
+
     socioCad: [null, Validators.required],
     cargoCad: [null, Validators.required],
     cpf1Cad: [null, Validators.required],
     rg1Cad: [null, Validators.required],
     cpf2Cad: [null, Validators.required],
     rg2Cad: [null, Validators.required],
+    socio2Cad: [null, Validators.required],
+    cargo2Cad: [null, Validators.required],
     end2Cad: [null, Validators.required],
     cep2Cad: [null, Validators.required],
+    numFunc: [null, Validators.required],
+    percentPart1: [null, Validators.required],
+    percentPart2: [null, Validators.required],
 
     // DADOS NECESSÁRIOS
     data: [null, Validators.required],
@@ -181,7 +181,7 @@ export class DataFormComponent implements OnInit {
     cargo: [null, Validators.required],
     contMv: [null, Validators.required],
     cep: [null, Validators.required],
-    numero: [0, Validators.required],
+    numero: [null, Validators.required],
     complemento: [null],
     rua: [null, Validators.required],
     bairro: [null, Validators.required],
@@ -189,42 +189,42 @@ export class DataFormComponent implements OnInit {
     estado: [null, Validators.required],
     conta: [null, Validators.required],
     agencia: [null, Validators.required],
-    op: [0, Validators.required],
+    op: [null, Validators.required],
     banco: [null, Validators.required],
     favorecido: [null, Validators.required],
-    razSoc3:  [null, Validators.required],
+    // razSoc3:  [null, Validators.required],
 
     // QUESTIONÁRIO
-    PossCapTecExecCont: [false, Validators.required],
-    EmpPossProgInteComp: [false, Validators.required],
-    EmpPossHistEnvFrau: [false, Validators.required],
-    EmpListCeisCnep: [false, Validators.required],
+    Quest1: [false, Validators.required],
+    Quest2: [false, Validators.required],
+    Quest3: [false, Validators.required],
+    Quest4: [false, Validators.required],
     textarea5: [null],
     textarea6: [null],
-    AlgumSocPossVincMv: [false, Validators.required],
+    Quest7: [false, Validators.required],
     textarea7: [null],
-    FuncPrestServVinMV: [false, Validators.required],
+    Quest8: [false, Validators.required],
     textarea8: [null],
-    AlgumSocFuncPubl: [false, Validators.required],
+    Quest9: [false, Validators.required],
     textarea9: [null],
-    AlgumSocConcCargPub: [false, Validators.required],
+    Quest10: [false, Validators.required],
     textarea10: [null],
-    AlgumSocConjFuncMv: [false, Validators.required],
+    Quest11: [false, Validators.required],
     textarea11: [null],
-    EmpPossRelOutPais: [false, Validators.required],
+    Quest12: [false, Validators.required],
     textarea12: [null],
-    EmpUsaIntFechNeg: [false, Validators.required],
+    Quest13: [false, Validators.required],
     textarea13: [null],
-    EmpRealizTreinLgpdMv: [false, Validators.required],
-    EmpPossCertLgpd: [false, Validators.required],
+    Quest14: [false, Validators.required],
+    Quest15: [false, Validators.required],
     textarea15: [null],
-    EmpPossEncarProtDad: [false, Validators.required],
+    Quest16: [false, Validators.required],
     textarea16: [null],
-    EmpEnconAptaAvalDanPess: [false, Validators.required],
-    OsColabTreiCapacLgpd: [false, Validators.required],
-    DescTecSegAdotPreserLgpd: [false, Validators.required],
+    Quest17: [false, Validators.required],
+    Quest18: [false, Validators.required],
+    Quest19: [false, Validators.required],
     textarea19: [null],
-    TransfeCompartLgpdAcordLei : [false, Validators.required],
+    Quest20 : [false, Validators.required],
 
 
     data2: [null, Validators.required],
@@ -237,24 +237,24 @@ export class DataFormComponent implements OnInit {
 
 
  postar(): void{
-    this.formulario.value.PossCapTecExecCont = this.formulario.value.PossCapTecExecCont == "0"? false : true;
-    this.formulario.value.EmpPossProgInteComp = this.formulario.value.EmpPossProgInteComp == "0"? false : true;
-    this.formulario.value.EmpPossHistEnvFrau = this.formulario.value.EmpPossHistEnvFrau == "0"? false : true;
-    this.formulario.value.EmpListCeisCnep = this.formulario.value.EmpListCeisCnep == "0"? false : true;
-    this.formulario.value.AlgumSocPossVincMv = this.formulario.value.AlgumSocPossVincMv == "0"? false : true;
-    this.formulario.value.FuncPrestServVinMV = this.formulario.value.FuncPrestServVinMV == "0"? false : true;
-    this.formulario.value.AlgumSocFuncPubl = this.formulario.value.AlgumSocFuncPubl == "0"? false : true;
-    this.formulario.value.AlgumSocConcCargPub = this.formulario.value.AlgumSocConcCargPub == "0"? false : true;
-    this.formulario.value.AlgumSocConjFuncMv = this.formulario.value.AlgumSocConjFuncMv == "0"? false : true;
-    this.formulario.value.EmpPossRelOutPais = this.formulario.value.EmpPossRelOutPais == "0"? false : true;
-    this.formulario.value.EmpUsaIntFechNeg = this.formulario.value.EmpUsaIntFechNeg == "0"? false : true;
-    this.formulario.value.EmpRealizTreinLgpdMv = this.formulario.value.EmpRealizTreinLgpdMv == "0"? false : true;
-    this.formulario.value.EmpPossCertLgpd = this.formulario.value.EmpPossCertLgpd == "0"? false : true;
-    this.formulario.value.EmpPossEncarProtDad = this.formulario.value.EmpPossEncarProtDad == "0"? false : true;
-    this.formulario.value.EmpEnconAptaAvalDanPess = this.formulario.value.EmpEnconAptaAvalDanPess == "0"? false : true;
-    this.formulario.value.OsColabTreiCapacLgpd = this.formulario.value.OsColabTreiCapacLgpd == "0"? false : true;
-    this.formulario.value.DescTecSegAdotPreserLgpd = this.formulario.value.DescTecSegAdotPreserLgpd == "0"? false : true;
-    this.formulario.value.TransfeCompartLgpdAcordLei = this.formulario.value.TransfeCompartLgpdAcordLei == "0"? false : true;
+    this.formulario.value.Quest1 = this.formulario.value.Quest1 == "0"? false : true;
+    this.formulario.value.Quest2 = this.formulario.value.Quest2 == "0"? false : true;
+    this.formulario.value.Quest3 = this.formulario.value.Quest3 == "0"? false : true;
+    this.formulario.value.Quest4 = this.formulario.value.Quest4 == "0"? false : true;
+    this.formulario.value.Quest7 = this.formulario.value.Quest7 == "0"? false : true;
+    this.formulario.value.Quest8 = this.formulario.value.Quest8 == "0"? false : true;
+    this.formulario.value.Quest9 = this.formulario.value.Quest9 == "0"? false : true;
+    this.formulario.value.Quest10 = this.formulario.value.Quest10 == "0"? false : true;
+    this.formulario.value.Quest11 = this.formulario.value.Quest11 == "0"? false : true;
+    this.formulario.value.Quest12 = this.formulario.value.Quest12 == "0"? false : true;
+    this.formulario.value.Quest13 = this.formulario.value.Quest13 == "0"? false : true;
+    this.formulario.value.Quest14 = this.formulario.value.Quest14 == "0"? false : true;
+    this.formulario.value.Quest15 = this.formulario.value.Quest15 == "0"? false : true;
+    this.formulario.value.Quest16 = this.formulario.value.Quest16 == "0"? false : true;
+    this.formulario.value.Quest17 = this.formulario.value.Quest17 == "0"? false : true;
+    this.formulario.value.Quest18 = this.formulario.value.Quest18 == "0"? false : true;
+    this.formulario.value.Quest19 = this.formulario.value.Quest19 == "0"? false : true;
+    this.formulario.value.Quest20 = this.formulario.value.Quest20 == "0"? false : true;
     // console.log(this.formulario.value.radio1)
     this.service.save(this.formulario?.value).subscribe((resultado) => {console.log("cadastrado com sucesso");
 
