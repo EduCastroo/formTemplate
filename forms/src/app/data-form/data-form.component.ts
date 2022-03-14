@@ -153,7 +153,13 @@ socio: Socio = new Socio()
 socioget: any
 
 cadSocio(){
+  this.socio.socioCad = this.formulario.value.socioCad
+  this.socio.cargoCad = this.formulario.value.cargoCad
+  this.socio.cpf1Cad = this.formulario.value.cpf1Cad
+  this.socio.rg1Cad = this.formulario.value.rg1Cad
+  this.socio.percentPart1 = this.formulario.value.percentPart1
   this.socios.push(this.socio)
+
   this.socio = new Socio()
   this.getSocios()
   console.log(this.socios)
@@ -161,7 +167,9 @@ cadSocio(){
 getSocios(){
   this.socioget = this.socios
 }
-
+resetform(){
+  this.formulario.value.socioCad = null
+}
 
 
   ngOnInit() {
