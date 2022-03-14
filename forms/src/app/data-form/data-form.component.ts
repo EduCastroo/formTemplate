@@ -1,15 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { UsuarioService } from './Usuario.service';
+import { Socio } from '../Model/Socio';
 
 @Component({
   selector: 'app-data-form',
   templateUrl: './data-form.component.html',
   styleUrls: ['./data-form.component.css']
 })
+
+
 export class DataFormComponent implements OnInit {
+
 
   formulario!: FormGroup;
 
@@ -35,7 +39,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa = true
     } else {
@@ -44,7 +48,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz7(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa7 = true
     } else {
@@ -53,7 +57,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz8(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa8 = true
     } else {
@@ -62,7 +66,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz9(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa9 = true
     } else {
@@ -71,7 +75,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz10(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa10 = true
     } else {
@@ -80,7 +84,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz11(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa11 = true
     } else {
@@ -89,7 +93,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz12(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa12 = true
     } else {
@@ -98,7 +102,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz13(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa13 = true
     } else {
@@ -108,7 +112,7 @@ export class DataFormComponent implements OnInit {
 
 
   changeQuiz15(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa15 = true
     } else {
@@ -117,7 +121,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz16(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa16 = true
     } else {
@@ -126,7 +130,7 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz19(e: any) {
-    console.log(e.target.value);
+    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.caixa19 = true
     } else {
@@ -138,7 +142,25 @@ export class DataFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private service: UsuarioService
-  ) {}
+  ) {
+
+  }
+
+
+
+socios: Socio[] = []
+socio: Socio = new Socio()
+socioget: any
+
+cadSocio(){
+  this.socios.push(this.socio)
+  this.socio = new Socio()
+  this.getSocios()
+  console.log(this.socios)
+}
+getSocios(){
+  this.socioget = this.socios
+}
 
 
 
@@ -150,21 +172,22 @@ export class DataFormComponent implements OnInit {
     this.formulario = this.formBuilder.group({
 
     // CADASTRO
-
-
-    socioCad: [null, Validators.required],
-    cargoCad: [null, Validators.required],
-    cpf1Cad: [null, Validators.required],
-    rg1Cad: [null, Validators.required],
-    cpf2Cad: [null, Validators.required],
-    rg2Cad: [null, Validators.required],
-    socio2Cad: [null, Validators.required],
-    cargo2Cad: [null, Validators.required],
-    end2Cad: [null, Validators.required],
-    cep2Cad: [null, Validators.required],
+    socios: this.formBuilder.array([]),
+    socioCad: [null],
+    cargoCad: [null],
+    cpf1Cad: [null],
+    rg1Cad: [null],
+    percentPart1: [null],
+    socio2Cad: [null],
+    cargo2Cad: [null],
+    cpf2Cad: [null],
+    rg2Cad: [null],
+    percentPart2: [null],
+    end2Cad:  [null],
+    cep2Cad:  [null],
     numFunc: [null, Validators.required],
-    percentPart1: [null, Validators.required],
-    percentPart2: [null, Validators.required],
+
+
 
     // DADOS NECESSÁRIOS
     data: [null, Validators.required],
@@ -256,7 +279,7 @@ export class DataFormComponent implements OnInit {
     this.formulario.value.Quest19 = this.formulario.value.Quest19 == "0"? false : true;
     this.formulario.value.Quest20 = this.formulario.value.Quest20 == "0"? false : true;
     // console.log(this.formulario.value.radio1)
-    this.service.save(this.formulario?.value).subscribe((resultado) => {console.log("cadastrado com sucesso");
+    this.service.save(this.formulario?.value).subscribe((resultado) => {;
 
   });
 
@@ -284,6 +307,23 @@ consultaCEP() {
   }
 }
 
+
+
+onKey(event: any){
+if (event.key == "Enter"){
+  if (this.formulario.controls["socioCad"].value != ""){
+
+  }
+
+
+}
+}
+
+// if (this.formulario.controls["cargoCad"].value != ""){}
+//   if (this.formulario.controls["cpf1Cad"].value != ""){}
+//   if (this.formulario.controls["rg1Cad"].value != ""){}
+//   if (this.formulario.controls["percentPart1"].value != ""){}
+
 populaDadosForm(dados: any){
 
   this.formulario.patchValue({
@@ -301,4 +341,5 @@ populaDadosForm(dados: any){
 
 
 }
+
 

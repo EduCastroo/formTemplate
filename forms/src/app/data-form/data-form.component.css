@@ -1,5 +1,5 @@
 .logo-img{
-  width: 1115px;
+  width: 1107px;
   height: 70px;
   line-height: 50px;
   text-align:center;
@@ -29,7 +29,7 @@ margin-bottom: 5px;
   height: 50px;
   line-height: 50px;
   text-align:center;
-  background-color: rgb(28,76,100);
+  background-color: #1c4c64;
   color: white;
   margin-bottom: 5px;
 
@@ -58,5 +58,17 @@ display: inline-block;
 font-size: 16px;
 margin: 0 15px;
 font-weight: bold;
+;
 }
 
+.borda{
+  border: 2px solid black;
+}
+
+.btn-danger{
+background-color: #E74C3C;
+}
+
+.btn-success{
+background-color: #1c4c64;
+}

@@ -1,24 +1,16 @@
 export class Usuario{
 
-
-
-  // public razSocCad: string;
-  // public cnpjCad: string;
-  // public endCad: string;
-  // public cepCad: string;
-  // public cidadeCad: string;
-  // public estadoCad: string;
   public socioCad: string;
   public cargoCad: string;
   public cpf1Cad: string;
   public rg1Cad: string;
-  public cpf2Cad: string;
-  public rg2Cad: string;
+  public percentPart1: string;
   public socio2Cad: string;
   public cargo2Cad: string;
-  public numFunc: string;
-  public percentPart1: string;
+  public cpf2Cad: string;
+  public rg2Cad: string;
   public percentPart2: string;
+  public numFunc: string;
   public end2Cad: string;
   public cep2Cad: string;
   public data: string;
@@ -46,7 +38,6 @@ export class Usuario{
   public op: number;
   public banco: string;
   public favorecido: string;
-  // public razSoc3: string;
   public Quest1: boolean;
   public Quest2: boolean;
   public Quest3: boolean;

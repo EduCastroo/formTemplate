@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { TemplateFormModule } from './template-form/template-form.module';
 import { DataFormModule } from './data-form/data-form.module';
 
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,7 @@ import { DataFormModule } from './data-form/data-form.module';
     AppRoutingModule,
     TemplateFormModule,
     DataFormModule,
-    
+
 
   ],
   providers: [],

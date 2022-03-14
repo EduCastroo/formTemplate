@@ -1,3 +1,5 @@
+<div class="borda">
+
 <div class="logo">
   <img class= "logo-img" src="./assets/img/header.png" alt="header mv">
   </div>
@@ -7,7 +9,7 @@
 </div>
 
 
-<!-- <app-form-debug [form]="formulario"></app-form-debug> -->
+<app-form-debug [form]="formulario"></app-form-debug>
 
 <form class="form-horizontal font" [formGroup]="formulario">
 
@@ -423,6 +425,7 @@
   </div>
 
   <!-- CADASTRO DOS SÓCIOS -->
+  <div>
   <div class="flex-box" id="centro">
     <h4>Cadastro de Sócios</h4>
   </div>
@@ -514,8 +517,23 @@
 
 
   </div>
+</div>
 
-<div class="d-flex">
+<div class="flex-box">
+  <button
+  type="submit"
+  class="btn-success"
+
+  (click)="cadSocio()">
+  Adicionar Sócio
+</button>
+<!-- (keyup)="onKey($event)" -->
+</div>
+
+
+
+
+<!-- <div class="d-flex">
     <div class="col-md-6 form-group">
       <div><label>Nome do Sócio</label></div>
 
@@ -599,7 +617,37 @@
       </div>
 
 
-  </div>
+  </div> -->
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome do Sócio</th>
+        <th scope="col">Cargo do Sócio</th>
+        <th scope="col">CPF/MF</th>
+        <th scope="col">RG</th>
+        <th scope="col">% de Participação na Empresa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let socio of socioget">
+        <td>{{socio.socioCad}}</td>
+        <td>{{socio.cargoCad}}</td>
+        <td>{{socio.cpf1Cad}}</td>
+        <td>{{socio.rg1Cad}}</td>
+        <td>{{socio.percentPart1}}</td>
+        <!-- <td>{{formulario.value.socioCad}}</td>
+        <td>{{formulario.value.cargoCad}}</td>
+        <td>{{formulario.value.cpf1Cad}}</td>
+        <td>{{formulario.value.rg1Cad}}</td>
+        <td>{{formulario.value.percentPart1}}</td> -->
+      </tr>
+    </tbody>
+  </table>
+
+
+
 
   <div class="d-flex">
     <div class="col-md-8 form-group">
@@ -607,7 +655,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Digite o codigo e nome do end2Cad"
+        placeholder="Digite o endereço completo"
         [ngClass]="{ 'is-invalid': f.end2Cad.errors && f.end2Cad.touched }"
         formControlName="end2Cad"
         id="end2Cad"
@@ -622,7 +670,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="Digite o nome do cep2Cad"
+        placeholder="Digite o CEP"
         [ngClass]="{
           'is-invalid': f.cep2Cad.errors && f.cep2Cad.touched
         }"
@@ -634,6 +682,8 @@
       </div>
     </div>
   </div>
+
+
 
   <div class="flex-box" id="centro">
     <h4>Contato financeiro</h4>
@@ -1543,25 +1593,22 @@
   <!-- BOTÕES -->
 
   <div class="flex-box">
-    <button type="button" class="btn btn-danger" (click)="resetar()">
+    <button type="button" class="btn-danger" (click)="resetar()">
+      <i class="fa fa-times-circle" aria-hidden="true"></i>
       Limpar
     </button>
 
     <button
       type="submit"
-      class="btn btn-success"
+      class="btn-success"
       (click)="postar()">
-      <i class="fa-solid fa-file-pdf"></i>
+      <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
       Gerar PDF
     </button>
 
   </div>
 
 </form>
-
+</div>
 <!-- [disabled]="!formulario.valid" -->
-
-
-
-
 
