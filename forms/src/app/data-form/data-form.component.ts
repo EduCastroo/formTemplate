@@ -146,8 +146,6 @@ export class DataFormComponent implements OnInit {
 
   }
 
-
-
 socios: Socio[] = [];
 socioget: any = [];
 
@@ -160,7 +158,8 @@ cadSocio(){
     socio.rg1Cad = this.formulario.value.rg1Cad;
     socio.percentPart1 = this.formulario.value.percentPart1;
     this.socioget.push(socio);
-    this.formulario.value.socios = this.socioget;
+    // this.formulario.value.socios = this.socioget;
+    this.formulario.controls['socios'].setValue(this.socioget);
     this.resetform();
   } else {
     alert("CPF já cadastrado!");
@@ -177,7 +176,7 @@ this.formulario.controls['percentPart1'].setValue("");
 
 removerSocio(item: any){
 this.socioget = this.socioget.filter((x: { cpf1Cad: any; }) => x.cpf1Cad != item.cpf1Cad);
-this.formulario.value.socios = this.socioget;
+this.formulario.controls['socios'].setValue(this.socioget);
 }
 
 validarCpf(){
@@ -186,12 +185,7 @@ if (item.length > 0)
   return false;
 else
   return true
-
 }
-
-
-
-
 
   ngOnInit() {
     this.validation();
@@ -207,11 +201,11 @@ else
     cpf1Cad: [null],
     rg1Cad: [null],
     percentPart1: [null],
-    socio2Cad: [null],
-    cargo2Cad: [null],
-    cpf2Cad: [null],
-    rg2Cad: [null],
-    percentPart2: [null],
+    // socio2Cad: [null],
+    // cargo2Cad: [null],
+    // cpf2Cad: [null],
+    // rg2Cad: [null],
+    // percentPart2: [null],
     end2Cad:  [null],
     cep2Cad:  [null],
     numFunc: [null, Validators.required],
@@ -316,6 +310,7 @@ else
 
 public resetar(): void{
   this.formulario.reset();
+  this.socioget = [];
 }
 
 consultaCEP() {
@@ -335,23 +330,6 @@ consultaCEP() {
     }
   }
 }
-
-
-
-onKey(event: any){
-if (event.key == "Enter"){
-  if (this.formulario.controls["socioCad"].value != ""){
-
-  }
-
-
-}
-}
-
-// if (this.formulario.controls["cargoCad"].value != ""){}
-//   if (this.formulario.controls["cpf1Cad"].value != ""){}
-//   if (this.formulario.controls["rg1Cad"].value != ""){}
-//   if (this.formulario.controls["percentPart1"].value != ""){}
 
 populaDadosForm(dados: any){
 
