@@ -29,7 +29,7 @@ margin-bottom: 5px;
   height: 50px;
   line-height: 50px;
   text-align:center;
-  background-color: #1c4c64;
+  background-color: #09556D;
   color: white;
   margin-bottom: 5px;
 
@@ -61,14 +61,14 @@ font-weight: bold;
 ;
 }
 
-.borda{
+/* .borda{
   border: 2px solid black;
-}
+} */
 
 .btn-danger{
 background-color: #E74C3C;
 }
 
 .btn-success{
-background-color: #1c4c64;
+background-color: #09556D;
 }
