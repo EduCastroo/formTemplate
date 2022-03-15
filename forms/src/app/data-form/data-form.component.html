@@ -626,25 +626,19 @@
         <th scope="col">CPF/MF</th>
         <th scope="col">RG</th>
         <th scope="col">% de Participação na Empresa</th>
+        <th></th>
       </tr>
     </thead>
-    <tbody>
+
       <tr *ngFor="let socio of socioget">
         <td>{{socio.socioCad}}</td>
         <td>{{socio.cargoCad}}</td>
         <td>{{socio.cpf1Cad}}</td>
         <td>{{socio.rg1Cad}}</td>
         <td>{{socio.percentPart1}}</td>
-
-
-        <!-- <tr>
-        <td>{{formulario.value.socioCad}}</td>
-        <td>{{formulario.value.cargoCad}}</td>
-        <td>{{formulario.value.cpf1Cad}}</td>
-        <td>{{formulario.value.rg1Cad}}</td>
-        <td>{{formulario.value.percentPart1}}</td>
-      </tr> -->
-    </tbody>
+        <td><button title="Remover" (click)="removerSocio(socio)" class="btn btn-danger">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+       </button></td>
   </table>
 
 

@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateFormModule } from './template-form/template-form.module';
 import { DataFormModule } from './data-form/data-form.module';
+import { HeaderComponent } from './header/header.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

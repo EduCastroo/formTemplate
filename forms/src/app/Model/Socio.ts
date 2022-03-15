@@ -1,5 +1,5 @@
 export class Socio{
-
+  
 socioCad: string
 cargoCad: string
 cpf1Cad: string

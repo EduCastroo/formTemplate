@@ -148,28 +148,49 @@ export class DataFormComponent implements OnInit {
 
 
 
-socios: Socio[] = []
-socio: Socio = new Socio()
-socioget: any
+socios: Socio[] = [];
+socioget: any = [];
 
 cadSocio(){
-  this.socio.socioCad = this.formulario.value.socioCad
-  this.socio.cargoCad = this.formulario.value.cargoCad
-  this.socio.cpf1Cad = this.formulario.value.cpf1Cad
-  this.socio.rg1Cad = this.formulario.value.rg1Cad
-  this.socio.percentPart1 = this.formulario.value.percentPart1
-  this.socios.push(this.socio)
+  if(this.validarCpf()){
+    let socio: Socio = new Socio();
+    socio.socioCad = this.formulario.value.socioCad;
+    socio.cargoCad = this.formulario.value.cargoCad;
+    socio.cpf1Cad = this.formulario.value.cpf1Cad;
+    socio.rg1Cad = this.formulario.value.rg1Cad;
+    socio.percentPart1 = this.formulario.value.percentPart1;
+    this.socioget.push(socio);
+    this.formulario.value.socios = this.socioget;
+    this.resetform();
+  } else {
+    alert("CPF já cadastrado!");
+  }
 
-  this.socio = new Socio()
-  this.getSocios()
-  console.log(this.socios)
-}
-getSocios(){
-  this.socioget = this.socios
 }
 resetform(){
-  this.formulario.value.socioCad = null
+this.formulario.controls['socioCad'].setValue("");
+this.formulario.controls['cargoCad'].setValue("");
+this.formulario.controls['cpf1Cad'].setValue("");
+this.formulario.controls['rg1Cad'].setValue("");
+this.formulario.controls['percentPart1'].setValue("");
 }
+
+removerSocio(item: any){
+this.socioget = this.socioget.filter((x: { cpf1Cad: any; }) => x.cpf1Cad != item.cpf1Cad);
+this.formulario.value.socios = this.socioget;
+}
+
+validarCpf(){
+var item = this.socioget.filter((x: { cpf1Cad: any; }) => x.cpf1Cad == this.formulario.value.cpf1Cad);
+if (item.length > 0)
+  return false;
+else
+  return true
+
+}
+
+
+
 
 
   ngOnInit() {
@@ -180,7 +201,7 @@ resetform(){
     this.formulario = this.formBuilder.group({
 
     // CADASTRO
-    socios: this.formBuilder.array([]),
+    socios: [[]],
     socioCad: [null],
     cargoCad: [null],
     cpf1Cad: [null],
