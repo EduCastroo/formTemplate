@@ -1,12 +1,8 @@
 <div class="borda">
 
-<!-- <div class="logo">
-  <img class= "logo-img" src="./assets/img/header.png" alt="header mv">
-  </div> -->
-
-<!-- <div class="flex-box" id="centro">
-  <h4>CADASTRAMENTO DE FORNECEDORES E DECLARAÇÃO – DUE DILLIGENCE</h4>
-</div> -->
+  <div>
+    <button (click)="downloadPDF(1);">PDF</button>
+  </div>
 
 
 <app-form-debug [form]="formulario"></app-form-debug>
@@ -14,280 +10,30 @@
 <form class="form-horizontal font" [formGroup]="formulario">
 
 
-
-   <!-- <div class="linha">
-    <input
-    type="text"
-    cols="40"
-    rows="5"
-    placeholder="Digite a Razão Social"
-    style="width: 400px; height: 25px"
-    formControlName="razSocCad"
-    id="razSocCad"
-    [ngClass]="{ 'is-invalid': f.razSocCad.errors && f.razSocCad.touched }"
-  /> <label for="control-label">., pessoa jurídica de direito privado, devidamente inscrita no Cadastro
-    Nacional da Pessoa</label>
-
-      <div *ngIf="f.razSocCad.errors?.required" class="invalid-feedback">
-        A razão social é obrigatória
-      </div>
-   </div>
-
-
-   <div class="linha">
-    <div>
-      <label for="control-label">Jurídica – CNPJ sob n.º</label>
-      <input
-      type="text"
-      cols="40"
-      rows="5"
-      placeholder="Digite o CNPJ"
-      mask="00.000.000/0000-00"
-      style="width: 196px; height: 25px"
-      formControlName="cnpjCad"
-      id="cnpjCad"
-      [ngClass]="{ 'is-invalid': f.cnpjCad.errors && f.cnpjCad.touched }"
-      />
-      <div *ngIf="f.cnpjCad.errors?.required" class="invalid-feedback">
-        O CNPJ é obrigatório
-      </div>
-
-    </div>
-
-    <div>
-      <label for="control-label">, com sede à </label>
-      <input
-        type="text"
-        cols="40"
-        rows="5"
-        placeholder="Digite o endereço completo"
-        style="width: 450px; height: 25px"
-        formControlName="endCad"
-        id="endCad"
-        [ngClass]="{ 'is-invalid': f.endCad.errors && f.endCad.touched }"
-        />
-        <div *ngIf="f.endCad.errors?.required" class="invalid-feedback">
-          O endereço é obrigatório
-        </div>
-    </div>
-    <div>
-       <label for="control-label">, CEP</label>
-      <input
-        type="text"
-        cols="40"
-        rows="5"
-        placeholder="Digite o CEP"
-        mask="00000-000"
-        style="width: 150px; height: 25px"
-        formControlName="cepCad"
-        id="cepCad"
-        [ngClass]="{ 'is-invalid': f.cepCad.errors && f.cepCad.touched }"
-        />
-        <div *ngIf="f.cepCad.errors?.required" class="invalid-feedback">
-          O CEP é obrigatório
-        </div>
-    </div>
-
-   </div>
-<div class="linha">
-
-  <div>
-    <label for="control-label">na Cidade de</label>
-  <input
-    type="text"
-    placeholder="Digite a cidade"
-    cols="40"
-    rows="5"
-    style="width: 150px; height: 25px"
-    formControlName="cidadeCad"
-    id="cidadeCad"
-    [ngClass]="{ 'is-invalid': f.cidadeCad.errors && f.cidadeCad.touched }"
-    />
-    <div *ngIf="f.cidadeCad.errors?.required" class="invalid-feedback">
-      A cidade é obrigatória
-    </div>
-  </div>
-  <div>
-  <label for="control-label">, Estado de</label>
-  <input
-    type="text"
-    cols="40"
-    rows="5"
-    placeholder="Ex: PE, BA, SP"
-    style="width: 100px; height: 25px"
-    formControlName="estadoCad"
-    id="estadoCad"
-    [ngClass]="{ 'is-invalid': f.estadoCad.errors && f.estadoCad.touched }"
-    />
-    <div *ngIf="f.estadoCad.errors?.required" class="invalid-feedback">
-      O estado é obrigatório
-    </div>
-  </div>
-  <div>
-    <label for="control-label">, por sua matriz e filiais, neste ato representada por seu sócio</label>
-  <input
-    type="text"
-    cols="40"
-    rows="5"
-    placeholder="Nome do sócio"
-    style="width: 210px; height: 25px"
-    formControlName="socioCad"
-    id="socioCad"
-    [ngClass]="{ 'is-invalid': f.socioCad.errors && f.socioCad.touched }"
-    />,
-    <div *ngIf="f.socioCad.errors?.required" class="invalid-feedback">
-      O sócio é obrigatório
-    </div>
-  </div>
-</div>
-
-<div class="linha">
-  <div>
-  <label for="control-label">Cargo</label>
-  <input
-    type="text"
-    placeholder="Cargo do sócio"
-    cols="40"
-    rows="5"
-    style="width: 238px; height: 25px"
-    formControlName="cargoCad"
-    id="cargoCad"
-    [ngClass]="{ 'is-invalid': f.cargoCad.errors && f.cargoCad.touched }"
-    />
-    <div *ngIf="f.cargoCad.errors?.required" class="invalid-feedback">
-      O cargo é obrigatório
-    </div>
-  </div>
-  <div>
-   <label for="control-label">, CPF/MF</label>
-  <input
-    type="text"
-    placeholder="Digite o CPF"
-    mask="000.000.000-00"
-    cols="40"
-    rows="5"
-    style="width: 150px; height: 25px"
-    formControlName="cpf1Cad"
-    id="cpf1Cad"
-    [ngClass]="{ 'is-invalid': f.cpf1Cad.errors && f.cpf1Cad.touched }"
-    />
-    <div *ngIf="f.cpf1Cad.errors?.required" class="invalid-feedback">
-      O CPF é obrigatório
-    </div>
-  </div>
-  <div>
-  <label for="control-label">, RG</label>
-  <input
-    type="text"
-    cols="40"
-    placeholder="Digite o RG"
-    rows="5"
-    style="width: 170px; height: 25px"
-    formControlName="rg1Cad"
-    id="rg1Cad"
-    [ngClass]="{ 'is-invalid': f.rg1Cad.errors && f.rg1Cad.touched }"
-    />
-    <div *ngIf="f.rg1Cad.errors?.required" class="invalid-feedback">
-      O RG é obrigatório
-    </div>
-  </div>
-  <div>
-  <label for="control-label">, CPF/MF </label>
-  <input
-    type="text"
-    cols="40"
-    placeholder="Digite o CPF"
-    mask="000.000.000-00"
-    rows="5"
-    style="width: 150px; height: 25px"
-    formControlName="cpf2Cad"
-    id="cpf2Cad"
-    [ngClass]="{ 'is-invalid': f.cpf2Cad.errors && f.cpf2Cad.touched }"
-    />
-    <div *ngIf="f.cpf2Cad.errors?.required" class="invalid-feedback">
-      O CPF é obrigatório
-    </div>
-  </div>
-  <div>
-  <label for="control-label">, RG</label>
-  <input
-    type="text"
-    cols="40"
-    placeholder="Digite o RG"
-    rows="5"
-    style="width: 150px; height: 25px"
-    formControlName="rg2Cad"
-    id="rg2Cad"
-    [ngClass]="{ 'is-invalid': f.rg2Cad.errors && f.rg2Cad.touched }"
-    />,
-    <div *ngIf="f.rg2Cad.errors?.required" class="invalid-feedback">
-      O RG é obrigatório
-    </div>
-  </div>
-</div>
-
-<div class="linha">
-  <div>
-  <label for="control-label">ambos com endereço na Rua</label>
-  <input
-    type="text"
-    placeholder="Digite o Endereço completo"
-    cols="40"
-    rows="5"
-    style="width: 600px; height: 25px"
-    formControlName="end2Cad"
-    id="end2Cad"
-    [ngClass]="{ 'is-invalid': f.end2Cad.errors && f.end2Cad.touched }"
-    />
-    <div *ngIf="f.end2Cad.errors?.required" class="invalid-feedback">
-      O endereço é obrigatório
-    </div>
-  </div>
-  <div><label for="control-label">, CEP </label>
-    <input
-      type="text"
-      cols="40"
-      placeholder="Digite o CEP"
-      mask="00000-000"
-      rows="5"
-      style="width: 160px; height: 25px"
-      formControlName="cep2Cad"
-      id="cep2Cad"
-      [ngClass]="{ 'is-invalid': f.cep2Cad.errors && f.cep2Cad.touched }"
-      />
-      <div *ngIf="f.cep2Cad.errors?.required" class="invalid-feedback">
-        O CEP é obrigatório
-      </div></div>
-  , DECLARA:
-<hr>
-</div> -->
-
-
 <div class="flex-box" id="centro">
   <h4>Dados necessários para o cadastramento de Fornecedores Nacional</h4>
 </div>
 
 
-
-
-
-
-  <div class="d-flex">
-    <div class="form-group col-md-3">
-      <label class="control-label" for="data">Data do Cadastro</label>
-      <input
-        id="data"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': f.data.errors && f.data.touched }"
-        type="date"
-        formControlName="data"
-      />
-      <div *ngIf="f.data.errors?.required" class="invalid-feedback">
-        A data de cadastro é obrigatória
-      </div>
+<div class="d-flex">
+  <div class="col-md-4">
+    <label for="cnpj" class="control-label">CNPJ</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="cnpj"
+      id="cnpj"
+      maxlength="18"
+      mask="00.000.000/0000-00"
+      [ngClass]="{ 'is-invalid': f.cnpj.errors && f.cnpj.touched }"
+      placeholder="00.000.000/0000-00"
+    />
+    <div *ngIf="f.cnpj.errors?.required" class="invalid-feedback">
+      O CNPJ é obrigatório
     </div>
+  </div>
 
-    <div class="form-group col-md-6">
+    <div class="col-md-8">
       <div><label for="razSoc">Razão Social</label></div>
       <div>
         <input
@@ -304,7 +50,10 @@
       </div>
     </div>
 
-    <div class="col-md-3">
+  </div>
+
+  <div class="d-flex">
+    <div class="col-md-4">
       <div><label for="control-label">Número de Funcionários</label></div>
 
       <input
@@ -318,26 +67,6 @@
   <div *ngIf="f.numFunc.errors?.required" class="invalid-feedback">
     O número de funcionários é obrigatório
   </div>
-    </div>
-
-  </div>
-
-  <div class="d-flex">
-    <div class="col-md-4 form-group">
-      <label for="cnpj" class="control-label">CNPJ</label>
-      <input
-        type="text"
-        class="form-control"
-        formControlName="cnpj"
-        id="cnpj"
-        maxlength="18"
-        mask="00.000.000/0000-00"
-        [ngClass]="{ 'is-invalid': f.cnpj.errors && f.cnpj.touched }"
-        placeholder="00.000.000/0000-00"
-      />
-      <div *ngIf="f.cnpj.errors?.required" class="invalid-feedback">
-        O CNPJ é obrigatório
-      </div>
     </div>
 
     <div class="col-md-4">
@@ -528,94 +257,6 @@
 </button>
 </div>
 
-
-<!-- (keyup)="onKey($event)" -->
-
-<!-- <div class="d-flex">
-    <div class="col-md-6 form-group">
-      <div><label>Nome do Sócio</label></div>
-
-      <input
-      type="text"
-      placeholder="Nome do sócio"
-      class="form-control"
-      formControlName="socio2Cad"
-      id="socio2Cad"
-      [ngClass]="{ 'is-invalid': f.socio2Cad.errors && f.socio2Cad.touched }"
-      />
-      <div *ngIf="f.socio2Cad.errors?.required" class="invalid-feedback">
-        O sócio é obrigatório
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div><label for="control-label">Cargo</label></div>
-
-      <input
-    type="text"
-    placeholder="Cargo do sócio"
-    class="form-control"
-    formControlName="cargo2Cad"
-    id="cargo2Cad"
-    [ngClass]="{ 'is-invalid': f.cargo2Cad.errors && f.cargo2Cad.touched }"
-    />
-    <div *ngIf="f.cargo2Cad.errors?.required" class="invalid-feedback">
-      O cargo é obrigatório
-    </div>
-    </div>
-  </div>
-
-  <div class="d-flex">
-    <div class="col-md-4">
-      <div><label for="control-label">CPF/MF</label></div>
-
-      <input
-      type="text"
-      placeholder="Digite o CPF/MF"
-      class="form-control"
-      mask="000.000.000-00"
-      formControlName="cpf2Cad"
-      id="cpf2Cad"
-      [ngClass]="{ 'is-invalid': f.cpf2Cad.errors && f.cpf2Cad.touched }"
-      />
-      <div *ngIf="f.cpf2Cad.errors?.required" class="invalid-feedback">
-        O CPF/MF é obrigatório
-      </div>
-    </div>
-    <div class="col-md-4">
-        <div><label for="control-label">RG</label></div>
-
-        <input
-    type="text"
-    placeholder="Digite o RG"
-    class="form-control"
-    formControlName="rg2Cad"
-    id="rg2Cad"
-    [ngClass]="{ 'is-invalid': f.rg2Cad.errors && f.rg2Cad.touched }"
-    />
-    <div *ngIf="f.rg2Cad.errors?.required" class="invalid-feedback">
-      O RG é obrigatório
-    </div>
-      </div>
-
-      <div class="col-md-4">
-        <div><label for="control-label">% de participação na empresa</label></div>
-
-        <input
-    type="text"
-    placeholder="Digite o % de participação na empresa"
-    class="form-control"
-    formControlName="percentPart2"
-    id="percentPart2"
-    [ngClass]="{ 'is-invalid': f.percentPart2.errors && f.percentPart2.touched }"
-    />
-    <div *ngIf="f.percentPart2.errors?.required" class="invalid-feedback">
-      O % de participação na empresa é obrigatório
-    </div>
-      </div>
-
-
-  </div> -->
 
 
   <table class="table">

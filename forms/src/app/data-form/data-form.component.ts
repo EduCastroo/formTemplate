@@ -4,6 +4,8 @@ import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import { UsuarioService } from './Usuario.service';
 import { Socio } from '../Model/Socio';
+import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-data-form',
@@ -345,7 +347,19 @@ populaDadosForm(dados: any){
 
   }
 
-
+  downloadPDF(id: number): any {
+    return this.http.post(`https://localhost:44366/api/Dilligence/pdf?Id=1`, {}, { responseType: 'blob' }).subscribe(
+      (response: any) => {
+        var blob = new Blob([response], { type: 'application/pdf' });
+        let fileName = "";
+        fileName = `Teste.pdf`;
+        saveAs(blob, fileName);
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
+    }
 
 }
 
