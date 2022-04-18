@@ -17,34 +17,35 @@
 
 <div class="d-flex">
   <div class="col-md-4">
-    <label for="cnpj" class="control-label">CNPJ</label>
+    <label for="Cnpj" class="control-label">CNPJ</label>
     <input
       type="text"
       class="form-control"
-      formControlName="cnpj"
-      id="cnpj"
+      formControlName="Cnpj"
+      (blur)="consultaCNPJ()"
+      id="Cnpj"
       maxlength="18"
       mask="00.000.000/0000-00"
-      [ngClass]="{ 'is-invalid': f.cnpj.errors && f.cnpj.touched }"
+      [ngClass]="{ 'is-invalid': f.Cnpj.errors && f.Cnpj.touched }"
       placeholder="00.000.000/0000-00"
     />
-    <div *ngIf="f.cnpj.errors?.required" class="invalid-feedback">
+    <div *ngIf="f.Cnpj.errors?.required" class="invalid-feedback">
       O CNPJ é obrigatório
     </div>
   </div>
 
     <div class="col-md-8">
-      <div><label for="razSoc">Razão Social</label></div>
+      <div><label for="CorporateName">Razão Social</label></div>
       <div>
         <input
           type="text"
           class="form-control"
-          [ngClass]="{ 'is-invalid': f.razSoc.errors && f.razSoc.touched }"
-          formControlName="razSoc"
-          id="razSoc"
+          [ngClass]="{ 'is-invalid': f.CorporateName.errors && f.CorporateName.touched }"
+          formControlName="CorporateName"
+          id="CorporateName"
           placeholder="Digite a Razão Social"
         />
-        <div *ngIf="f.razSoc.errors?.required" class="invalid-feedback">
+        <div *ngIf="f.CorporateName.errors?.required" class="invalid-feedback">
           A razão social é obrigatória
         </div>
       </div>
@@ -60,41 +61,41 @@
   type="text"
   placeholder="Digite o número de funcionários"
   class="form-control"
-  formControlName="numFunc"
-  id="numFunc"
-  [ngClass]="{ 'is-invalid': f.numFunc.errors && f.numFunc.touched }"
+  formControlName="NumberEmployees"
+  id="NumberEmployees"
+  [ngClass]="{ 'is-invalid': f.NumberEmployees.errors && f.NumberEmployees.touched }"
   />
-  <div *ngIf="f.numFunc.errors?.required" class="invalid-feedback">
+  <div *ngIf="f.NumberEmployees.errors?.required" class="invalid-feedback">
     O número de funcionários é obrigatório
   </div>
     </div>
 
     <div class="col-md-4">
-      <label for="inscEst" class="control-label">Inscrição Estadual</label>
+      <label for="StateRegistration" class="control-label">Inscrição Estadual</label>
       <input
       type="text"
         class="form-control"
         placeholder="Digite a Inscrição Estadual"
-        [ngClass]="{ 'is-invalid': f.inscEst.errors && f.inscEst.touched }"
-        formControlName="inscEst"
-        id="inscEst"
+        [ngClass]="{ 'is-invalid': f.StateRegistration.errors && f.StateRegistration.touched }"
+        formControlName="StateRegistration"
+        id="StateRegistration"
       />
-      <div *ngIf="f.inscEst.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.StateRegistration.errors?.required" class="invalid-feedback">
         A Inscrição Estadual é obrigatória.
       </div>
     </div>
 
     <div class="col-md-4">
-      <label for="inscMun" class="control-label">Inscrição Municipal</label>
+      <label for="MunicipalRegistration" class="control-label">Inscrição Municipal</label>
       <input
       type="text"
         class="form-control"
         placeholder="Digite a Inscrição Municipal"
-        [ngClass]="{ 'is-invalid': f.inscMun.errors && f.inscMun.touched }"
-        formControlName="inscMun"
-        id="inscMun"
+        [ngClass]="{ 'is-invalid': f.MunicipalRegistration.errors && f.MunicipalRegistration.touched }"
+        formControlName="MunicipalRegistration"
+        id="MunicipalRegistration"
       />
-      <div *ngIf="f.inscMun.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.MunicipalRegistration.errors?.required" class="invalid-feedback">
         A Inscrição Municipal é obrigatória
       </div>
     </div>
@@ -102,92 +103,91 @@
 
     <div class="d-flex">
     <div class="col-md-4 form-group">
-      <div><label for="fone">Telefone de contato (principal)</label></div>
+      <div><label for="PrimaryPhone">Telefone de Contato (principal)</label></div>
 
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.fone.errors && f.fone.touched }"
-        formControlName="fone"
-        id="fone"
+        [ngClass]="{ 'is-invalid': f.PrimaryPhone.errors && f.PrimaryPhone.touched }"
+        formControlName="PrimaryPhone"
+        id="PrimaryPhone"
         maxlength="18"
         mask="(00) 0000-0000"
         placeholder="(00) 0000-0000"
       />
-      <div *ngIf="f.fone.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.PrimaryPhone.errors?.required" class="invalid-feedback">
         O telefone é obrigatório
       </div>
     </div>
 
     <div class="col-md-4">
-      <div><label for="fone2">Telefone de contato (secundário)</label></div>
+      <div><label for="SecondaryPhone">Telefone de Contato (secundário)</label></div>
 
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.fone2.errors && f.fone2.touched }"
-        formControlName="fone2"
-        id="fone2"
+        [ngClass]="{ 'is-invalid': f.SecondaryPhone.errors && f.SecondaryPhone.touched }"
+        formControlName="SecondaryPhone"
+        id="SecondaryPhone"
         mask="(00) 0000-0000"
         placeholder="(00) 0000-0000"
       />
-      <div *ngIf="f.fone2.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.SecondaryPhone.errors?.required" class="invalid-feedback">
         O telefone é obrigatório
       </div>
     </div>
 
     <div class="col-md-4">
-      <div><label for="email">Email</label></div>
+      <div><label for="Email">Email</label></div>
 
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.email.errors && f.email.touched }"
-        formControlName="email"
-        id="email"
+        [ngClass]="{ 'is-invalid': f.Email.errors && f.Email.touched }"
+        formControlName="Email"
+        id="Email"
         placeholder="nome@email.com"
       />
-      <div *ngIf="f.email.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Email.errors?.required" class="invalid-feedback">
         O Email é obrigatório.
       </div>
     </div>
   </div>
 
   <!-- CADASTRO DOS SÓCIOS -->
-  <div>
   <div class="flex-box" id="centro">
     <h4>Cadastro de Sócios</h4>
   </div>
-
+<div class="form-group">
 <div class="d-flex">
-    <div class="col-md-6">
-      <div><label>Nome do Sócio</label></div>
+    <div class="col-md-6 form-group">
+      <div><label for="NamePartner" class="control-label">Nome do Sócio</label></div>
 
       <input
       type="text"
-      placeholder="Nome do sócio"
       class="form-control"
-      formControlName="socioCad"
-      id="socioCad"
-      [ngClass]="{ 'is-invalid': f.socioCad.errors && f.socioCad.touched }"
+      [ngClass]="{ 'is-invalid': f.NamePartner.errors && f.NamePartner.touched }"
+      formControlName="NamePartner"
+      id="NamePartner"
+      placeholder="Nome do sócio"
       />
-      <div *ngIf="f.socioCad.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.NamePartner.errors?.required" class="invalid-feedback">
         O sócio é obrigatório
       </div>
     </div>
 
-    <div class="col-md-6">
-      <div><label for="control-label">Cargo</label></div>
+    <div class="col-md-6 form-group">
+      <div><label for="OccupationPartner" class="control-label">Cargo</label></div>
 
       <input
     type="text"
     placeholder="Cargo do sócio"
     class="form-control"
-    formControlName="cargoCad"
-    id="cargoCad"
-    [ngClass]="{ 'is-invalid': f.cargoCad.errors && f.cargoCad.touched }"
+    formControlName="OccupationPartner"
+    id="OccupationPartner"
+    [ngClass]="{ 'is-invalid': f.OccupationPartner.errors && f.OccupationPartner.touched }"
     />
-    <div *ngIf="f.cargoCad.errors?.required" class="invalid-feedback">
+    <div *ngIf="f.OccupationPartner.errors?.required" class="invalid-feedback">
       O cargo é obrigatório
     </div>
     </div>
@@ -196,55 +196,87 @@
 
 
   <div class="d-flex">
-    <div class="col-md-4">
-      <div><label for="control-label">CPF/MF</label></div>
+    <div class="col-md-4 form-group">
+      <div><label for="CpfPartner" class="control-label">CPF/MF</label></div>
 
       <input
       type="text"
       placeholder="Digite o CPF/MF"
       class="form-control"
       mask="000.000.000-00"
-      formControlName="cpf1Cad"
-      id="cpf1Cad"
-      [ngClass]="{ 'is-invalid': f.cpf1Cad.errors && f.cpf1Cad.touched }"
+      formControlName="CpfPartner"
+      id="CpfPartner"
+      [ngClass]="{ 'is-invalid': f.CpfPartner.errors && f.CpfPartner.touched }"
       />
-      <div *ngIf="f.cpf1Cad.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.CpfPartner.errors?.required" class="invalid-feedback">
         O CPF/MF é obrigatório
       </div>
     </div>
-    <div class="col-md-4">
-        <div><label for="control-label">RG</label></div>
+    <div class="col-md-4 form-group">
+        <div><label for="RgPartner" class="control-label">RG</label></div>
 
         <input
     type="text"
     placeholder="Digite o RG"
     class="form-control"
-    formControlName="rg1Cad"
-    id="rg1Cad"
-    [ngClass]="{ 'is-invalid': f.rg1Cad.errors && f.rg1Cad.touched }"
+    formControlName="RgPartner"
+    id="RgPartner"
+    [ngClass]="{ 'is-invalid': f.RgPartner.errors && f.RgPartner.touched }"
     />
-    <div *ngIf="f.rg1Cad.errors?.required" class="invalid-feedback">
+    <div *ngIf="f.RgPartner.errors?.required" class="invalid-feedback">
       O RG é obrigatório
     </div>
       </div>
 
-      <div class="col-md-4">
-        <div><label for="control-label">% de participação na empresa</label></div>
+      <div class="col-md-4 form-group">
+        <div><label for="ParticipationPercentage" class="control-label">% de participação na empresa</label></div>
 
         <input
     type="text"
     placeholder="Digite o % de participação na empresa"
     class="form-control"
-    formControlName="percentPart1"
-    id="percentPart1"
-    [ngClass]="{ 'is-invalid': f.percentPart1.errors && f.percentPart1.touched }"
+    formControlName="ParticipationPercentage"
+    id="ParticipationPercentage"
+    [ngClass]="{ 'is-invalid': f.ParticipationPercentage.errors && f.ParticipationPercentage.touched }"
     />
-    <div *ngIf="f.percentPart1.errors?.required" class="invalid-feedback">
+    <div *ngIf="f.ParticipationPercentage.errors?.required" class="invalid-feedback">
       O % de participação na empresa é obrigatório
     </div>
       </div>
+  </div>
 
+  <div class="d-flex">
+    <div class="col-md-8 form-group">
+      <label for="AdressPartner" class="control-label">Endereço Completo Sócio</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Digite o endereço completo"
+        [ngClass]="{ 'is-invalid': f.AdressPartner.errors && f.AdressPartner.touched }"
+        formControlName="AdressPartner"
+        id="AdressPartner"
+      />
+      <div *ngIf="f.AdressPartner.errors?.required" class="invalid-feedback">
+        O campo Endereço é obrigatório.
+      </div>
+    </div>
 
+    <div class="col-md-4 form-group">
+      <label for="CepPartner" class="control-label">CEP</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Digite o CEP"
+        [ngClass]="{
+          'is-invalid': f.CepPartner.errors && f.CepPartner.touched
+        }"
+        formControlName="CepPartner"
+        id="CepPartner"
+      />
+      <div *ngIf="f.CepPartner.errors?.required" class="invalid-feedback">
+        O campo CEP é obrigatório.
+      </div>
+    </div>
   </div>
 </div>
 
@@ -267,58 +299,24 @@
         <th scope="col">CPF/MF</th>
         <th scope="col">RG</th>
         <th scope="col">% de Participação na Empresa</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">CEP</th>
         <th></th>
       </tr>
     </thead>
 
-      <tr *ngFor="let socio of socioget">
-        <td>{{socio.socioCad}}</td>
-        <td>{{socio.cargoCad}}</td>
-        <td>{{socio.cpf1Cad}}</td>
-        <td>{{socio.rg1Cad}}</td>
-        <td>{{socio.percentPart1}}</td>
-        <td><button title="Remover" (click)="removerSocio(socio)" class="btn btn-danger">
+      <tr *ngFor="let partner of partnerget">
+        <td>{{partner.NamePartner}}</td>
+        <td>{{partner.OccupationPartner}}</td>
+        <td>{{partner.CpfPartner}}</td>
+        <td>{{partner.RgPartner}}</td>
+        <td>{{partner.ParticipationPercentage}}</td>
+        <td>{{partner.AdressPartner}}</td>
+        <td>{{partner.CepPartner}}</td>
+        <td><button title="Remover" (click)="removerSocio(partner)" class="btn btn-danger">
           <i class="fa fa-trash" aria-hidden="true"></i>
        </button></td>
   </table>
-
-
-
-
-  <div class="d-flex">
-    <div class="col-md-8 form-group">
-      <label for="end2Cad" class="control-label">Endereço Completo Sócios</label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Digite o endereço completo"
-        [ngClass]="{ 'is-invalid': f.end2Cad.errors && f.end2Cad.touched }"
-        formControlName="end2Cad"
-        id="end2Cad"
-      />
-      <div *ngIf="f.end2Cad.errors?.required" class="invalid-feedback">
-        O campo Endereço é obrigatório.
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <label for="cep2Cad" class="control-label">CEP</label>
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Digite o CEP"
-        [ngClass]="{
-          'is-invalid': f.cep2Cad.errors && f.cep2Cad.touched
-        }"
-        formControlName="cep2Cad"
-        id="cep2Cad"
-      />
-      <div *ngIf="f.cep2Cad.errors?.required" class="invalid-feedback">
-        O campo CEP é obrigatório.
-      </div>
-    </div>
-  </div>
-
 
 
   <div class="flex-box" id="centro">
@@ -327,31 +325,31 @@
 
   <div class="d-flex">
     <div class="col-md-6 form-group">
-      <label for="nomeFin">Nome do contato financeiro</label>
+      <label for="FinancialContact">Nome do Contato financeiro</label>
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.nomeFin.errors && f.nomeFin.touched }"
-        formControlName="nomeFin"
-        id="nomeFin"
-        placeholder="Digite o nome do contato financeiro"
+        [ngClass]="{ 'is-invalid': f.FinancialContact.errors && f.FinancialContact.touched }"
+        formControlName="FinancialContact"
+        id="FinancialContact"
+        placeholder="Digite o nome do Contato financeiro"
       />
-      <div *ngIf="f.nomeFin.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.FinancialContact.errors?.required" class="invalid-feedback">
         O nome do contato financeiro é obrigatório.
       </div>
     </div>
 
     <div class="col-md-6">
-      <label for="cargo" class="control-label">Cargo</label>
+      <label for="Occupation" class="control-label">Cargo</label>
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.cargo.errors && f.cargo.touched }"
-        formControlName="cargo"
-        id="cargo"
+        [ngClass]="{ 'is-invalid': f.Occupation.errors && f.Occupation.touched }"
+        formControlName="Occupation"
+        id="Occupation"
         placeholder="Digite o cargo"
       />
-      <div *ngIf="f.cargo.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Occupation.errors?.required" class="invalid-feedback">
         O cargo é obrigatório.
       </div>
     </div>
@@ -359,49 +357,49 @@
 
   <div class="d-flex">
     <div class="col-md-4">
-      <div><label for="fone3">Telefone</label></div>
+      <div><label for="FinancialPhone">Telefone</label></div>
 
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.fone3.errors && f.fone3.touched }"
-        formControlName="fone3"
-        id="fone3"
+        [ngClass]="{ 'is-invalid': f.FinancialPhone.errors && f.FinancialPhone.touched }"
+        formControlName="FinancialPhone"
+        id="FinancialPhone"
         mask="(00) 0000-0000"
         placeholder="(00) 0000-0000"
       />
-      <div *ngIf="f.fone3.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.FinancialPhone.errors?.required" class="invalid-feedback">
         O telefone é obrigatório.
       </div>
     </div>
 
     <div class="col-md-4">
-      <div><label for="emailFin">Email</label></div>
+      <div><label for="FinancialEmail">Email</label></div>
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.emailFin.errors && f.emailFin.touched }"
-        formControlName="emailFin"
-        id="emailFin"
+        [ngClass]="{ 'is-invalid': f.FinancialEmail.errors && f.FinancialEmail.touched }"
+        formControlName="FinancialEmail"
+        id="FinancialEmail"
         placeholder="nome@email.com"
       />
-      <div *ngIf="f.emailFin.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.FinancialEmail.errors?.required" class="invalid-feedback">
         O Email é obrigatório.
       </div>
     </div>
 
     <div class="col-md-4">
-      <div><label for="emailFin">Contato na MV</label></div>
+      <div><label for="MvContact">Contato na MV</label></div>
 
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.contMv.errors && f.contMv.touched }"
-        formControlName="contMv"
-        id="contMv"
-        placeholder="Digite o nome do seu contato na MV"
+        [ngClass]="{ 'is-invalid': f.MvContact.errors && f.MvContact.touched }"
+        formControlName="MvContact"
+        id="MvContact"
+        placeholder="Digite o nome do seu Contato na MV"
       />
-      <div *ngIf="f.contMv.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.MvContact.errors?.required" class="invalid-feedback">
         O contato MV é obrigatório.
       </div>
     </div>
@@ -435,32 +433,32 @@
 
 
           <div class="col-md-6">
-            <label for="rua" class="control-label">Rua</label>
+            <label for="Street" class="control-label">Rua</label>
             <input
               type="text"
               class="form-control"
-              [ngClass]="{ 'is-invalid': f.rua.errors && f.rua.touched }"
-              formControlName="rua"
-              id="rua"
-              placeholder="Digite o nome da rua"
+              [ngClass]="{ 'is-invalid': f.Street.errors && f.Street.touched }"
+              formControlName="Street"
+              id="Street"
+              placeholder="Digite o nome da Rua"
             />
-            <div *ngIf="f.rua.errors?.required" class="invalid-feedback">
+            <div *ngIf="f.Street.errors?.required" class="invalid-feedback">
               O campo Rua é obrigatório.
             </div>
           </div>
 
 
         <div class="col-md-2">
-          <label for="numero" class="control-label">Número</label>
+          <label for="AddressNumber" class="control-label">Número</label>
           <input
             type="number"
             class="form-control"
             placeholder="Digite o número"
-            [ngClass]="{ 'is-invalid': f.numero.errors && f.numero.touched }"
-            formControlName="numero"
-            id="numero"
+            [ngClass]="{ 'is-invalid': f.AddressNumber.errors && f.AddressNumber.touched }"
+            formControlName="AddressNumber"
+            id="AddressNumber"
           />
-          <div *ngIf="f.numero.errors?.required" class="invalid-feedback">
+          <div *ngIf="f.AddressNumber.errors?.required" class="invalid-feedback">
             O campo número é obrigatório.
           </div>
         </div>
@@ -469,59 +467,59 @@
 
       <div class="d-flex">
         <div class="col-md-5 form-group">
-          <label for="bairro" class="control-label">Bairro</label>
+          <label for="District" class="control-label">Bairro</label>
           <input
             type="text"
             class="form-control"
             placeholder="Digite o bairro"
-            [ngClass]="{ 'is-invalid': f.bairro.errors && f.bairro.touched }"
-            formControlName="bairro"
-            id="bairro"
+            [ngClass]="{ 'is-invalid': f.District.errors && f.District.touched }"
+            formControlName="District"
+            id="District"
           />
-          <div *ngIf="f.bairro.errors?.required" class="invalid-feedback">
+          <div *ngIf="f.District.errors?.required" class="invalid-feedback">
             O campo Bairro é obrigatório.
           </div>
         </div>
 
         <div class="col-md-4">
-          <label for="cidade" class="control-label">Cidade</label>
+          <label for="City" class="control-label">Cidade</label>
           <input
             type="text"
             class="form-control"
             placeholder="Digite a cidade"
-            [ngClass]="{ 'is-invalid': f.cidade.errors && f.cidade.touched }"
-            formControlName="cidade"
-            id="cidade"
+            [ngClass]="{ 'is-invalid': f.City.errors && f.City.touched }"
+            formControlName="City"
+            id="City"
           />
-          <div *ngIf="f.cidade.errors?.required" class="invalid-feedback">
+          <div *ngIf="f.City.errors?.required" class="invalid-feedback">
             O campo Cidade é obrigatório.
           </div>
         </div>
 
         <div class="col-md-3">
-          <label for="estado" class="control-label">Estado</label>
+          <label for="State" class="control-label">Estado</label>
           <input
             type="text"
             class="form-control"
             placeholder="Digite o estado"
-            [ngClass]="{ 'is-invalid': f.estado.errors && f.estado.touched }"
-            formControlName="estado"
-            id="estado"
+            [ngClass]="{ 'is-invalid': f.State.errors && f.State.touched }"
+            formControlName="State"
+            id="State"
           />
-          <div *ngIf="f.estado.errors?.required" class="invalid-feedback">
+          <div *ngIf="f.State.errors?.required" class="invalid-feedback">
             O campo Estado é obrigatório.
           </div>
         </div>
       </div>
 
       <div class="col-md-12">
-        <label for="complemento" class="control-label">Complemento</label>
+        <label for="Complement" class="control-label">Complemento</label>
         <input
           type="text"
           class="form-control"
           placeholder="Digite o complemento"
-          formControlName="complemento"
-          id="complemento"
+          formControlName="Complement"
+          id="Complement"
         />
       </div>
     </div>
@@ -533,79 +531,79 @@
   </div>
   <div class="d-flex">
     <div class="col-md-4">
-      <label for="conta" class="control-label">Conta</label>
+      <label for="Account" class="control-label">Conta</label>
       <input
       type="text"
         class="form-control"
         placeholder="Digite o número da conta"
-        [ngClass]="{ 'is-invalid': f.conta.errors && f.conta.touched }"
-        formControlName="conta"
-        id="conta"
+        [ngClass]="{ 'is-invalid': f.Account.errors && f.Account.touched }"
+        formControlName="Account"
+        id="Account"
       />
-      <div *ngIf="f.conta.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Account.errors?.required" class="invalid-feedback">
         O campo Conta é obrigatório.
       </div>
     </div>
 
     <div class="col-md-4 form-group">
-      <label for="agencia" class="control-label">Agência</label>
+      <label for="Agency" class="control-label">Agência</label>
       <input
       type="text"
         class="form-control"
         placeholder="Digite a agência"
-        [ngClass]="{ 'is-invalid': f.agencia.errors && f.agencia.touched }"
-        formControlName="agencia"
-        id="agencia"
+        [ngClass]="{ 'is-invalid': f.Agency.errors && f.Agency.touched }"
+        formControlName="Agency"
+        id="Agency"
       />
-      <div *ngIf="f.agencia.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Agency.errors?.required" class="invalid-feedback">
         O campo Agência é obrigatório.
       </div>
     </div>
 
     <div class="col-md-4">
-      <label for="op" class="control-label">Operação</label>
+      <label for="Operation" class="control-label">Operação</label>
       <input
       type="text"
         class="form-control"
         placeholder="Digite o código da operação"
-        [ngClass]="{ 'is-invalid': f.op.errors && f.op.touched }"
-        formControlName="op"
-        id="op"
+        [ngClass]="{ 'is-invalid': f.Operation.errors && f.Operation.touched }"
+        formControlName="Operation"
+        id="Operation"
       />
-      <div *ngIf="f.op.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Operation.errors?.required" class="invalid-feedback">
         O campo Operação é obrigatório.
       </div>
     </div>
   </div>
   <div class="d-flex">
     <div class="col-md-6 form-group">
-      <label for="banco" class="control-label">Banco</label>
+      <label for="Bank" class="control-label">Banco</label>
       <input
         type="text"
         class="form-control"
         placeholder="Digite o codigo e nome do banco"
-        [ngClass]="{ 'is-invalid': f.banco.errors && f.banco.touched }"
-        formControlName="banco"
-        id="banco"
+        [ngClass]="{ 'is-invalid': f.Bank.errors && f.Bank.touched }"
+        formControlName="Bank"
+        id="Bank"
       />
-      <div *ngIf="f.banco.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Bank.errors?.required" class="invalid-feedback">
         O campo Banco é obrigatório.
       </div>
     </div>
 
     <div class="col-md-6">
-      <label for="favorecido" class="control-label">Favorecido</label>
+      <label for="Favored" class="control-label">Favorecido</label>
       <input
         type="text"
         class="form-control"
         placeholder="Digite o nome do favorecido"
         [ngClass]="{
-          'is-invalid': f.favorecido.errors && f.favorecido.touched
+          'is-invalid': f.Favored.errors && f.Favored.touched
         }"
-        formControlName="favorecido"
-        id="favorecido"
+        formControlName="Favored"
+        id="Favored"
       />
-      <div *ngIf="f.favorecido.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Favored.errors?.required" class="invalid-feedback">
         O campo Favorecido é obrigatório.
       </div>
     </div>
@@ -633,18 +631,18 @@
   </div>
 
 <!-- PERGUNTA 1 -->
-  <div class="container">
+  <div class="Accountiner">
     <form [formGroup]="formulario">
 
       <div class="form-group">
-          <label for="Quest1">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
+          <label for="TechnicalAbilityToPerform">1 - Possui capacidade técnica para execução integral dos serviços contratados?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value="1" name="Quest1"  formControlName="Quest1" (change)="changeQuiz($event)"> Sim
+            <input id="true" type="radio" value="1" name="TechnicalAbilityToPerform"  formControlName="TechnicalAbilityToPerform" (change)="changeQuiz($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="0" name="Quest1" formControlName="Quest1" (change)="changeQuiz($event)"> Não
+            <input id="false" type="radio" value="0" name="TechnicalAbilityToPerform" formControlName="TechnicalAbilityToPerform" (change)="changeQuiz($event)"> Não
          </div>
          </div>
       </div>
@@ -652,19 +650,19 @@
 </div>
 
 <!-- PERGUNTA 2 -->
-<div class="container">
+<div class="Accountiner">
 
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest2">2 - A empresa possui programa de integridade ou Compliance?</label>
+        <label for="CompanyHaveAnIntegrityOrComplianceProgram">2 - A empresa possui programa de integridade ou Compliance?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest2"  formControlName="Quest2" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="CompanyHaveAnIntegrityOrComplianceProgram"  formControlName="CompanyHaveAnIntegrityOrComplianceProgram" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest2" formControlName="Quest2" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="CompanyHaveAnIntegrityOrComplianceProgram" formControlName="CompanyHaveAnIntegrityOrComplianceProgram" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -672,20 +670,20 @@
 </div>
 
 <!-- PERGUNTA 3 -->
-<div class="container">
+<div class="Accountiner">
 
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest3">3 - A empresa possui histórico de envolvimento em investigações em casos
+        <label for="InvolvementInInvestigationsFraudCorruption">3 - A empresa possui histórico de envolvimento em investigações em casos
           de fraude, corrupção ou lavagem de dinheiro?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest3"  formControlName="Quest3" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="InvolvementInInvestigationsFraudCorruption"  formControlName="InvolvementInInvestigationsFraudCorruption" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest3" formControlName="Quest3" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="InvolvementInInvestigationsFraudCorruption" formControlName="InvolvementInInvestigationsFraudCorruption" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -693,21 +691,21 @@
 </div>
 
 <!-- PERGUNTA 4 -->
-<div class="container">
+<div class="Accountiner">
 
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest4">4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
-          Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas
+        <label for="TheCompanyBeenPartOfCEISAndCNEP">4 - A empresa está listada ou se já fez parte do Cadastro Nacional de
+          Empresas Inidôneas e Suspensas (CEIS) e no Cadastro Nacional das Empresas
           Punidas (CNEP).</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest4"  formControlName="Quest4" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="TheCompanyBeenPartOfCEISAndCNEP"  formControlName="TheCompanyBeenPartOfCEISAndCNEP" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest4" formControlName="Quest4" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="TheCompanyBeenPartOfCEISAndCNEP" formControlName="TheCompanyBeenPartOfCEISAndCNEP" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -715,19 +713,19 @@
 </div>
 
 <!-- PERGUNTA 5 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio5">5 - Informe o nome de outros clientes nos quais prestou serviços similares:</label>
+        <label for="ClientsInWhichItProvidedSimilarServices_TextArea5">5 - Informe o nome de outros clientes nos quais prestou serviços similares:</label>
        <div class="linha">
 
        </div>
        <div class="form-group">
         <textarea
           class="form-control"
-          id="textarea5"
-          formControlName="textarea5"
+          id="ClientsInWhichItProvidedSimilarServices_TextArea5"
+          formControlName="ClientsInWhichItProvidedSimilarServices_TextArea5"
           rows="3"
         ></textarea>
       </div>
@@ -736,19 +734,19 @@
 </div>
 
 <!-- PERGUNTA 6 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="radio6">6 - Descreva as atividades de sua empresa CNAEs</label>
+        <label for="DescribeTheActivitiesOfYourCompanyCNAEs_TextArea6">6 - Descreva as atividades de sua empresa CNAEs</label>
        <div class="linha">
 
        </div>
        <div class="form-group">
         <textarea
           class="form-control"
-          id="textarea6"
-          formControlName="textarea6"
+          id="DescribeTheActivitiesOfYourCompanyCNAEs_TextArea6"
+          formControlName="DescribeTheActivitiesOfYourCompanyCNAEs_TextArea6"
           rows="3"
         ></textarea>
       </div>
@@ -759,29 +757,29 @@
 
 
 <!-- PERGUNTA 7 -->
-  <div class="container">
+  <div class="Accountiner">
     <form [formGroup]="formulario">
 
       <div class="form-group">
-          <label for="Quest7">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
+          <label for="EmploymentRelationshipWithMV">7 - Algum sócio e/ou administrador possui vínculo empregatício com a MV?</label>
          <div class="linha">
           <div class="form-check-inline">
-            <input id="true" type="radio" value='1' name="Quest7"  formControlName="Quest7" (change)="changeQuiz7($event)"> Sim
+            <input id="true" type="radio" value='1' name="EmploymentRelationshipWithMV"  formControlName="EmploymentRelationshipWithMV" (change)="changeQuiz7($event)"> Sim
          </div>
 
          <div class="form-check-inline">
-            <input id="false" type="radio" value="0" name="Quest7" formControlName="Quest7" (change)="changeQuiz7($event)"> Não
+            <input id="false" type="radio" value="0" name="EmploymentRelationshipWithMV" formControlName="EmploymentRelationshipWithMV" (change)="changeQuiz7($event)"> Não
          </div>
          </div>
-         <div class="form-group" [hidden]="!caixa7">
-          <label for="textarea7"
+         <div class="form-group" [hidden]="!box7">
+          <label for="EmploymentRelationshipWithMV_TextArea7"
             >Em caso positivo, descreva o cargo e local da prestação de
             serviços:</label
           >
           <textarea
             class="form-control"
-            id="textarea7"
-            formControlName="textarea7"
+            id="EmploymentRelationshipWithMV_TextArea7"
+            formControlName="EmploymentRelationshipWithMV_TextArea7"
             rows="3"
           ></textarea>
         </div>
@@ -791,26 +789,26 @@
 
 <!-- PERGUNTA 8 -->
 
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest8">8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV? </label>
+        <label for="EmployeeServicesHaveAnEmploymentRelationshipWithMv">8 - O funcionário que vai prestar serviço a MV já possuiu vínculo empregatício com a MV? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest8"  formControlName="Quest8" (change)="changeQuiz8($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmployeeServicesHaveAnEmploymentRelationshipWithMv"  formControlName="EmployeeServicesHaveAnEmploymentRelationshipWithMv" (change)="changeQuiz8($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest8" formControlName="Quest8" (change)="changeQuiz8($event)"> Não
+          <input id="false" type="radio" value="0" name="EmployeeServicesHaveAnEmploymentRelationshipWithMv" formControlName="EmployeeServicesHaveAnEmploymentRelationshipWithMv" (change)="changeQuiz8($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa8">
-        <label for="textarea8">Em caso positivo, descreva o cargo e o tempo de desligamento:</label>
+       <div class="form-group" [hidden]="!box8">
+        <label for="EmployeeServicesHaveAnEmploymentRelationshipWithMv_TextArea8">Em caso positivo, descreva o cargo e o tempo de desligamento:</label>
         <textarea
           class="form-control"
-          id="textarea8"
-          formControlName="textarea8"
+          id="EmployeeServicesHaveAnEmploymentRelationshipWithMv_TextArea8"
+          formControlName="EmployeeServicesHaveAnEmploymentRelationshipWithMv_TextArea8"
           rows="3"
         ></textarea>
       </div>
@@ -819,26 +817,26 @@
 </div>
 
 <!-- PERGUNTA 9 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest9">9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?  </label>
+        <label for="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant">9 - Algum sócio ou administrador, nos últimos 3 (três) anos foi funcionário público, político ou ocupante de cargo de confiança ou possui vínculo jurídico e/ou político?  </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest9"  formControlName="Quest9" (change)="changeQuiz9($event)"> Sim
+          <input id="true" type="radio" value='1' name="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant"  formControlName="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant" (change)="changeQuiz9($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest9" formControlName="Quest9" (change)="changeQuiz9($event)"> Não
+          <input id="false" type="radio" value="0" name="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant" formControlName="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant" (change)="changeQuiz9($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa9">
-        <label for="textarea9">Em caso positivo, descreva qual a função, o órgão público e local da atuação.</label>
+       <div class="form-group" [hidden]="!box9">
+        <label for="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant_TextArea9">Em caso positivo, descreva qual a função, o órgão público e local da atuação.</label>
         <textarea
           class="form-control"
-          id="textarea9"
-          formControlName="textarea9"
+          id="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant_TextArea9"
+          formControlName="AnyPartnerInTheLast3YearsHaveYouBeenPublicServant_TextArea9"
           rows="3"
         ></textarea>
       </div>
@@ -846,26 +844,26 @@
 </form>
 </div>
 <!-- PERGUNTA 10 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest10">10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?   </label>
+        <label for="AnyPartnerOrAdministratorRunningForPublicOffice">10 - Algum sócio ou administrador concorre a cargo público (seja por concurso ou político)?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest10"  formControlName="Quest10" (change)="changeQuiz10($event)"> Sim
+          <input id="true" type="radio" value='1' name="AnyPartnerOrAdministratorRunningForPublicOffice"  formControlName="AnyPartnerOrAdministratorRunningForPublicOffice" (change)="changeQuiz10($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest10" formControlName="Quest10" (change)="changeQuiz10($event)"> Não
+          <input id="false" type="radio" value="0" name="AnyPartnerOrAdministratorRunningForPublicOffice" formControlName="AnyPartnerOrAdministratorRunningForPublicOffice" (change)="changeQuiz10($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa10">
-        <label for="textarea10">Em caso positivo, qual a entidade ou cargo público que concorre?</label>
+       <div class="form-group" [hidden]="!box10">
+        <label for="AnyPartnerOrAdministratorRunningForPublicOffice_TextArea10">Em caso positivo, qual a entidade ou cargo público que concorre?</label>
         <textarea
           class="form-control"
-          id="textarea10"
-          formControlName="textarea10"
+          id="AnyPartnerOrAdministratorRunningForPublicOffice_TextArea10"
+          formControlName="AnyPartnerOrAdministratorRunningForPublicOffice_TextArea10"
           rows="3"
         ></textarea>
       </div>
@@ -874,26 +872,26 @@
 </div>
 
 <!-- PERGUNTA 11 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest11">11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </label>
+        <label for="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee">11 - Algum sócio ou administrador é cônjuge ou vive em união estável, é neto(a), pai, mãe, filho(a), tio(a) ou sobrinho(a), de algum funcionário da MV? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest11"  formControlName="Quest11" (change)="changeQuiz11($event)"> Sim
+          <input id="true" type="radio" value='1' name="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee"  formControlName="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee" (change)="changeQuiz11($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest11" formControlName="Quest11" (change)="changeQuiz11($event)"> Não
+          <input id="false" type="radio" value="0" name="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee" formControlName="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee" (change)="changeQuiz11($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa11">
-        <label for="textarea11">Em caso positivo, informe o grau de parentesco, a entidade e o local da prestação de serviços do parente.</label>
+       <div class="form-group" [hidden]="!box11">
+        <label for="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee_TextArea11">Em caso positivo, informe o grau de parentesco, a entidade e o local da prestação de serviços do parente.</label>
         <textarea
           class="form-control"
-          id="textarea11"
-          formControlName="textarea11"
+          id="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee_TextArea11"
+          formControlName="AnyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee_TextArea11"
           rows="3"
         ></textarea>
       </div>
@@ -902,26 +900,26 @@
 </div>
 
 <!-- PERGUNTA 12 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest12">12 - A empresa possui relação com outros países?  </label>
+        <label for="TheCompanyHasRelationsWithOtherCountries">12 - A empresa possui relação com outros países?  </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest12"  formControlName="Quest12" (change)="changeQuiz12($event)"> Sim
+          <input id="true" type="radio" value='1' name="TheCompanyHasRelationsWithOtherCountries"  formControlName="TheCompanyHasRelationsWithOtherCountries" (change)="changeQuiz12($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest12" formControlName="Quest12" (change)="changeQuiz12($event)"> Não
+          <input id="false" type="radio" value="0" name="TheCompanyHasRelationsWithOtherCountries" formControlName="TheCompanyHasRelationsWithOtherCountries" (change)="changeQuiz12($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa12">
-        <label for="textarea12">Se sim, qual(ais)?</label>
+       <div class="form-group" [hidden]="!box12">
+        <label for="TheCompanyHasRelationsWithOtherCountries_TextArea12">Se sim, qual(ais)?</label>
         <textarea
           class="form-control"
-          id="textarea12"
-          formControlName="textarea12"
+          id="TheCompanyHasRelationsWithOtherCountries_TextArea12"
+          formControlName="TheCompanyHasRelationsWithOtherCountries_TextArea12"
           rows="3"
         ></textarea>
       </div>
@@ -930,26 +928,26 @@
 </div>
 
 <!-- PERGUNTA 13 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest13">13 - A empresa faz uso de intermediários para fechar negócios?   </label>
+        <label for="TheCompanyUsesIntermediariesToCloseDeals">13 - A empresa faz uso de intermediários para fechar negócios?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest13"  formControlName="Quest13" (change)="changeQuiz13($event)"> Sim
+          <input id="true" type="radio" value='1' name="TheCompanyUsesIntermediariesToCloseDeals"  formControlName="TheCompanyUsesIntermediariesToCloseDeals" (change)="changeQuiz13($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest13" formControlName="Quest13" (change)="changeQuiz13($event)"> Não
+          <input id="false" type="radio" value="0" name="TheCompanyUsesIntermediariesToCloseDeals" formControlName="TheCompanyUsesIntermediariesToCloseDeals" (change)="changeQuiz13($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa13">
-        <label for="textarea13">Se sim, especifique:</label>
+       <div class="form-group" [hidden]="!box13">
+        <label for="TheCompanyUsesIntermediariesToCloseDeals_TextArea13">Se sim, especifique:</label>
         <textarea
           class="form-control"
-          id="textarea13"
-          formControlName="textarea13"
+          id="TheCompanyUsesIntermediariesToCloseDeals_TextArea13"
+          formControlName="TheCompanyUsesIntermediariesToCloseDeals_TextArea13"
           rows="3"
         ></textarea>
       </div>
@@ -958,18 +956,18 @@
 </div>
 
 <!-- PERGUNTA 14 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest14">14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).   </label>
+        <label for="TheCompanyPerformsTreatmentUnderTheTermsOfTheLgpd">14 - A empresa realiza tratamento, nos termos da LGPD, de dados pessoais da MV? Responder as questões seguintes caso a resposta seja afirmativa. Caso a resposta seja negativa responder “NA” (Não aplicável).   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest14"  formControlName="Quest14" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="TheCompanyPerformsTreatmentUnderTheTermsOfTheLgpd"  formControlName="TheCompanyPerformsTreatmentUnderTheTermsOfTheLgpd" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest14" formControlName="Quest14" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="TheCompanyPerformsTreatmentUnderTheTermsOfTheLgpd" formControlName="TheCompanyPerformsTreatmentUnderTheTermsOfTheLgpd" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -977,26 +975,26 @@
 </div>
 
 <!-- PERGUNTA 15 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest15">15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.   </label>
+        <label for="TheCompanyHasALgpdProgram">15 - A empresa possui programa de LGPD? Mencionar abaixo se possui certificação relacionada a proteção de dados e/ou à segurança da informação.</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest15"  formControlName="Quest15" (change)="changeQuiz15($event)"> Sim
+          <input id="true" type="radio" value='1' name="TheCompanyHasALgpdProgram"  formControlName="TheCompanyHasALgpdProgram" (change)="changeQuiz15($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest15" formControlName="Quest15" (change)="changeQuiz15($event)"> Não
+          <input id="false" type="radio" value="0" name="TheCompanyHasALgpdProgram" formControlName="TheCompanyHasALgpdProgram" (change)="changeQuiz15($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa15">
-        <label for="textarea15">Se possui certificação, especifique:</label>
+       <div class="form-group" [hidden]="!box15">
+        <label for="TheCompanyHasALgpdProgram_TextArea15">Se possui certificação, especifique:</label>
         <textarea
           class="form-control"
-          id="textarea15"
-          formControlName="textarea15"
+          id="TheCompanyHasALgpdProgram_TextArea15"
+          formControlName="TheCompanyHasALgpdProgram_TextArea15"
           rows="3"
         ></textarea>
       </div>
@@ -1006,26 +1004,26 @@
 
 <!-- PERGUNTA 16 -->
 
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest16">16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado?   </label>
+        <label for="TheCompanyHasADataProtectionOfficer">16 - A empresa possui um Encarregado de Proteção de Dados (DPO – Data Protection Officer) nomeado?   </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest16"  formControlName="Quest16" (change)="changeQuiz16($event)"> Sim
+          <input id="true" type="radio" value='1' name="TheCompanyHasADataProtectionOfficer"  formControlName="TheCompanyHasADataProtectionOfficer" (change)="changeQuiz16($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest16" formControlName="Quest16" (change)="changeQuiz16($event)"> Não
+          <input id="false" type="radio" value="0" name="TheCompanyHasADataProtectionOfficer" formControlName="TheCompanyHasADataProtectionOfficer" (change)="changeQuiz16($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa16">
-        <label for="textarea16">Se sim, indique o nome e dados para contato:</label>
+       <div class="form-group" [hidden]="!box16">
+        <label for="TheCompanyHasADataProtectionOfficer_TextArea16">Se sim, indique o nome e dados para Accountto:</label>
         <textarea
           class="form-control"
-          id="textarea16"
-          formControlName="textarea16"
+          id="TheCompanyHasADataProtectionOfficer_TextArea16"
+          formControlName="TheCompanyHasADataProtectionOfficer_TextArea16"
           rows="3"
         ></textarea>
       </div>
@@ -1034,18 +1032,18 @@
 </div>
 
 <!-- PERGUNTA 17 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest17">17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais? </label>
+        <label for="TheCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData">17 - A empresa encontra-se apta a atender os direitos dos titulares de dados pessoais e a fornecer os relatórios necessários para avaliação de impacto em caso de incidentes com dados pessoais? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest17"  formControlName="Quest17" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="TheCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData"  formControlName="TheCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest17" formControlName="Quest17" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="TheCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData" formControlName="TheCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1053,18 +1051,18 @@
 </div>
 
 <!-- PERGUNTA 18 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest18">18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais? </label>
+        <label for="EmployeesReceiveTraining">18 - Os colaboradores recebem treinamento e capacitação contínua sobre a importância da proteção de dados pessoais? </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest18"  formControlName="Quest18" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="EmployeesReceiveTraining"  formControlName="EmployeesReceiveTraining" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest18" formControlName="Quest18" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="EmployeesReceiveTraining" formControlName="EmployeesReceiveTraining" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1072,26 +1070,26 @@
 </div>
 
 <!-- PERGUNTA 19 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest19">19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.) </label>
+        <label for="DescribeTheSecurityTechniquesAdopted">19 - Descreva as técnicas de segurança adotadas para preservar a confidencialidade, a integridade e a disponibilidade dos dados pessoais (exemplo: uso de antivírus, firewall, criptografia, etc.) </label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest19"  formControlName="Quest19" (change)="changeQuiz19($event)"> Sim
+          <input id="true" type="radio" value='1' name="DescribeTheSecurityTechniquesAdopted"  formControlName="DescribeTheSecurityTechniquesAdopted" (change)="changeQuiz19($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest19" formControlName="Quest19" (change)="changeQuiz19($event)"> Não
+          <input id="false" type="radio" value="0" name="DescribeTheSecurityTechniquesAdopted" formControlName="DescribeTheSecurityTechniquesAdopted" (change)="changeQuiz19($event)"> Não
        </div>
        </div>
-       <div class="form-group" [hidden]="!caixa19">
-        <label for="textarea19">Se sim, especifique:</label>
+       <div class="form-group" [hidden]="!box19">
+        <label for="DescribeTheSecurityTechniquesAdopted_TextArea19">Se sim, especifique:</label>
         <textarea
           class="form-control"
-          id="textarea19"
-          formControlName="textarea19"
+          id="DescribeTheSecurityTechniquesAdopted_TextArea19"
+          formControlName="DescribeTheSecurityTechniquesAdopted_TextArea19"
           rows="3"
         ></textarea>
       </div>
@@ -1100,18 +1098,18 @@
 </div>
 
 <!-- PERGUNTA 20 -->
-<div class="container">
+<div class="Accountiner">
   <form [formGroup]="formulario">
 
     <div class="form-group">
-        <label for="Quest20">20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</label>
+        <label for="AllTransfersAndSharingOfPersonalDataCarriedOut">20 - Todas as transferências e compartilhamentos de dados pessoais realizados pela empresa estão devidamente identificados e ocorrem de acordo com a forma prevista em lei?</label>
        <div class="linha">
         <div class="form-check-inline">
-          <input id="true" type="radio" value='1' name="Quest20"  formControlName="Quest20" (change)="changeQuiz($event)"> Sim
+          <input id="true" type="radio" value='1' name="AllTransfersAndSharingOfPersonalDataCarriedOut"  formControlName="AllTransfersAndSharingOfPersonalDataCarriedOut" (change)="changeQuiz($event)"> Sim
        </div>
 
        <div class="form-check-inline">
-          <input id="false" type="radio" value="0" name="Quest20" formControlName="Quest20" (change)="changeQuiz($event)"> Não
+          <input id="false" type="radio" value="0" name="AllTransfersAndSharingOfPersonalDataCarriedOut" formControlName="AllTransfersAndSharingOfPersonalDataCarriedOut" (change)="changeQuiz($event)"> Não
        </div>
        </div>
     </div>
@@ -1119,75 +1117,36 @@
 </div>
 
 
-  <!-- RODAPÉ -->
-  <!-- <div class="flex-box" id="centro">
-  </div>
-  <div>
-    <div class="text-justify form-group">
-      <h6>
-        <div class="linha font"> Em nome de
-          <input
-          type="text"
-          cols="40"
-          rows="5"
-          placeholder="Digite a Razão Social"
-          style="width: 400px; height: 25px"
-          formControlName="razSoc3"
-          id="razSoc3"
-          [ngClass]="{ 'is-invalid': f.razSoc3.errors && f.razSoc3.touched }"
-        /> <label for="control-label">(empresa credenciada), DECLARO, sob as penas da lei:</label>
-
-            <div *ngIf="f.razSoc3.errors?.required" class="invalid-feedback">
-              A razão social é obrigatória
-            </div>
-         </div>
-
-
-      </h6>
-
-
-      <div class="d-flex">
-        1. Que todas as informações prestadas neste documento e anexos são
-        verdadeiras e corretas;
-      </div>
-      <div class="d-flex">
-        2. Sempre que envolvermos subcontratações, realizaremos uma comunicação
-        através de e-mail, para que a MV possa aprovar tal “quarteirização”.
-      </div>
-      <div class="d-flex">3. (cláusula LGPD)</div>
-    </div>
-
-  </div> -->
   <div class="flex-box" id="centro">
     <h4>Assinatura Representante</h4>
   </div>
 
   <div class="d-flex">
     <div class="form-group col-md-4">
-      <label class="control-label" for="data">Data</label>
+      <label class="control-label" for="Date">Data</label>
       <input
-        id="data2"
+        id="Date"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.data2.errors && f.data2.touched }"
+        [ngClass]="{ 'is-invalid': f.Date.errors && f.Date.touched }"
         type="date"
-        formControlName="data2"
+        formControlName="Date"
       />
-      <div *ngIf="f.data2.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.Date.errors?.required" class="invalid-feedback">
         A data de cadastro é obrigatória
       </div>
     </div>
 
     <div class="form-group col-md-8">
-      <label for="nomeLeg">Nome do representante legal</label>
+      <label for="RepresentativeName">Nome do representante legal</label>
       <input
         type="text"
         class="form-control"
-        [ngClass]="{ 'is-invalid': f.nomeLeg.errors && f.nomeLeg.touched }"
-        formControlName="nomeLeg"
-        id="nomeLeg"
+        [ngClass]="{ 'is-invalid': f.RepresentativeName.errors && f.RepresentativeName.touched }"
+        formControlName="RepresentativeName"
+        id="RepresentativeName"
         placeholder="Digite o nome do representante legal"
       />
-      <div *ngIf="f.nomeLeg.errors?.required" class="invalid-feedback">
+      <div *ngIf="f.RepresentativeName.errors?.required" class="invalid-feedback">
         O nome do representante legal é obrigatório.
       </div>
     </div>
@@ -1195,31 +1154,31 @@
 
  <div class="d-flex">
   <div class="form-group col-md-4">
-    <label for="rgRep" class="control-label">RG</label>
+    <label for="RgRepresentative" class="control-label">RG</label>
     <input
       type="text"
       class="form-control"
-      [ngClass]="{ 'is-invalid': f.rgRep.errors && f.rgRep.touched }"
-      formControlName="rgRep"
-      id="rgRep"
+      [ngClass]="{ 'is-invalid': f.RgRepresentative.errors && f.RgRepresentative.touched }"
+      formControlName="RgRepresentative"
+      id="RgRepresentative"
       placeholder="Digite o RG do representante legal"
     />
-    <div *ngIf="f.rgRep.errors?.required" class="invalid-feedback">
+    <div *ngIf="f.RgRepresentative.errors?.required" class="invalid-feedback">
       O RG do representante legal é obrigatório.
     </div>
   </div>
 
   <div class="col-md-8">
-    <label for="cargoRep" class="control-label">Cargo</label>
+    <label for="OccupationRepresentative" class="control-label">Cargo</label>
     <input
       type="text"
       class="form-control"
-      [ngClass]="{ 'is-invalid': f.cargoRep.errors && f.cargoRep.touched }"
-      formControlName="cargoRep"
-      id="cargoRep"
+      [ngClass]="{ 'is-invalid': f.OccupationRepresentative.errors && f.OccupationRepresentative.touched }"
+      formControlName="OccupationRepresentative"
+      id="OccupationRepresentative"
       placeholder="Digite o cargo do representante legal"
     />
-    <div *ngIf="f.cargoRep.errors?.required" class="invalid-feedback">
+    <div *ngIf="f.OccupationRepresentative.errors?.required" class="invalid-feedback">
       O cargo do representante legal é obrigatório.
     </div>
   </div>
