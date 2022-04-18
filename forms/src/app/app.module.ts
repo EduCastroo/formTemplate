@@ -9,6 +9,9 @@ import { TemplateFormModule } from './template-form/template-form.module';
 import { DataFormModule } from './data-form/data-form.module';
 import { HeaderComponent } from './header/header.component';
 
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 
 @NgModule({
@@ -20,9 +23,16 @@ import { HeaderComponent } from './header/header.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      progressBar: true
+    }),
     HttpClientModule,
     AppRoutingModule,
     TemplateFormModule,
+    NgxSpinnerModule,
     DataFormModule,
 
 
