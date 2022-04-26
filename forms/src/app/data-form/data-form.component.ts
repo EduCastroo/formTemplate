@@ -1,12 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DilligenceService } from './Dilligence.service';
+import { DilligenceService } from '../services/Dilligence.service';
 import { Partner } from '../Model/Partner';
 import { saveAs } from 'file-saver';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Attachments } from '../Model/Attachments';
+import { Guid } from '../helpers/Guid';
+import { AzureBlobStorageService } from 'src/app/services/azure-blob-storage.service.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { PartnerService } from '../services/Partner.service';
 
 
 @Component({
@@ -18,6 +23,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 export class DataFormComponent implements OnInit {
 
+  modalRef?: BsModalRef;
+  // @ViewChild('template')
 
   formulario!: FormGroup;
 
@@ -43,7 +50,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box = true
     } else {
@@ -52,7 +58,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz7(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box7 = true
     } else {
@@ -61,7 +66,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz8(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box8 = true
     } else {
@@ -70,7 +74,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz9(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box9 = true
     } else {
@@ -79,7 +82,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz10(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box10 = true
     } else {
@@ -88,7 +90,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz11(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box11 = true
     } else {
@@ -97,7 +98,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz12(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box12 = true
     } else {
@@ -106,7 +106,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz13(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box13 = true
     } else {
@@ -116,7 +115,6 @@ export class DataFormComponent implements OnInit {
 
 
   changeQuiz15(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box15 = true
     } else {
@@ -125,7 +123,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz16(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box16 = true
     } else {
@@ -134,7 +131,6 @@ export class DataFormComponent implements OnInit {
   }
 
   changeQuiz19(e: any) {
-    // console.log(e.target.value);
     if (e.target.value == 1) {
       this.box19 = true
     } else {
@@ -146,15 +142,18 @@ export class DataFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private service: DilligenceService,
+    private partnerService: PartnerService,
+    private modalService: BsModalService,
     private spinner: NgxSpinnerService,
-    private toastr: ToastrService
-
-  ) {
-
-  }
+    private toastr: ToastrService,
+    private blobService: AzureBlobStorageService)
+    {}
 
 partners: Partner[] = [];
 partnerget: any = [];
+selectedFiles: any[] = [];
+selectedAttachments: Attachments[] = [];
+deleteId: number = 0;
 
 cadSocio(){
   if(this.validarCpf()){
@@ -208,6 +207,7 @@ else
 
     // CADASTRO SÓCIOS
     partners: [[]],
+    attachments: [[]],
     namePartner: [null],
     occupationPartner: [null],
     cpfPartner: [null],
@@ -218,8 +218,8 @@ else
 
 
     // DADOS NECESSÁRIOS
+    id: [0],
     numberEmployees: [null, Validators.required],
-    // date: [null, Validators.required],
     corporateName: [null, Validators.required],
     cnpj: [null, Validators.required],
     stateRegistration: [null, Validators.required],
@@ -277,7 +277,6 @@ else
     describeTheSecurityTechniquesAdopted_TextArea19: [null],
     allTransfersAndSharingOfPersonalDataCarriedOut : [false, Validators.required],
 
-
     representativeName: [null, Validators.required],
     rgRepresentative: [null, Validators.required],
     occupationRepresentative: [null, Validators.required],
@@ -287,37 +286,59 @@ else
 
 
  postar(): void{
-    this.formulario.value.technicalAbilityToPerform = this.formulario.value.technicalAbilityToPerform == "0"? false : true;
-    this.formulario.value.companyHaveAnIntegrityOrComplianceProgram = this.formulario.value.companyHaveAnIntegrityOrComplianceProgram == "0"? false : true;
-    this.formulario.value.involvementInInvestigationsFraudCorruption = this.formulario.value.involvementInInvestigationsFraudCorruption == "0"? false : true;
-    this.formulario.value.theCompanyBeenPartOfCEISAndCNEP = this.formulario.value.theCompanyBeenPartOfCEISAndCNEP == "0"? false : true;
-    this.formulario.value.employmentRelationshipWithMV = this.formulario.value.employmentRelationshipWithMV == "0"? false : true;
-    this.formulario.value.employeeServicesHaveAnEmploymentRelationshipWithMv = this.formulario.value.employeeServicesHaveAnEmploymentRelationshipWithMv == "0"? false : true;
-    this.formulario.value.anyPartnerInTheLast3YearsHaveYouBeenPublicServant = this.formulario.value.anyPartnerInTheLast3YearsHaveYouBeenPublicServant == "0"? false : true;
-    this.formulario.value.anyPartnerOrAdministratorRunningForPublicOffice = this.formulario.value.anyPartnerOrAdministratorRunningForPublicOffice == "0"? false : true;
-    this.formulario.value.anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee = this.formulario.value.anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee == "0"? false : true;
-    this.formulario.value.theCompanyHasRelationsWithOtherCountries = this.formulario.value.theCompanyHasRelationsWithOtherCountries == "0"? false : true;
-    this.formulario.value.theCompanyUsesIntermediariesToCloseDeals = this.formulario.value.theCompanyUsesIntermediariesToCloseDeals == "0"? false : true;
-    this.formulario.value.theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd = this.formulario.value.theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd == "0"? false : true;
-    this.formulario.value.theCompanyHasALgpdProgram = this.formulario.value.theCompanyHasALgpdProgram == "0"? false : true;
-    this.formulario.value.theCompanyHasADataProtectionOfficer = this.formulario.value.theCompanyHasADataProtectionOfficer == "0"? false : true;
-    this.formulario.value.theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData = this.formulario.value.theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData == "0"? false : true;
-    this.formulario.value.employeesReceiveTraining = this.formulario.value.employeesReceiveTraining == "0"? false : true;
-    this.formulario.value.describeTheSecurityTechniquesAdopted = this.formulario.value.describeTheSecurityTechniquesAdopted == "0"? false : true;
-    this.formulario.value.allTransfersAndSharingOfPersonalDataCarriedOut = this.formulario.value.allTransfersAndSharingOfPersonalDataCarriedOut == "0"? false : true;
-    this.service.save(this.formulario?.value).subscribe((resultado) => {
-      this.resetar();
-      this.toastr.success("Informações salvas com sucesso!", "Sucesso");
-    }, error => {
-      this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
-      console.log(error);
-    });
+    this.formulario.patchValue(
+      {
+        attachments : this.selectedAttachments,
+        technicalAbilityToPerform : this.formulario.value.technicalAbilityToPerform == "0"? false : true,
+        companyHaveAnIntegrityOrComplianceProgram : this.formulario.value.companyHaveAnIntegrityOrComplianceProgram == "0"? false : true,
+        involvementInInvestigationsFraudCorruption : this.formulario.value.involvementInInvestigationsFraudCorruption == "0"? false : true,
+        theCompanyBeenPartOfCEISAndCNEP : this.formulario.value.theCompanyBeenPartOfCEISAndCNEP == "0"? false : true,
+        employmentRelationshipWithMV : this.formulario.value.employmentRelationshipWithMV == "0"? false : true,
+        employeeServicesHaveAnEmploymentRelationshipWithMv : this.formulario.value.employeeServicesHaveAnEmploymentRelationshipWithMv == "0"? false : true,
+        anyPartnerInTheLast3YearsHaveYouBeenPublicServant : this.formulario.value.anyPartnerInTheLast3YearsHaveYouBeenPublicServant == "0"? false : true,
+        anyPartnerOrAdministratorRunningForPublicOffice : this.formulario.value.anyPartnerOrAdministratorRunningForPublicOffice == "0"? false : true,
+        anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee : this.formulario.value.anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee == "0"? false : true,
+        theCompanyHasRelationsWithOtherCountries : this.formulario.value.theCompanyHasRelationsWithOtherCountries == "0"? false : true,
+        theCompanyUsesIntermediariesToCloseDeals : this.formulario.value.theCompanyUsesIntermediariesToCloseDeals == "0"? false : true,
+        theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd : this.formulario.value.theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd == "0"? false : true,
+        theCompanyHasALgpdProgram : this.formulario.value.theCompanyHasALgpdProgram == "0"? false : true,
+        theCompanyHasADataProtectionOfficer : this.formulario.value.theCompanyHasADataProtectionOfficer == "0"? false : true,
+        theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData : this.formulario.value.theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData == "0"? false : true,
+        employeesReceiveTraining : this.formulario.value.employeesReceiveTraining == "0"? false : true,
+        describeTheSecurityTechniquesAdopted : this.formulario.value.describeTheSecurityTechniquesAdopted == "0"? false : true,
+        allTransfersAndSharingOfPersonalDataCarriedOut : this.formulario.value.allTransfersAndSharingOfPersonalDataCarriedOut == "0"? false : true,
+
+      }
+    );
+    if(this.formulario.value.id == 0){
+      this.service.save(this.formulario?.value).subscribe((resultado) => {
+        this.resetar();
+        this.spinner.hide();
+        this.toastr.success("Informações salvas com sucesso!", "Sucesso");
+      }, error => {
+        this.spinner.hide();
+        this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
+        console.log(error);
+      });
+    }else{
+      this.service.update(this.formulario?.value).subscribe((resultado) => {
+        this.resetar();
+        this.spinner.hide();
+        this.toastr.success("Informações salvas com sucesso!", "Sucesso");
+      }, error => {
+        this.spinner.hide();
+        this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
+        console.log(error);
+      });
+    }
+
 
   }
 
 public resetar(): void{
   this.formulario.reset();
   this.partnerget = [];
+  this.selectedAttachments = [];
 }
 
 consultaCEP() {
@@ -400,6 +421,94 @@ populaDadosForm(dados: any){
       }
     }
 
+    selectFiles(event: any): void {
+      this.selectedFiles = event.target.files;
+      console.log(this.selectedFiles);
+      for (let index = 0; index < this.selectedFiles.length; index++) {
+        const element = this.selectedFiles[index];
+        var ext = element.name.split('.').pop().toLowerCase();
+        if (ext !== "pdf") {
+          this.toastr.info("Só são permitidos arquivos .pdf", "Atenção");
+          this.selectedFiles = null as any;
+          event.target.value = null;
+          break;
+        }
+      }
+    }
+
+    saveClick(){
+      if (!this.selectedFiles || this.selectedFiles.length == 0) {
+      this.toastr.warning("Por favor, anexe os documentos exigidos.", "Atenção!");
+      }
+      else {
+        this.spinner.show();
+        for (let i = 0; i < this.selectedFiles.length; i++) {
+
+          let nameImage = this.selectedFiles[i].name;
+
+          let filename = `${Guid.newGuid()}/${this.selectedFiles[i].name.replace(/\s/g, "")}`;
+          this.blobService.uploadFile(this.selectedFiles[i], filename, ()=> {
+
+            var img = new Attachments();
+            img.id = 0;
+            img.name = nameImage;
+            img.url = this.blobService.getFinalURL(filename);
+
+            this.selectedAttachments.push(img);
+
+            if(this.selectedAttachments.length == this.selectedFiles.length){
+              this.postar();
+            }
+          });
+        }
+
+      }
+    }
+
+    // openModal(template: TemplateRef<any>, id: number): void {
+    //   this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+    //   this.deleteId = id;
+    // }
+    openModal(template: TemplateRef<any>): void {
+      this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+    }
+
+  confirm(): void {
+    this.modalRef?.hide();
+      // this.spinner.show();
+
+      // this.partnerService.deletePartner(this.deleteId!).subscribe(
+      //   (response) => {
+      //     this.spinner.hide();
+      //     this.modalRef!.hide();
+      //     this.toastr.success('O sócio deletado com sucesso.', 'Sucesso!');
+      //     this.partners = this.partners?.filter(
+      //       (x) => x.id !== this.deleteId
+      //     );
+
+      //     if (this.partners) {
+      //       this.partners = this.partners?.filter(
+      //         (x) => x.id !== this.deleteId
+      //       );
+      //     }
+
+      //     this.deleteId = 0;
+      //   },
+      //   (error) => {
+      //     this.spinner.hide();
+      //     this.modalRef!.hide();
+      //     this.toastr.error('Ocorreu um erro. Contate o suporte.', 'Atenção!');
+      //     this.deleteId = 0;
+      //     console.error(error);
+      //   }
+      // );
+    }
+
+    decline(): void {
+      this.modalRef?.hide();
+      // this.modalRef!.hide();
+      // this.deleteId = 0;
+    }
 }
 
 

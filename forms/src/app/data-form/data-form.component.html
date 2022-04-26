@@ -1,8 +1,8 @@
 <div class="borda">
 
-  <div>
+  <!-- <div>
     <button (click)="downloadPDF(1);">PDF</button>
-  </div>
+  </div> -->
 
 
 <app-form-debug [form]="formulario"></app-form-debug>
@@ -313,9 +313,21 @@
         <td>{{partner.participationPercentage}}</td>
         <td>{{partner.adressPartner}}</td>
         <td>{{partner.cepPartner}}</td>
-        <td><button title="Remover" (click)="removerSocio(partner)" class="btn btn-danger">
+
+        <td><button title="Remover" class="btn btn-danger" (click)="openModal(template)" (click)="removerSocio(partner)" >
           <i class="fa fa-trash" aria-hidden="true"></i>
        </button></td>
+
+       <!-- (click)="openModal(template, partner.id!)" -->
+
+       <ng-template #template>
+        <div class="modal-body text-center">
+          <p>Tem certeza que deseja deletar este sócio?</p>
+          <button type="button" class="btn btn-secondary mr-1" (click)="confirm()" >Sim</button>
+          <button type="button" class="btn btn-primary ml-1" (click)="decline()" >Não</button>
+        </div>
+      </ng-template>
+
   </table>
 
 
@@ -611,9 +623,10 @@
 
 <!-- UPLOAD ARQUIVO -->
 
-  <!-- <div class="flex-box">
-    <h4>Documentos Exigidos (anexar)</h4>
-  </div>
+<div class="flex-box" id="centro">
+  <h4>Documentos Exigidos (anexar)</h4>
+</div>
+
   <div class="flex-box">
     1. Cópia da procuração quando a empresa for representada por não sócio
     administrador;
@@ -621,8 +634,7 @@
   <div class="flex-box">
     2. Cópia do contrato social juntamente com a última alteração
   </div>
-  <div class="flex-box"><input type="file" /></div>
-  <br /> -->
+  <div class="flex-box"><input type="file" (change)="selectFiles($event)" accept=".pdf" /></div>
 
   <!-- QUESTIONÁRIO -->
 
@@ -1196,7 +1208,7 @@
     <button
       type="submit"
       class="btn btn-success"
-      (click)="postar()"
+      (click)="saveClick()"
       [disabled]="!formulario.valid"
       >
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>

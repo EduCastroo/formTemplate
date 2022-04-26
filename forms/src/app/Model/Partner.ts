@@ -1,5 +1,6 @@
 export class Partner{
 
+public id: number;
 public namePartner: string;
 public occupationPartner: string;
 public cpfPartner: string;

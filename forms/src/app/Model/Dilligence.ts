@@ -1,7 +1,7 @@
 export class Dilligence{
 
+public id: number;
 public numberEmployees: string;
-// public date: string;
 public corporateName: string;
 public cnpj: string;
 public stateRegistration: string;

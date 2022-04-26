@@ -23,10 +23,11 @@ return this.http.get<Dilligence>(`${this.baseUrl}/${id}`);
 }
 
 save(dilligence: Dilligence){
-  // debugger;
   return this.http.post(this.baseUrl, dilligence);
 }
 
-
+update(dilligence: Dilligence){
+  return this.http.put(this.baseUrl, dilligence);
+}
 
 }
