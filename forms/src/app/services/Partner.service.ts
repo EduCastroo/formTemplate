@@ -14,7 +14,7 @@ export class PartnerService {
   constructor(private http: HttpClient) { }
 
   deletePartner(id: number): Observable<Partner>{
-    return this.http.delete<Partner>(`${this.baseUrl}/Partner/${id}`);
+    return this.http.delete<Partner>(`${this.baseUrl}/${id}`);
     }
 
 }

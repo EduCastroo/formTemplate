@@ -8,6 +8,13 @@
 
 .d-flex{
 margin-bottom: 5px;
+
+}
+
+.centralizado{
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 .nav ul {
@@ -51,7 +58,7 @@ margin-bottom: 5px;
 
 button{
 border: none;
-padding: 15px 32px;
+padding: 10px 15px;
 text-align: center;
 text-decoration: none;
 display: inline-block;
@@ -61,14 +68,15 @@ font-weight: bold;
 ;
 }
 
-/* .borda{
-  border: 2px solid black;
-} */
-
 .btn-danger{
 background-color: #E74C3C;
 }
 
 .btn-success{
 background-color: #09556D;
+}
+
+.pequeno{
+width: 10px;
+height: 10px;
 }

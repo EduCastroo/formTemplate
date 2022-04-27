@@ -5,7 +5,7 @@
   </div> -->
 
 
-<app-form-debug [form]="formulario"></app-form-debug>
+<!-- <app-form-debug [form]="formulario"></app-form-debug> -->
 
 <form class="form-horizontal font" [formGroup]="formulario">
 
@@ -266,6 +266,7 @@
       <input
         type="text"
         class="form-control"
+        mask="00000-000"
         placeholder="Digite o CEP"
         [ngClass]="{
           'is-invalid': f.cepPartner.errors && f.cepPartner.touched
@@ -283,7 +284,7 @@
 <div class="flex-box">
   <button
   type="submit"
-  class="btn-success"
+  class="btn btn-success"
  (click)="cadSocio()">
   Adicionar Sócio
 </button>
@@ -298,10 +299,9 @@
         <th scope="col">Cargo do Sócio</th>
         <th scope="col">CPF/MF</th>
         <th scope="col">RG</th>
-        <th scope="col">% de Participação na Empresa</th>
         <th scope="col">Endereço</th>
         <th scope="col">CEP</th>
-        <th></th>
+        <th scope="col">% de Participação na Empresa</th>
       </tr>
     </thead>
 
@@ -310,15 +310,13 @@
         <td>{{partner.occupationPartner}}</td>
         <td>{{partner.cpfPartner}}</td>
         <td>{{partner.rgPartner}}</td>
-        <td>{{partner.participationPercentage}}</td>
         <td>{{partner.adressPartner}}</td>
         <td>{{partner.cepPartner}}</td>
+        <td>{{partner.participationPercentage}}</td>
 
-        <td><button title="Remover" class="btn btn-danger" (click)="openModal(template)" (click)="removerSocio(partner)" >
+        <td><button title="Remover" class="btn btn-danger" (click)="openModal(template, partner)">
           <i class="fa fa-trash" aria-hidden="true"></i>
        </button></td>
-
-       <!-- (click)="openModal(template, partner.id!)" -->
 
        <ng-template #template>
         <div class="modal-body text-center">
@@ -627,12 +625,12 @@
   <h4>Documentos Exigidos (anexar)</h4>
 </div>
 
-  <div class="flex-box">
+  <div class="centralizado">
     1. Cópia da procuração quando a empresa for representada por não sócio
     administrador;
   </div>
-  <div class="flex-box">
-    2. Cópia do contrato social juntamente com a última alteração
+  <div class="centralizado">
+    2. Cópia do contrato social juntamente com a última alteração;
   </div>
   <div class="flex-box"><input type="file" (change)="selectFiles($event)" accept=".pdf" /></div>
 
@@ -1130,23 +1128,10 @@
 
 
   <div class="flex-box" id="centro">
-    <h4>Assinatura Representante</h4>
+    <h4>Assinatura do Representante</h4>
   </div>
 
   <div class="d-flex">
-    <!-- <div class="form-group col-md-4">
-      <label class="control-label" for="Date">Data</label>
-      <input
-        id="date"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': f.date.errors && f.date.touched }"
-        type="date"
-        formControlName="date"
-      />
-      <div *ngIf="f.date.errors?.required" class="invalid-feedback">
-        A data de cadastro é obrigatória
-      </div>
-    </div> -->
 
     <div class="form-group col-md-12">
       <label for="representativeName">Nome do representante legal</label>
@@ -1200,7 +1185,7 @@
   <!-- BOTÕES -->
 
   <div class="flex-box">
-    <button type="button" class="btn-danger" (click)="resetar()">
+    <button type="button" class="btn btn-danger" (click)="resetar()">
       <i class="fa fa-times-circle" aria-hidden="true"></i>
       Limpar
     </button>
@@ -1209,6 +1194,7 @@
       type="submit"
       class="btn btn-success"
       (click)="saveClick()"
+      (click)="downloadPDF(1);"
       [disabled]="!formulario.valid"
       >
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>

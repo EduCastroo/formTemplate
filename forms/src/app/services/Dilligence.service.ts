@@ -10,7 +10,7 @@ import { Dilligence } from '../Model/Dilligence';
 })
 export class DilligenceService {
 
-baseUrl = `${environment.UrlPrincipal}/api/dilligence`; //template string
+baseUrl = `${environment.UrlPrincipal}/api/dilligence/dilligence`; //template string
 
 constructor(private http: HttpClient) { }
 

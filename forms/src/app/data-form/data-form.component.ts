@@ -24,8 +24,6 @@ import { PartnerService } from '../services/Partner.service';
 export class DataFormComponent implements OnInit {
 
   modalRef?: BsModalRef;
-  // @ViewChild('template')
-
   formulario!: FormGroup;
 
 
@@ -153,7 +151,7 @@ partners: Partner[] = [];
 partnerget: any = [];
 selectedFiles: any[] = [];
 selectedAttachments: Attachments[] = [];
-deleteId: number = 0;
+deleteItem: any;
 
 cadSocio(){
   if(this.validarCpf()){
@@ -183,19 +181,6 @@ this.formulario.controls['rgPartner'].setValue("");
 this.formulario.controls['participationPercentage'].setValue("");
 this.formulario.controls['adressPartner'].setValue("");
 this.formulario.controls['cepPartner'].setValue("");
-}
-
-removerSocio(item: any){
-this.partnerget = this.partnerget.filter((x: { cpfPartner: any; }) => x.cpfPartner != item.cpfPartner);
-this.formulario.controls['partners'].setValue(this.partnerget);
-}
-
-validarCpf(){
-var item = this.partnerget.filter((x: { cpfPartner: any; }) => x.cpfPartner == this.formulario.value.cpfPartner);
-if (item.length > 0)
-  return false;
-else
-  return true
 }
 
   ngOnInit() {
@@ -423,7 +408,6 @@ populaDadosForm(dados: any){
 
     selectFiles(event: any): void {
       this.selectedFiles = event.target.files;
-      console.log(this.selectedFiles);
       for (let index = 0; index < this.selectedFiles.length; index++) {
         const element = this.selectedFiles[index];
         var ext = element.name.split('.').pop().toLowerCase();
@@ -464,50 +448,55 @@ populaDadosForm(dados: any){
 
       }
     }
+    removerSocio(item: any){
+      this.partnerget = this.partnerget.filter((x: { cpfPartner: any; }) => x.cpfPartner != item.cpfPartner);
+      this.formulario.controls['partners'].setValue(this.partnerget);
+      }
 
-    // openModal(template: TemplateRef<any>, id: number): void {
-    //   this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
-    //   this.deleteId = id;
-    // }
-    openModal(template: TemplateRef<any>): void {
+      validarCpf(){
+      var item = this.partnerget.filter((x: { cpfPartner: any; }) => x.cpfPartner == this.formulario.value.cpfPartner);
+      if (item.length > 0)
+        return false;
+      else
+        return true
+      }
+    openModal(template: TemplateRef<any>, item: any) {
       this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+      this.deleteItem = item;
     }
 
-  confirm(): void {
-    this.modalRef?.hide();
-      // this.spinner.show();
-
-      // this.partnerService.deletePartner(this.deleteId!).subscribe(
-      //   (response) => {
-      //     this.spinner.hide();
-      //     this.modalRef!.hide();
-      //     this.toastr.success('O sócio deletado com sucesso.', 'Sucesso!');
-      //     this.partners = this.partners?.filter(
-      //       (x) => x.id !== this.deleteId
-      //     );
-
-      //     if (this.partners) {
-      //       this.partners = this.partners?.filter(
-      //         (x) => x.id !== this.deleteId
-      //       );
-      //     }
-
-      //     this.deleteId = 0;
-      //   },
-      //   (error) => {
-      //     this.spinner.hide();
-      //     this.modalRef!.hide();
-      //     this.toastr.error('Ocorreu um erro. Contate o suporte.', 'Atenção!');
-      //     this.deleteId = 0;
-      //     console.error(error);
-      //   }
-      // );
-    }
-
-    decline(): void {
+  confirm() {
+    if (this.deleteItem.id == undefined){
+      this.removerSocio(this.deleteItem);
       this.modalRef?.hide();
-      // this.modalRef!.hide();
-      // this.deleteId = 0;
+      this.deleteItem = null;
+    }else{
+      this.spinner.show();
+
+      this.partnerService.deletePartner(this.deleteItem.id!).subscribe(
+        (response) => {
+          this.spinner.hide();
+          this.modalRef!.hide();
+          this.toastr.success('O sócio deletado com sucesso.', 'Sucesso!');
+          this.removerSocio(this.deleteItem);
+          this.deleteItem = null;
+
+        },
+        (error) => {
+          this.spinner.hide();
+          this.modalRef!.hide();
+          this.toastr.error('Ocorreu um erro. Contate o suporte.', 'Atenção!');
+          this.deleteItem = null;
+          console.error(error);
+        }
+      );
+    }
+
+    }
+
+    decline() {
+      this.modalRef!.hide();
+      this.deleteItem = null;
     }
 }
 
