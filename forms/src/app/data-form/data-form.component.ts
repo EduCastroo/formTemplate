@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DilligenceService } from '../services/Dilligence.service';
@@ -27,17 +27,17 @@ export class DataFormComponent implements OnInit {
   formulario!: FormGroup;
 
 
-  box: boolean = false
-  box7: boolean = false
-  box8: boolean = false
-  box9: boolean = false
-  box10: boolean = false
-  box11: boolean = false
-  box12: boolean = false
-  box13: boolean = false
-  box15: boolean = false
-  box16: boolean = false
-  box19: boolean = false
+  box: boolean = true
+  box7: boolean = true
+  box8: boolean = true
+  box9: boolean = true
+  box10: boolean = true
+  box11: boolean = true
+  box12: boolean = true
+  box13: boolean = true
+  box15: boolean = true
+  box16: boolean = true
+  box19: boolean = true
 
   get f(): any{
     return this.formulario.controls;
@@ -46,6 +46,7 @@ export class DataFormComponent implements OnInit {
   submit(){
     console.log(this.formulario.value);
   }
+
 
   changeQuiz(e: any) {
     if (e.target.value == 1) {
@@ -59,14 +60,18 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box7 = true
     } else {
+      // this.formulario.reset("employmentRelationshipWithMV");
+      this.formulario.controls['employmentRelationshipWithMV_TextArea7'].setValue("");
       this.box7 = false
     }
   }
+
 
   changeQuiz8(e: any) {
     if (e.target.value == 1) {
       this.box8 = true
     } else {
+      this.formulario.controls['employeeServicesHaveAnEmploymentRelationshipWithMv_TextArea8'].setValue("");
       this.box8 = false
     }
   }
@@ -75,6 +80,7 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box9 = true
     } else {
+      this.formulario.controls['anyPartnerInTheLast3YearsHaveYouBeenPublicServant_TextArea9'].setValue("");
       this.box9 = false
     }
   }
@@ -83,6 +89,7 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box10 = true
     } else {
+      this.formulario.controls['anyPartnerOrAdministratorRunningForPublicOffice_TextArea10'].setValue("");
       this.box10 = false
     }
   }
@@ -91,6 +98,7 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box11 = true
     } else {
+      this.formulario.controls['anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee_TextArea11'].setValue("");
       this.box11 = false
     }
   }
@@ -99,6 +107,7 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box12 = true
     } else {
+      this.formulario.controls['theCompanyHasRelationsWithOtherCountries_TextArea12'].setValue("");
       this.box12 = false
     }
   }
@@ -107,6 +116,7 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box13 = true
     } else {
+      this.formulario.controls['theCompanyUsesIntermediariesToCloseDeals_TextArea13'].setValue("");
       this.box13 = false
     }
   }
@@ -116,6 +126,7 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box15 = true
     } else {
+      this.formulario.controls['theCompanyHasALgpdProgram_TextArea15'].setValue("");
       this.box15 = false
     }
   }
@@ -124,6 +135,7 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box16 = true
     } else {
+      this.formulario.controls['theCompanyHasADataProtectionOfficer_TextArea16'].setValue("");
       this.box16 = false
     }
   }
@@ -132,9 +144,11 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box19 = true
     } else {
+      this.formulario.controls['describeTheSecurityTechniquesAdopted_TextArea19'].setValue("");
       this.box19 = false
     }
   }
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -182,6 +196,7 @@ this.formulario.controls['participationPercentage'].setValue("");
 this.formulario.controls['adressPartner'].setValue("");
 this.formulario.controls['cepPartner'].setValue("");
 }
+
 
   ngOnInit() {
     this.validation();
@@ -270,6 +285,8 @@ this.formulario.controls['cepPartner'].setValue("");
   }
 
 
+
+
  postar(): void{
     this.formulario.patchValue(
       {
@@ -296,20 +313,43 @@ this.formulario.controls['cepPartner'].setValue("");
       }
     );
     if(this.formulario.value.id == 0){
-      this.service.save(this.formulario?.value).subscribe((resultado) => {
-        this.resetar();
-        this.spinner.hide();
-        this.toastr.success("Informações salvas com sucesso!", "Sucesso");
+      this.service.save(this.formulario?.value).subscribe((resultado: any) => {
+        this.service.downloadPDF(resultado.id).subscribe(
+          (response: any) => {
+            var blob = new Blob([response], { type: 'application/pdf' });
+            let fileName = "";
+            fileName = `${resultado.corporateName}.pdf`;
+            saveAs(blob, fileName);
+            this.resetar();
+            this.spinner.hide();
+            this.toastr.success("Informações salvas com sucesso!", "Sucesso");
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
+
       }, error => {
         this.spinner.hide();
         this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
         console.log(error);
       });
     }else{
-      this.service.update(this.formulario?.value).subscribe((resultado) => {
-        this.resetar();
-        this.spinner.hide();
-        this.toastr.success("Informações salvas com sucesso!", "Sucesso");
+      this.service.update(this.formulario?.value).subscribe((resultado: any) => {
+        this.service.downloadPDF(resultado.id).subscribe(
+          (response: any) => {
+            var blob = new Blob([response], { type: 'application/pdf' });
+            let fileName = "";
+            fileName = `${resultado.corporateName}.pdf`;
+            saveAs(blob, fileName);
+            this.resetar();
+            this.spinner.hide();
+            this.toastr.success("Informações salvas com sucesso!", "Sucesso");
+          },
+          (error: any) => {
+            console.log(error);
+          }
+        );
       }, error => {
         this.spinner.hide();
         this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
@@ -357,20 +397,6 @@ populaDadosForm(dados: any){
 
 
   }
-
-  downloadPDF(id: number): any {
-    return this.http.post(`https://localhost:44366/api/Dilligence/pdf?Id=1`, {}, { responseType: 'blob' }).subscribe(
-      (response: any) => {
-        var blob = new Blob([response], { type: 'application/pdf' });
-        let fileName = "";
-        fileName = `Teste.pdf`;
-        saveAs(blob, fileName);
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
-    }
 
     consultaCNPJ() {
 

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { saveAs } from 'file-saver';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Dilligence } from '../Model/Dilligence';
@@ -29,5 +30,9 @@ save(dilligence: Dilligence){
 update(dilligence: Dilligence){
   return this.http.put(this.baseUrl, dilligence);
 }
+
+downloadPDF(id: number): any {
+    return this.http.post(`${this.baseUrl}/pdf/${id}`, {}, { responseType: 'blob' });
+  }
 
 }

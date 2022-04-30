@@ -5,7 +5,7 @@
   </div> -->
 
 
-<!-- <app-form-debug [form]="formulario"></app-form-debug> -->
+<app-form-debug [form]="formulario"></app-form-debug>
 
 <form class="form-horizontal font" [formGroup]="formulario">
 
@@ -1194,7 +1194,6 @@
       type="submit"
       class="btn btn-success"
       (click)="saveClick()"
-      (click)="downloadPDF(1);"
       [disabled]="!formulario.valid"
       >
       <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
