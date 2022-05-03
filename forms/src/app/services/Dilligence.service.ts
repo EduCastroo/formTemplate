@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { saveAs } from 'file-saver';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Dilligence } from '../Model/Dilligence';
@@ -34,5 +33,13 @@ update(dilligence: Dilligence){
 downloadPDF(id: number): any {
     return this.http.post(`${this.baseUrl}/pdf/${id}`, {}, { responseType: 'blob' });
   }
+
+consultaCnpj(cnpj: string){
+  return this.http.get(`${this.baseUrl}/cnpj/${cnpj}`);
+}
+
+consultaCEP(cep: string){
+  return this.http.get(`//viacep.com.br/ws/${cep}/json/`);
+}
 
 }

@@ -1,11 +1,5 @@
 <div class="borda">
-
-  <!-- <div>
-    <button (click)="downloadPDF(1);">PDF</button>
-  </div> -->
-
-
-<app-form-debug [form]="formulario"></app-form-debug>
+<!-- <app-form-debug [form]="formulario"></app-form-debug> -->
 
 <form class="form-horizontal font" [formGroup]="formulario">
 
@@ -197,7 +191,7 @@
 
   <div class="d-flex">
     <div class="col-md-4 form-group">
-      <div><label for="cpfPartner" class="control-label">CPF/MF</label></div>
+      <div><label for="cpfPartner" class="control-label">CPF/CNPJ</label></div>
 
       <input
       type="text"
@@ -213,7 +207,7 @@
       </div>
     </div>
     <div class="col-md-4 form-group">
-        <div><label for="rgPartner" class="control-label">RG</label></div>
+        <div><label for="rgPartner" class="control-label">RG (se física)</label></div>
 
         <input
     type="text"
@@ -297,26 +291,27 @@
       <tr>
         <th scope="col">Nome do Sócio</th>
         <th scope="col">Cargo do Sócio</th>
-        <th scope="col">CPF/MF</th>
+        <th scope="col">CPF/CNPJ</th>
         <th scope="col">RG</th>
         <th scope="col">Endereço</th>
         <th scope="col">CEP</th>
-        <th scope="col">% de Participação na Empresa</th>
+        <th scope="col" class="text-center">% Part. na Empresa</th>
       </tr>
     </thead>
+      <tbody class="font-table">
+        <tr *ngFor="let partner of partnerget">
+          <td scope="row">{{partner.namePartner}}</td>
+          <td scope="row">{{partner.occupationPartner}}</td>
+          <td scope="row">{{partner.cpfPartner}}</td>
+          <td scope="row">{{partner.rgPartner}}</td>
+          <td scope="row">{{partner.adressPartner}}</td>
+          <td scope="row">{{partner.cepPartner}}</td>
+          <td scope="row" class="text-center">{{partner.participationPercentage}}</td>
 
-      <tr *ngFor="let partner of partnerget">
-        <td>{{partner.namePartner}}</td>
-        <td>{{partner.occupationPartner}}</td>
-        <td>{{partner.cpfPartner}}</td>
-        <td>{{partner.rgPartner}}</td>
-        <td>{{partner.adressPartner}}</td>
-        <td>{{partner.cepPartner}}</td>
-        <td>{{partner.participationPercentage}}</td>
-
-        <td><button title="Remover" class="btn btn-danger" (click)="openModal(template, partner)">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-       </button></td>
+          <td><button title="Remover" class="btn btn-danger" (click)="openModal(template, partner)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+         </button></td>
+      </tbody>
 
        <ng-template #template>
         <div class="modal-body text-center">
@@ -622,7 +617,7 @@
 <!-- UPLOAD ARQUIVO -->
 
 <div class="flex-box" id="centro">
-  <h4>Documentos Exigidos (anexar)</h4>
+  <h4>Documentos Exigidos (anexar .PDF)</h4>
 </div>
 
   <div class="centralizado">
@@ -632,7 +627,7 @@
   <div class="centralizado">
     2. Cópia do contrato social juntamente com a última alteração;
   </div>
-  <div class="flex-box"><input type="file" (change)="selectFiles($event)" accept=".pdf" /></div>
+  <div class="flex-box"><input type="file" (change)="selectFiles($event)" multiple accept=".pdf" /></div>
 
   <!-- QUESTIONÁRIO -->
 

@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -60,7 +59,6 @@ export class DataFormComponent implements OnInit {
     if (e.target.value == 1) {
       this.box7 = true
     } else {
-      // this.formulario.reset("employmentRelationshipWithMV");
       this.formulario.controls['employmentRelationshipWithMV_TextArea7'].setValue("");
       this.box7 = false
     }
@@ -152,7 +150,6 @@ export class DataFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private http: HttpClient,
     private service: DilligenceService,
     private partnerService: PartnerService,
     private modalService: BsModalService,
@@ -167,7 +164,7 @@ selectedFiles: any[] = [];
 selectedAttachments: Attachments[] = [];
 deleteItem: any;
 
-cadSocio(){
+  cadSocio(){
   if(this.validarCpf()){
     let partner: Partner = new Partner();
     partner.namePartner = this.formulario.value.namePartner;
@@ -187,7 +184,7 @@ cadSocio(){
   }
 
 }
-resetform(){
+  resetform(){
 this.formulario.controls['namePartner'].setValue("");
 this.formulario.controls['occupationPartner'].setValue("");
 this.formulario.controls['cpfPartner'].setValue("");
@@ -287,7 +284,7 @@ this.formulario.controls['cepPartner'].setValue("");
 
 
 
- postar(): void{
+  postar(): void{
     this.formulario.patchValue(
       {
         attachments : this.selectedAttachments,
@@ -325,14 +322,13 @@ this.formulario.controls['cepPartner'].setValue("");
             this.toastr.success("Informações salvas com sucesso!", "Sucesso");
           },
           (error: any) => {
-            console.log(error);
+            this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
           }
         );
 
       }, error => {
         this.spinner.hide();
         this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
-        console.log(error);
       });
     }else{
       this.service.update(this.formulario?.value).subscribe((resultado: any) => {
@@ -347,13 +343,12 @@ this.formulario.controls['cepPartner'].setValue("");
             this.toastr.success("Informações salvas com sucesso!", "Sucesso");
           },
           (error: any) => {
-            console.log(error);
+            this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
           }
         );
       }, error => {
         this.spinner.hide();
         this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
-        console.log(error);
       });
     }
 
@@ -366,7 +361,7 @@ public resetar(): void{
   this.selectedAttachments = [];
 }
 
-consultaCEP() {
+  consultaCEP() {
 
   let cep = this.formulario.get("cep")?.value;
 
@@ -377,14 +372,14 @@ consultaCEP() {
 
     if (validacep.test(cep)){
 
-      this.http.get(`//viacep.com.br/ws/${cep}/json/`)
+      this.service.consultaCEP(cep)
         .pipe(map((dados: any) => dados))
         .subscribe(dados => this.populaDadosForm(dados));
     }
   }
 }
 
-populaDadosForm(dados: any){
+  populaDadosForm(dados: any){
 
   this.formulario.patchValue({
       cep: dados.cep,
@@ -403,32 +398,36 @@ populaDadosForm(dados: any){
       let cnpj = this.formulario.get("cnpj")?.value;
 
       if (cnpj != null && cnpj !== '') {
-
-        this.http.get(`https://localhost:44315/api/dilligence/Dilligence/cnpj/${cnpj}`)
+        this.spinner.show();
+        this.service.consultaCnpj(cnpj)
         .subscribe((dados: any) => {
-          dados.technicalAbilityToPerform = dados.technicalAbilityToPerform ? "1":"0";
-          dados.companyHaveAnIntegrityOrComplianceProgram = dados.companyHaveAnIntegrityOrComplianceProgram ? "1":"0";
-          dados.involvementInInvestigationsFraudCorruption = dados.involvementInInvestigationsFraudCorruption ? "1":"0";
-          dados.theCompanyBeenPartOfCEISAndCNEP = dados.theCompanyBeenPartOfCEISAndCNEP ? "1":"0";
-          dados.employmentRelationshipWithMV = dados.employmentRelationshipWithMV ? "1":"0";
-          dados.employeeServicesHaveAnEmploymentRelationshipWithMv = dados.employeeServicesHaveAnEmploymentRelationshipWithMv ? "1":"0";
-          dados.anyPartnerInTheLast3YearsHaveYouBeenPublicServant = dados.anyPartnerInTheLast3YearsHaveYouBeenPublicServant ? "1":"0";
-          dados.anyPartnerOrAdministratorRunningForPublicOffice = dados.anyPartnerOrAdministratorRunningForPublicOffice ? "1":"0";
-          dados.anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee = dados.anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee ? "1":"0";
-          dados.theCompanyHasRelationsWithOtherCountries = dados.theCompanyHasRelationsWithOtherCountries ? "1":"0";
-          dados.theCompanyUsesIntermediariesToCloseDeals = dados.theCompanyUsesIntermediariesToCloseDeals ? "1":"0";
-          dados.theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd = dados.theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd ? "1":"0";
-          dados.theCompanyHasALgpdProgram = dados.theCompanyHasALgpdProgram ? "1":"0";
-          dados.theCompanyHasADataProtectionOfficer = dados.theCompanyHasADataProtectionOfficer ? "1":"0";
-          dados.theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData = dados.theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData ? "1":"0";
-          dados.employeesReceiveTraining = dados.employeesReceiveTraining ? "1":"0";
-          dados.describeTheSecurityTechniquesAdopted = dados.describeTheSecurityTechniquesAdopted ? "1":"0";
-          dados.allTransfersAndSharingOfPersonalDataCarriedOut = dados.allTransfersAndSharingOfPersonalDataCarriedOut ? "1":"0";
-          this.formulario.patchValue(dados);
-          this.partnerget = dados.partners;
+          if(dados != null){
+            dados.technicalAbilityToPerform = dados.technicalAbilityToPerform ? "1":"0";
+            dados.companyHaveAnIntegrityOrComplianceProgram = dados.companyHaveAnIntegrityOrComplianceProgram ? "1":"0";
+            dados.involvementInInvestigationsFraudCorruption = dados.involvementInInvestigationsFraudCorruption ? "1":"0";
+            dados.theCompanyBeenPartOfCEISAndCNEP = dados.theCompanyBeenPartOfCEISAndCNEP ? "1":"0";
+            dados.employmentRelationshipWithMV = dados.employmentRelationshipWithMV ? "1":"0";
+            dados.employeeServicesHaveAnEmploymentRelationshipWithMv = dados.employeeServicesHaveAnEmploymentRelationshipWithMv ? "1":"0";
+            dados.anyPartnerInTheLast3YearsHaveYouBeenPublicServant = dados.anyPartnerInTheLast3YearsHaveYouBeenPublicServant ? "1":"0";
+            dados.anyPartnerOrAdministratorRunningForPublicOffice = dados.anyPartnerOrAdministratorRunningForPublicOffice ? "1":"0";
+            dados.anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee = dados.anyPartnerIsSpouseOrLivesInAStableUnionFromSomeMvEmployee ? "1":"0";
+            dados.theCompanyHasRelationsWithOtherCountries = dados.theCompanyHasRelationsWithOtherCountries ? "1":"0";
+            dados.theCompanyUsesIntermediariesToCloseDeals = dados.theCompanyUsesIntermediariesToCloseDeals ? "1":"0";
+            dados.theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd = dados.theCompanyPerformsTreatmentUnderTheTermsOfTheLgpd ? "1":"0";
+            dados.theCompanyHasALgpdProgram = dados.theCompanyHasALgpdProgram ? "1":"0";
+            dados.theCompanyHasADataProtectionOfficer = dados.theCompanyHasADataProtectionOfficer ? "1":"0";
+            dados.theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData = dados.theCompanyIsAbleToMeetTheRightsOfHoldersOfPersonalData ? "1":"0";
+            dados.employeesReceiveTraining = dados.employeesReceiveTraining ? "1":"0";
+            dados.describeTheSecurityTechniquesAdopted = dados.describeTheSecurityTechniquesAdopted ? "1":"0";
+            dados.allTransfersAndSharingOfPersonalDataCarriedOut = dados.allTransfersAndSharingOfPersonalDataCarriedOut ? "1":"0";
+            this.formulario.patchValue(dados);
+            this.partnerget = dados.partners;
+          }
+            this.spinner.hide();
         },error => {
           alert("Erro!");
         });
+
       }
     }
 
@@ -479,7 +478,7 @@ populaDadosForm(dados: any){
       this.formulario.controls['partners'].setValue(this.partnerget);
       }
 
-      validarCpf(){
+    validarCpf(){
       var item = this.partnerget.filter((x: { cpfPartner: any; }) => x.cpfPartner == this.formulario.value.cpfPartner);
       if (item.length > 0)
         return false;
@@ -491,7 +490,7 @@ populaDadosForm(dados: any){
       this.deleteItem = item;
     }
 
-  confirm() {
+    confirm() {
     if (this.deleteItem.id == undefined){
       this.removerSocio(this.deleteItem);
       this.modalRef?.hide();
@@ -511,13 +510,11 @@ populaDadosForm(dados: any){
         (error) => {
           this.spinner.hide();
           this.modalRef!.hide();
-          this.toastr.error('Ocorreu um erro. Contate o suporte.', 'Atenção!');
+          this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
           this.deleteItem = null;
-          console.error(error);
         }
       );
     }
-
     }
 
     decline() {
