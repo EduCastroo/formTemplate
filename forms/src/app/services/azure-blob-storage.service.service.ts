@@ -1,6 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BlobServiceClient, ContainerClient } from '@azure/storage-blob';
+import { Observable } from 'rxjs/internal/Observable';
 import { environment } from '../../environments/environment';
+import { Attachments } from '../Model/Attachments';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,7 @@ export class AzureBlobStorageService {
 
   // sas = "sp=racwdl&st=2021-08-10T13:20:51Z&se=2022-01-01T21:20:51Z&spr=https&sv=2020-08-04&sr=c&sig=sgbX8GIG0ZqsiHr%2BE1BTBDtKQ0Ks%2BGotlJNXmrDqYRE%3D";
 
-constructor() { }
+constructor(private http: HttpClient) { }
 
   public uploadFile(content: Blob, name: string, handler: () => void) {
     this.uploadBlob(content, name, this.containerClient(), handler)
@@ -34,5 +37,6 @@ constructor() { }
   public getFinalURL(filename: string){
     return `https://${this.azureAccount}.blob.core.windows.net/${environment.azureBlobContainer}/${filename}`;
   }
+
 }
 

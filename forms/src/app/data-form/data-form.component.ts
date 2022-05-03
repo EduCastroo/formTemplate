@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DilligenceService } from '../services/Dilligence.service';
@@ -11,6 +11,8 @@ import { Guid } from '../helpers/Guid';
 import { AzureBlobStorageService } from 'src/app/services/azure-blob-storage.service.service';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PartnerService } from '../services/Partner.service';
+import { AttachmentService } from '../services/Attachment.service';
+import { ViewChild } from '@angular/core';
 
 
 @Component({
@@ -22,6 +24,8 @@ import { PartnerService } from '../services/Partner.service';
 
 export class DataFormComponent implements OnInit {
 
+  @ViewChild('anexo')
+  attachmentVariable: ElementRef;
   modalRef?: BsModalRef;
   formulario!: FormGroup;
 
@@ -155,14 +159,18 @@ export class DataFormComponent implements OnInit {
     private modalService: BsModalService,
     private spinner: NgxSpinnerService,
     private toastr: ToastrService,
-    private blobService: AzureBlobStorageService)
+    private blobService: AzureBlobStorageService,
+    private AttachmentService: AttachmentService)
     {}
 
 partners: Partner[] = [];
+attachments: Attachments[] = [];
 partnerget: any = [];
 selectedFiles: any[] = [];
 selectedAttachments: Attachments[] = [];
+attachmentget: any = [];
 deleteItem: any;
+deleteAttachment: any;
 
   cadSocio(){
   if(this.validarCpf()){
@@ -180,10 +188,10 @@ deleteItem: any;
     this.formulario.controls['partners'].setValue(this.partnerget);
     this.resetform();
   } else {
-    alert("CPF já cadastrado!");
+    this.toastr.error("CPF já cadastrado", "Erro");
   }
-
 }
+
   resetform(){
 this.formulario.controls['namePartner'].setValue("");
 this.formulario.controls['occupationPartner'].setValue("");
@@ -193,6 +201,7 @@ this.formulario.controls['participationPercentage'].setValue("");
 this.formulario.controls['adressPartner'].setValue("");
 this.formulario.controls['cepPartner'].setValue("");
 }
+
 
 
   ngOnInit() {
@@ -359,6 +368,7 @@ public resetar(): void{
   this.formulario.reset();
   this.partnerget = [];
   this.selectedAttachments = [];
+  this.attachmentVariable.nativeElement.value = "";
 }
 
   consultaCEP() {
@@ -425,7 +435,7 @@ public resetar(): void{
           }
             this.spinner.hide();
         },error => {
-          alert("Erro!");
+          this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
         });
 
       }
@@ -477,6 +487,9 @@ public resetar(): void{
       this.partnerget = this.partnerget.filter((x: { cpfPartner: any; }) => x.cpfPartner != item.cpfPartner);
       this.formulario.controls['partners'].setValue(this.partnerget);
       }
+    removerAttachment(item: any){
+        this.formulario.value.attachments = this.formulario.value.attachments.filter((x: { id: any; }) => x.id != item.id);
+        }
 
     validarCpf(){
       var item = this.partnerget.filter((x: { cpfPartner: any; }) => x.cpfPartner == this.formulario.value.cpfPartner);
@@ -485,9 +498,17 @@ public resetar(): void{
       else
         return true
       }
+
+
+
     openModal(template: TemplateRef<any>, item: any) {
       this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
       this.deleteItem = item;
+    }
+
+    openModalAttachment(template: TemplateRef<any>, item: any) {
+      this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
+      this.deleteAttachment = item;
     }
 
     confirm() {
@@ -521,6 +542,32 @@ public resetar(): void{
       this.modalRef!.hide();
       this.deleteItem = null;
     }
+
+    confirmAttachment() {
+      this.spinner.show();
+
+        this.AttachmentService.deleteAttachment(this.deleteAttachment.id!).subscribe(
+          (response) => {
+            this.spinner.hide();
+            this.modalRef!.hide();
+            this.toastr.success('O anexo foi deletado com sucesso.', 'Sucesso!');
+            this.removerAttachment(this.deleteAttachment);
+            this.deleteAttachment = null;
+
+          },
+          (error) => {
+            this.spinner.hide();
+            this.modalRef!.hide();
+            this.toastr.error("Ocorreu um erro. Por favor, contate o suporte!", "Erro");
+            this.deleteAttachment = null;
+          }
+        );
+      }
+
+      declineAttachment() {
+        this.modalRef!.hide();
+        this.deleteAttachment = null;
+      }
 }
 
 

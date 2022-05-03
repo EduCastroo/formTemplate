@@ -1,5 +1,5 @@
 <div class="borda">
-<!-- <app-form-debug [form]="formulario"></app-form-debug> -->
+<app-form-debug [form]="formulario"></app-form-debug>
 
 <form class="form-horizontal font" [formGroup]="formulario">
 
@@ -283,8 +283,6 @@
   Adicionar Sócio
 </button>
 </div>
-
-
 
   <table class="table">
     <thead>
@@ -627,7 +625,38 @@
   <div class="centralizado">
     2. Cópia do contrato social juntamente com a última alteração;
   </div>
-  <div class="flex-box"><input type="file" (change)="selectFiles($event)" multiple accept=".pdf" /></div>
+  <div class="flex-box"><input #anexo type="file" (change)="selectFiles($event)" multiple accept=".pdf" /></div>
+
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Url</th>
+
+      </tr>
+    </thead>
+      <tbody class="font-table">
+        <tr *ngFor="let attachment of formulario.value.attachments">
+          <td scope="row">{{attachment.name}}</td>
+          <td scope="row"><a href="{{attachment.url}}">Visualizar</a></td>
+
+
+          <td><button title="Remover" class="btn btn-danger" (click)="openModalAttachment(templateattachments, attachment)">
+            <i class="fa fa-trash" aria-hidden="true"></i>
+         </button></td>
+      </tbody>
+
+       <ng-template #templateattachments>
+        <div class="modal-body text-center">
+          <p>Tem certeza que deseja deletar este anexo?</p>
+          <button type="button" class="btn btn-secondary mr-1" (click)="confirmAttachment()">Sim</button>
+          <button type="button" class="btn btn-primary ml-1" (click)="declineAttachment()">Não</button>
+        </div>
+      </ng-template>
+
+  </table>
 
   <!-- QUESTIONÁRIO -->
 
